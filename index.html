@@ -116,16 +116,9 @@
             <input id="target" type="number" min="3" max="15" step="0.1" value="8">
           </div>
           <div>
-            <label for="isf">Correction factor / ISF</label>
-            <input id="isf" type="number" min="0.5" max="15" step="0.1" placeholder="Only enter clinician-agreed ISF">
-            <div class="hint">How many mmol/L one unit is expected to lower glucose. Leave blank if you do not have an agreed ISF.</div>
-          </div>
-
-          <div class="full">
-            <div class="switchline">
-              <input id="useCorrection" type="checkbox">
-              <label for="useCorrection" style="margin:0">Include correction calculation</label>
-            </div>
+            <label for="actualInsulin">Insulin actually taken (units)</label>
+            <input id="actualInsulin" type="number" min="0" max="50" step="0.5" placeholder="Optional, e.g. 4">
+            <div class="hint">Record what you actually took. This is kept separate from the calculated meal dose.</div>
           </div>
 
           <div class="full">
@@ -140,7 +133,7 @@
         </div>
       </form>
       <div class="safety">
-        <strong>Safety:</strong> this app records and calculates from values you enter. It does not decide your insulin settings. Only use an ICR, target and ISF that you have agreed with your diabetes team. Avoid correction-dose stacking and follow your own sick-day / ketone plan for persistent high glucose or illness.
+        <strong>Safety:</strong> this app records and calculates from values you enter. It does not decide your insulin settings. Only use an ICR and insulin plan that you have agreed with your diabetes team. This app does not calculate correction doses. Follow your own correction, sick-day and ketone plan for persistent high glucose or illness.
       </div>
     </section>
 
@@ -149,8 +142,8 @@
       <div class="resultHero">
         <div class="metric primaryM"><span>Meal calculation</span><strong id="mealDose">0.00 U</strong></div>
         <div class="metric"><span>Above target</span><strong id="aboveTarget">0.0</strong><span>mmol/L</span></div>
-        <div class="metric"><span>Correction calculation</span><strong id="correctionDose">—</strong></div>
-        <div class="metric green"><span>Combined calculation</span><strong id="totalDose">—</strong></div>
+        <div class="metric"><span>Calculated ICR dose</span><strong id="calculatedDose">0.00 U</strong></div>
+        <div class="metric green"><span>Insulin actually taken</span><strong id="actualDose">—</strong></div>
       </div>
       <div class="formula" id="formulaText">Enter carbs and glucose to preview the calculation.</div>
       <div class="mealnote" id="mealInsight">
@@ -180,7 +173,7 @@
 
     <div class="tablewrap">
       <table>
-        <thead><tr><th>Date/time</th><th>Meal type</th><th>Carbs</th><th>BG</th><th>ICR</th><th>Meal calc</th><th>Correction</th><th>Combined</th><th>Notes</th><th></th></tr></thead>
+        <thead><tr><th>Date/time</th><th>Meal type</th><th>Carbs</th><th>BG</th><th>ICR</th><th>Calculated dose</th><th>Actual insulin</th><th>Difference</th><th>Notes</th><th></th></tr></thead>
         <tbody id="logBody"></tbody>
       </table>
     </div>
@@ -212,9 +205,9 @@
     const bg = Number($("bg").value);
     const icr = Number($("icr").value || 15);
     const target = Number($("target").value || 8);
-    const isf = Number($("isf").value);
-    const useCorrection = $("useCorrection").checked;
-    return {carbs,bg,icr,target,isf,useCorrection,mealType:$("mealType").value,notes:$("notes").value.trim()};
+    const actualInsulinRaw = $("actualInsulin").value.trim();
+    const actualInsulin = actualInsulinRaw === "" ? null : Number(actualInsulinRaw);
+    return {carbs,bg,icr,target,actualInsulin,mealType:$("mealType").value,notes:$("notes").value.trim()};
   }
 
   function calculate(v){
@@ -222,10 +215,8 @@
     if(!valid) return null;
     const meal = v.carbs / v.icr;
     const above = Math.max(0, v.bg - v.target);
-    let correction = null;
-    if(v.useCorrection && Number.isFinite(v.isf) && v.isf>0) correction = above / v.isf;
-    const total = correction === null ? null : meal + correction;
-    return {meal,above,correction,total};
+    const difference = Number.isFinite(v.actualInsulin) ? v.actualInsulin - meal : null;
+    return {meal,above,difference};
   }
 
   function preview(){
@@ -234,24 +225,14 @@
     $("icrHint").textContent = Number.isFinite(v.icr) ? v.icr : 15;
     $("mealInsight").innerHTML = "<strong>Meal-type note:</strong> " + mealNotes[v.mealType];
     if(!c){
-      $("mealDose").textContent="0.00 U"; $("aboveTarget").textContent="0.0"; $("correctionDose").textContent="—"; $("totalDose").textContent="—";
+      $("mealDose").textContent="0.00 U"; $("aboveTarget").textContent="0.0"; $("calculatedDose").textContent="0.00 U"; $("actualDose").textContent="—";
       $("formulaText").textContent="Enter valid carbs and glucose to preview the calculation."; return;
     }
     $("mealDose").textContent=c.meal.toFixed(2)+" U";
+    $("calculatedDose").textContent=c.meal.toFixed(2)+" U";
     $("aboveTarget").textContent=c.above.toFixed(1);
-    if(v.useCorrection){
-      if(Number.isFinite(v.isf) && v.isf>0){
-        $("correctionDose").textContent=c.correction.toFixed(2)+" U";
-        $("totalDose").textContent=c.total.toFixed(2)+" U";
-        $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction: (${v.bg.toFixed(1)} − ${v.target.toFixed(1)}) ÷ ${v.isf.toFixed(1)} = <strong>${c.correction.toFixed(2)} U</strong><br>Combined mathematical result: <strong>${c.total.toFixed(2)} U</strong>`;
-      }else{
-        $("correctionDose").textContent="Need ISF"; $("totalDose").textContent="—";
-        $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction is not calculated until you enter a clinician-agreed ISF.`;
-      }
-    }else{
-      $("correctionDose").textContent="Off"; $("totalDose").textContent="—";
-      $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction calculation is switched off.`;
-    }
+    $("actualDose").textContent=Number.isFinite(v.actualInsulin) ? v.actualInsulin.toFixed(1)+" U" : "—";
+    $("formulaText").innerHTML = `Meal calculation: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Current glucose is <strong>${c.above.toFixed(1)} mmol/L</strong> above the ${v.target.toFixed(1)} mmol/L target. No correction dose is calculated by this app.`;
   }
 
   function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
@@ -260,7 +241,7 @@
     rows.slice().reverse().forEach((r,revIndex)=>{
       const realIndex=rows.length-1-revIndex;
       const tr=document.createElement("tr");
-      tr.innerHTML=`<td>${esc(r.when)}</td><td><span class="pill">${esc(r.mealType)}</span></td><td>${r.carbs} g</td><td>${r.bg.toFixed(1)}</td><td>1:${r.icr}</td><td>${r.meal.toFixed(2)} U</td><td>${r.correction==null?"—":r.correction.toFixed(2)+" U"}</td><td>${r.total==null?"—":r.total.toFixed(2)+" U"}</td><td>${esc(r.notes)}</td><td><button type="button" class="secondary del" data-i="${realIndex}" style="padding:7px 9px">Delete</button></td>`;
+      tr.innerHTML=`<td>${esc(r.when)}</td><td><span class="pill">${esc(r.mealType)}</span></td><td>${r.carbs} g</td><td>${r.bg.toFixed(1)}</td><td>1:${r.icr}</td><td>${r.meal.toFixed(2)} U</td><td>${r.actualInsulin==null?"—":r.actualInsulin.toFixed(1)+" U"}</td><td>${r.actualInsulin==null?"—":(r.actualInsulin-r.meal).toFixed(2)+" U"}</td><td>${esc(r.notes)}</td><td><button type="button" class="secondary del" data-i="${realIndex}" style="padding:7px 9px">Delete</button></td>`;
       body.appendChild(tr);
     });
     body.querySelectorAll(".del").forEach(b=>b.addEventListener("click",()=>{const a=load();a.splice(Number(b.dataset.i),1);save(a);render()}));
@@ -280,22 +261,22 @@
     e.preventDefault();
     const v=values(), c=calculate(v);
     if(!c){alert("Please enter valid carbohydrate, glucose, ICR and target values.");return}
-    if(v.useCorrection && !(Number.isFinite(v.isf)&&v.isf>0)){alert("Correction is switched on, but no valid ISF has been entered.");return}
+    if(v.actualInsulin !== null && (!Number.isFinite(v.actualInsulin) || v.actualInsulin < 0)){alert("Please enter a valid insulin amount or leave it blank.");return}
     const rows=load();
     rows.push({
       when:new Date().toLocaleString(), mealType:v.mealType, carbs:v.carbs, bg:v.bg, icr:v.icr,
-      target:v.target, isf:(Number.isFinite(v.isf)&&v.isf>0)?v.isf:null,
-      meal:c.meal, correction:c.correction, total:c.total, notes:v.notes
+      target:v.target, actualInsulin:v.actualInsulin,
+      meal:c.meal, notes:v.notes
     });
     save(rows); render(); preview();
   });
-  $("resetBtn").addEventListener("click",()=>setTimeout(()=>{ $("icr").value="15"; $("target").value="8"; $("useCorrection").checked=false; preview();},0));
+  $("resetBtn").addEventListener("click",()=>setTimeout(()=>{ $("icr").value="15"; $("target").value="8"; preview();},0));
   $("clearLogBtn").addEventListener("click",()=>{if(confirm("Clear every saved meal from this browser?")){save([]);render()}});
   $("exportBtn").addEventListener("click",()=>{
     const rows=load();
     if(!rows.length){alert("There are no saved meals to export.");return}
-    const headers=["Date/time","Meal type","Carbs g","Current BG mmol/L","ICR","Target","ISF","Meal calculation U","Correction calculation U","Combined calculation U","Notes"];
-    const csv=[headers,...rows.map(r=>[r.when,r.mealType,r.carbs,r.bg,r.icr,r.target,r.isf??"",r.meal,r.correction??"",r.total??"",r.notes])]
+    const headers=["Date/time","Meal type","Carbs g","Current BG mmol/L","ICR","Target","Calculated meal dose U","Actual insulin U","Difference U","Notes"];
+    const csv=[headers,...rows.map(r=>[r.when,r.mealType,r.carbs,r.bg,r.icr,r.target,r.meal,r.actualInsulin??"",r.actualInsulin==null?"":r.actualInsulin-r.meal,r.notes])]
       .map(row=>row.map(x=>`"${String(x).replaceAll('"','""')}"`).join(",")).join("\n");
     const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}), url=URL.createObjectURL(blob), a=document.createElement("a");
     a.href=url;a.download="icr-meal-log.csv";a.click();URL.revokeObjectURL(url);
