@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b5cab">
+  <title>ICR Meal Dashboard</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;--card:#fff;--ink:#162033;--muted:#667085;--line:#d8e0ea;
+      --blue:#0b5cab;--blue2:#1f78d1;--green:#0b7a53;--amber:#a15c00;--red:#b42318;
+      --softblue:#eaf3ff;--softgreen:#eaf8f2;--softamber:#fff4df;--softred:#fff0ee;
+      --shadow:0 12px 30px rgba(26,46,74,.09)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+    .shell{max-width:1180px;margin:0 auto;padding:28px 18px 48px}
+    header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,var(--blue),var(--blue2));display:grid;place-items:center;color:white;font-weight:800;font-size:22px;box-shadow:var(--shadow)}
+    h1{margin:0;font-size:clamp(1.55rem,4vw,2.25rem)}
+    .sub{margin:6px 0 0;color:var(--muted);max-width:700px}
+    .badge{background:var(--softblue);color:var(--blue);padding:8px 10px;border-radius:999px;font-size:.84rem;font-weight:700;white-space:nowrap}
+    .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow)}
+    .card h2{margin:0 0 14px;font-size:1.05rem}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{display:block;font-size:.86rem;font-weight:700;margin-bottom:6px}
+    input,select,textarea{width:100%;border:1px solid #cbd5e1;border-radius:12px;padding:12px 13px;font:inherit;background:#fff;color:var(--ink);outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(31,120,209,.13)}
+    .full{grid-column:1/-1}
+    .hint{font-size:.78rem;color:var(--muted);margin-top:5px;line-height:1.35}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    button{border:0;border-radius:12px;padding:11px 14px;font:inherit;font-weight:800;cursor:pointer}
+    .primary{background:var(--blue);color:#fff}
+    .secondary{background:#eef2f6;color:#24344c}
+    .danger{background:var(--softred);color:var(--red)}
+    .resultHero{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .metric{border:1px solid var(--line);border-radius:16px;padding:15px;background:#fbfcfe}
+    .metric span{display:block;color:var(--muted);font-size:.78rem;font-weight:700}
+    .metric strong{display:block;font-size:1.65rem;margin-top:5px}
+    .metric.primaryM{background:var(--softblue);border-color:#cfe3fb}
+    .metric.green{background:var(--softgreen);border-color:#cfeade}
+    .formula{margin-top:14px;padding:13px;border-radius:14px;background:#f7f9fc;font-size:.9rem;line-height:1.5}
+    .mealnote{margin-top:12px;padding:12px 13px;border-radius:14px;background:var(--softamber);color:#6f4300;font-size:.86rem;line-height:1.45}
+    .safety{margin-top:18px;padding:14px 16px;background:var(--softred);border:1px solid #ffd4cf;border-radius:16px;color:#7a271a;font-size:.86rem;line-height:1.5}
+    .history{margin-top:18px}
+    .historyHead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+    .mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+    .mini span{display:block;color:var(--muted);font-size:.73rem}
+    .mini strong{font-size:1.2rem}
+    .tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:white}
+    table{width:100%;border-collapse:collapse;min-width:800px}
+    th,td{padding:11px 12px;border-bottom:1px solid #edf0f4;text-align:left;font-size:.84rem}
+    th{background:#f8fafc;color:#475467;font-size:.75rem;text-transform:uppercase;letter-spacing:.03em}
+    tbody tr:last-child td{border-bottom:0}
+    .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#eef2f6;color:#344054;font-size:.74rem;font-weight:700}
+    footer{color:var(--muted);font-size:.78rem;margin-top:18px;text-align:center}
+    .switchline{display:flex;align-items:center;gap:9px;margin-top:8px}
+    .switchline input{width:auto}
+    .hidden{display:none}
+    @media(max-width:820px){
+      header{flex-direction:column}.grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr}.badge{white-space:normal}
+    }
+    @media(max-width:420px){.resultHero{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.shell{padding-inline:12px}.card{padding:16px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <div class="logo">15</div>
+      <div>
+        <h1>ICR Meal Dashboard</h1>
+        <p class="sub">A personal meal log and calculation aid for a baseline ICR of 1:15. Meal type is tracked so you can review patterns over time rather than guessing from memory.</p>
+      </div>
+    </div>
+    <div class="badge">Target glucose: <span id="headerTarget">8.0</span> mmol/L</div>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Add meal</h2>
+      <form id="mealForm">
+        <div class="fields">
+          <div>
+            <label for="carbs">Carbohydrate (g)</label>
+            <input id="carbs" type="number" min="0" max="500" step="1" placeholder="e.g. 60" required>
+          </div>
+          <div>
+            <label for="bg">Current glucose (mmol/L)</label>
+            <input id="bg" type="number" min="1" max="40" step="0.1" placeholder="e.g. 9.2" required>
+          </div>
+
+          <div>
+            <label for="mealType">Meal type</label>
+            <select id="mealType">
+              <option>Normal mixed meal</option>
+              <option>Lower GI / slower meal</option>
+              <option>White bread / sandwich</option>
+              <option>Rice / noodles</option>
+              <option>Pizza / curry / high-fat meal</option>
+              <option>Very high-carb meal (100g+)</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="icr">ICR used for this entry</label>
+            <input id="icr" type="number" min="3" max="50" step="0.5" value="15">
+            <div class="hint">1 unit for every <span id="icrHint">15</span> g carbohydrate. Baseline stays at 1:15 unless you deliberately change it.</div>
+          </div>
+
+          <div>
+            <label for="target">Target glucose (mmol/L)</label>
+            <input id="target" type="number" min="3" max="15" step="0.1" value="8">
+          </div>
+          <div>
+            <label for="isf">Correction factor / ISF</label>
+            <input id="isf" type="number" min="0.5" max="15" step="0.1" placeholder="Only enter clinician-agreed ISF">
+            <div class="hint">How many mmol/L one unit is expected to lower glucose. Leave blank if you do not have an agreed ISF.</div>
+          </div>
+
+          <div class="full">
+            <div class="switchline">
+              <input id="useCorrection" type="checkbox">
+              <label for="useCorrection" style="margin:0">Include correction calculation</label>
+            </div>
+          </div>
+
+          <div class="full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" rows="2" placeholder="Optional: food, fat content, timing, exercise, etc."></textarea>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">Calculate & save</button>
+          <button class="secondary" type="button" id="previewBtn">Preview only</button>
+          <button class="secondary" type="reset" id="resetBtn">Clear form</button>
+        </div>
+      </form>
+      <div class="safety">
+        <strong>Safety:</strong> this app records and calculates from values you enter. It does not decide your insulin settings. Only use an ICR, target and ISF that you have agreed with your diabetes team. Avoid correction-dose stacking and follow your own sick-day / ketone plan for persistent high glucose or illness.
+      </div>
+    </section>
+
+    <aside class="card">
+      <h2>Current calculation</h2>
+      <div class="resultHero">
+        <div class="metric primaryM"><span>Meal calculation</span><strong id="mealDose">0.00 U</strong></div>
+        <div class="metric"><span>Above target</span><strong id="aboveTarget">0.0</strong><span>mmol/L</span></div>
+        <div class="metric"><span>Correction calculation</span><strong id="correctionDose">—</strong></div>
+        <div class="metric green"><span>Combined calculation</span><strong id="totalDose">—</strong></div>
+      </div>
+      <div class="formula" id="formulaText">Enter carbs and glucose to preview the calculation.</div>
+      <div class="mealnote" id="mealInsight">
+        <strong>Meal-type note:</strong> Normal mixed meals are your current baseline category. The app records meal type for later comparison; it does not automatically alter your ICR.
+      </div>
+    </aside>
+  </div>
+
+  <section class="history">
+    <div class="historyHead">
+      <div>
+        <h2 style="margin:0">Meal log</h2>
+        <div class="hint">Stored in this browser only. Export CSV before clearing browser data or moving devices.</div>
+      </div>
+      <div class="actions" style="margin:0">
+        <button class="secondary" type="button" id="exportBtn">Export CSV</button>
+        <button class="danger" type="button" id="clearLogBtn">Clear log</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="mini"><span>Meals logged</span><strong id="statMeals">0</strong></div>
+      <div class="mini"><span>Average carbs</span><strong id="statCarbs">—</strong></div>
+      <div class="mini"><span>Average glucose</span><strong id="statBg">—</strong></div>
+      <div class="mini"><span>Most common type</span><strong id="statType" style="font-size:.95rem">—</strong></div>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Date/time</th><th>Meal type</th><th>Carbs</th><th>BG</th><th>ICR</th><th>Meal calc</th><th>Correction</th><th>Combined</th><th>Notes</th><th></th></tr></thead>
+        <tbody id="logBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>ICR Meal Dashboard • Static GitHub Pages app • Data stays on your device unless you export it.</footer>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const key = "icrMealDashboard_v1";
+  const form = $("mealForm");
+  const mealNotes = {
+    "Normal mixed meal":"Normal mixed meals are your current baseline category.",
+    "Lower GI / slower meal":"Your earlier review suggested slower meals may sometimes behave differently. Record the outcome rather than automatically changing the ratio.",
+    "White bread / sandwich":"White bread and sandwiches have sometimes produced faster rises. Track the result so this can be tested against your own data.",
+    "Rice / noodles":"Rice and noodles have sometimes looked more demanding in your logs. The dashboard records that pattern without changing your dose automatically.",
+    "Pizza / curry / high-fat meal":"High-fat meals can produce delayed glucose rises, so a simple ICR may not explain the whole trace.",
+    "Very high-carb meal (100g+)":"Your previous review flagged very large meals as an area where more clean examples are needed.",
+    "Other":"Use notes to describe the meal so you can classify it later."
+  };
+
+  function load(){ try{return JSON.parse(localStorage.getItem(key)||"[]")}catch(e){return []} }
+  function save(rows){ localStorage.setItem(key, JSON.stringify(rows)); }
+
+  function values(){
+    const carbs = Number($("carbs").value);
+    const bg = Number($("bg").value);
+    const icr = Number($("icr").value || 15);
+    const target = Number($("target").value || 8);
+    const isf = Number($("isf").value);
+    const useCorrection = $("useCorrection").checked;
+    return {carbs,bg,icr,target,isf,useCorrection,mealType:$("mealType").value,notes:$("notes").value.trim()};
+  }
+
+  function calculate(v){
+    const valid = Number.isFinite(v.carbs) && v.carbs>=0 && Number.isFinite(v.bg) && v.bg>0 && Number.isFinite(v.icr) && v.icr>0 && Number.isFinite(v.target);
+    if(!valid) return null;
+    const meal = v.carbs / v.icr;
+    const above = Math.max(0, v.bg - v.target);
+    let correction = null;
+    if(v.useCorrection && Number.isFinite(v.isf) && v.isf>0) correction = above / v.isf;
+    const total = correction === null ? null : meal + correction;
+    return {meal,above,correction,total};
+  }
+
+  function preview(){
+    const v=values(), c=calculate(v);
+    $("headerTarget").textContent = Number.isFinite(v.target) ? v.target.toFixed(1) : "8.0";
+    $("icrHint").textContent = Number.isFinite(v.icr) ? v.icr : 15;
+    $("mealInsight").innerHTML = "<strong>Meal-type note:</strong> " + mealNotes[v.mealType];
+    if(!c){
+      $("mealDose").textContent="0.00 U"; $("aboveTarget").textContent="0.0"; $("correctionDose").textContent="—"; $("totalDose").textContent="—";
+      $("formulaText").textContent="Enter valid carbs and glucose to preview the calculation."; return;
+    }
+    $("mealDose").textContent=c.meal.toFixed(2)+" U";
+    $("aboveTarget").textContent=c.above.toFixed(1);
+    if(v.useCorrection){
+      if(Number.isFinite(v.isf) && v.isf>0){
+        $("correctionDose").textContent=c.correction.toFixed(2)+" U";
+        $("totalDose").textContent=c.total.toFixed(2)+" U";
+        $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction: (${v.bg.toFixed(1)} − ${v.target.toFixed(1)}) ÷ ${v.isf.toFixed(1)} = <strong>${c.correction.toFixed(2)} U</strong><br>Combined mathematical result: <strong>${c.total.toFixed(2)} U</strong>`;
+      }else{
+        $("correctionDose").textContent="Need ISF"; $("totalDose").textContent="—";
+        $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction is not calculated until you enter a clinician-agreed ISF.`;
+      }
+    }else{
+      $("correctionDose").textContent="Off"; $("totalDose").textContent="—";
+      $("formulaText").innerHTML = `Meal: ${v.carbs} ÷ ${v.icr} = <strong>${c.meal.toFixed(2)} U</strong><br>Correction calculation is switched off.`;
+    }
+  }
+
+  function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+  function render(){
+    const rows=load(), body=$("logBody"); body.innerHTML="";
+    rows.slice().reverse().forEach((r,revIndex)=>{
+      const realIndex=rows.length-1-revIndex;
+      const tr=document.createElement("tr");
+      tr.innerHTML=`<td>${esc(r.when)}</td><td><span class="pill">${esc(r.mealType)}</span></td><td>${r.carbs} g</td><td>${r.bg.toFixed(1)}</td><td>1:${r.icr}</td><td>${r.meal.toFixed(2)} U</td><td>${r.correction==null?"—":r.correction.toFixed(2)+" U"}</td><td>${r.total==null?"—":r.total.toFixed(2)+" U"}</td><td>${esc(r.notes)}</td><td><button type="button" class="secondary del" data-i="${realIndex}" style="padding:7px 9px">Delete</button></td>`;
+      body.appendChild(tr);
+    });
+    body.querySelectorAll(".del").forEach(b=>b.addEventListener("click",()=>{const a=load();a.splice(Number(b.dataset.i),1);save(a);render()}));
+    $("statMeals").textContent=rows.length;
+    $("statCarbs").textContent=rows.length ? (rows.reduce((s,r)=>s+r.carbs,0)/rows.length).toFixed(0)+" g" : "—";
+    $("statBg").textContent=rows.length ? (rows.reduce((s,r)=>s+r.bg,0)/rows.length).toFixed(1) : "—";
+    if(rows.length){
+      const counts={}; rows.forEach(r=>counts[r.mealType]=(counts[r.mealType]||0)+1);
+      $("statType").textContent=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0];
+    } else $("statType").textContent="—";
+  }
+
+  form.addEventListener("input", preview);
+  form.addEventListener("change", preview);
+  $("previewBtn").addEventListener("click", preview);
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    const v=values(), c=calculate(v);
+    if(!c){alert("Please enter valid carbohydrate, glucose, ICR and target values.");return}
+    if(v.useCorrection && !(Number.isFinite(v.isf)&&v.isf>0)){alert("Correction is switched on, but no valid ISF has been entered.");return}
+    const rows=load();
+    rows.push({
+      when:new Date().toLocaleString(), mealType:v.mealType, carbs:v.carbs, bg:v.bg, icr:v.icr,
+      target:v.target, isf:(Number.isFinite(v.isf)&&v.isf>0)?v.isf:null,
+      meal:c.meal, correction:c.correction, total:c.total, notes:v.notes
+    });
+    save(rows); render(); preview();
+  });
+  $("resetBtn").addEventListener("click",()=>setTimeout(()=>{ $("icr").value="15"; $("target").value="8"; $("useCorrection").checked=false; preview();},0));
+  $("clearLogBtn").addEventListener("click",()=>{if(confirm("Clear every saved meal from this browser?")){save([]);render()}});
+  $("exportBtn").addEventListener("click",()=>{
+    const rows=load();
+    if(!rows.length){alert("There are no saved meals to export.");return}
+    const headers=["Date/time","Meal type","Carbs g","Current BG mmol/L","ICR","Target","ISF","Meal calculation U","Correction calculation U","Combined calculation U","Notes"];
+    const csv=[headers,...rows.map(r=>[r.when,r.mealType,r.carbs,r.bg,r.icr,r.target,r.isf??"",r.meal,r.correction??"",r.total??"",r.notes])]
+      .map(row=>row.map(x=>`"${String(x).replaceAll('"','""')}"`).join(",")).join("\n");
+    const blob=new Blob([csv],{type:"text/csv;charset=utf-8"}), url=URL.createObjectURL(blob), a=document.createElement("a");
+    a.href=url;a.download="icr-meal-log.csv";a.click();URL.revokeObjectURL(url);
+  });
+  preview(); render();
+})();
+</script>
+</body>
+</html>
