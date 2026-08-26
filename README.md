@@ -5,9 +5,10 @@ Live GitHub Pages app for cloud-synced meal and insulin logging used alongside D
 ## Live version
 - v2.0 is the current production version on the repository root.
 - Supabase provides authenticated cross-device meal storage.
+- Authentication uses email + password rather than repeated magic-link sign-ins.
+- The existing Supabase user can create/reset a password through the one-off password recovery flow in the app.
 - Entries are cached locally first and then synced to cloud when signed in.
 - Cloud data refreshes automatically when the page opens, regains focus, comes back online, and periodically while open.
-- Manual Sync remains as a fallback.
 - CSV export remains available as a user-controlled backup/export option.
 
 ## Meal logging
@@ -15,8 +16,7 @@ Live GitHub Pages app for cloud-synced meal and insulin logging used alongside D
 - Default target glucose is 8.0 mmol/L.
 - No correction dose is calculated.
 - Meal dose updates live as carbohydrate or ICR changes.
-- The 'Insulin actually taken' field is pre-filled from the live calculated meal dose but can be changed to record the true dose used.
-- Actual insulin accepts hundredths of a unit for accurate logging, while the user remains responsible for entering what was genuinely taken.
+- The exact calculated meal dose is shown, while the 'Insulin actually taken' field is pre-filled by rounding the calculated dose up to the next whole unit. The field can be changed to record the true dose used.
 - Fat is either entered as grams when known or as a Low / Medium / High / Very high estimate when grams are unknown. The alternative field is disabled to avoid double entry.
 - Meal description, meal type, carbohydrate, fat, starting glucose, ICR, actual insulin, bolus timing, target glucose and notes are retained for later CGM matching.
 
