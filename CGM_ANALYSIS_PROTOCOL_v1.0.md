@@ -13,9 +13,9 @@ This protocol defines the agreed workflow for Darren's ongoing Dexcom and insuli
 - Bolus timing: usually at eating time because of slower post-Whipple digestion. Do not assume a standard 20-minute pre-bolus is automatically appropriate.
 - High-fat and high-carbohydrate meals may cause delayed or extended glucose rises, often beyond Dexcom's 4-hour meal window.
 
-## Required files for a full review
+## Required files for every full review
 
-A full CGM and ICR review should use three files:
+A full CGM and ICR review requires all three files:
 
 1. Dexcom Clarity PDF
    - Overall glucose metrics
@@ -34,28 +34,39 @@ A full CGM and ICR review should use three files:
    - Overnight patterns and variability
 
 3. ICR Meal Dashboard CSV
-   - Primary source of truth for meal and dose information
-   - Meal description
-   - Meal type
+   - Primary source of truth for structured meal and dose information
+   - Meal description and type
    - Carbohydrate grams
-   - Fat level
-   - Estimated fat grams when known
+   - Fat level or actual fat grams
    - ICR used
    - Calculated dose
    - Actual insulin taken
    - Bolus timing
    - Notes and confounders
 
-## Important workflow rule
+## Hard workflow rule
 
-Do not perform detailed meal-by-meal or ICR analysis from Dexcom Clarity alone when the ICR Meal Dashboard CSV is missing.
+Do not start the full review unless all three files are present.
 
-If Dexcom files are uploaded without the ICR Meal Dashboard CSV:
+If only one or two files are uploaded, stop and remind Darren which file is missing before processing the review.
 
-- Overall Dexcom control may still be reviewed.
-- Before calculating detailed meal performance or judging the current ICR, ask for the latest ICR Meal Dashboard CSV.
+Do not perform detailed meal-by-meal or ICR analysis from Dexcom alone.
 
-The ICR Meal Dashboard CSV is the primary meal source. Do not double-count or duplicate meals by independently treating Dexcom meal entries as a second meal log when the app CSV is available.
+The ICR Meal Dashboard CSV is the primary meal source. Do not double-count meals by treating Dexcom meal entries as a second independent meal log when the app CSV is available.
+
+## Unmatched fast-acting insulin rule
+
+If Dexcom contains a fast-acting insulin entry but there is no matching ICR Meal Dashboard meal/dose entry, treat it as:
+
+> Estimated / best-guess dose - meal nutrition was not known well enough to log accurately, commonly because restaurant or takeaway nutritional information was unavailable.
+
+For these unmatched doses:
+
+- Include them in the overall insulin and glucose picture.
+- They may be mentioned when the glucose outcome is notable.
+- Do not reverse-engineer a carbohydrate amount or ICR from them.
+- Do not use them as evidence that 1:15 is too strong or too weak.
+- Keep them separate from the clean meal set used for ICR decisions.
 
 ## How the three sources are combined
 
@@ -119,90 +130,35 @@ Do not recommend a blanket move to a stronger ratio such as 1:10 simply because 
 
 Any insulin-setting changes should be treated as matters to discuss with the diabetes team rather than instructions for self-adjustment.
 
-## Sensor-quality rules
+## Sensor-error rule
 
-Known sensor artefacts must not be used as evidence that the ICR is too strong or that true hypoglycaemia occurred.
+Documented suspected sensor errors should not be allowed to distort trend conclusions. When a Dexcom low is clearly contradicted by a finger-prick and is documented as a faulty sensor/compression issue, flag it as a sensor exception rather than treating it as a genuine hypo for interpretation.
 
-Important examples include:
+## After every complete 3-file review
 
-- Compression lows labelled CL
-- Faulty sensor periods labelled FCGM or noted as faulty
-- First 24 hours after a new sensor (NCGM), which may be noisier or over-read
-- The false-low period overnight 10-11 August 2026, including Dexcom around 2.2-3.3 mmol/L while finger-prick was 8.3 mmol/L
+Once all three files have been processed:
 
-Dexcom's official headline statistics may still contain those readings. Where raw data allows, calculate or describe a cleaned interpretation separately if the artefact materially affects the result.
+1. Produce the full combined review.
+2. Compare the new period with relevant previous uploads.
+3. Review whether the current 1:15 ICR is still supported.
+4. Update the live app's latest CGM progress summary.
+5. Add/update the review timeline.
+6. Update "What I've learned about Darren's diabetes" only where the evidence genuinely supports a change.
+7. Keep the Clinical Goals section tied to real Dexcom/AGP targets rather than an invented score.
+8. Update version history if the app itself changes.
+9. Send Darren a concise email summary with a one-line coach summary, headline metrics, progress, ICR verdict, what is working, what to watch and any sensor/data exceptions.
 
-## Other context to retain
+## Evidence-status rule for learned insights
 
-- Fasting glucose is logged in Dexcom's fasting glucose field on waking.
-- Historic entries before that field was used can generally be interpreted with long-acting insulin taken on waking unless otherwise noted.
-- Ketone note spellings such as ketones, keytones and keystones should all be recognised as ketone readings.
-- High-fat/high-carb meals require review beyond the standard 4-hour meal card where relevant.
-- Avoid unsafe insulin stacking. Off-plan extra doses are data points for clinician discussion, not evidence to encourage repetition.
+Statements in "What I've learned about Darren's diabetes" should carry one of these statuses:
 
-## Standard review output
+- PROVEN REPEATEDLY - supported consistently across repeated clean data.
+- LIKELY - supported by the current pattern but still needs more observations.
+- UNDER INVESTIGATION - a plausible pattern that does not yet have enough evidence.
+- ANALYSIS RULE - an agreed interpretation rule rather than a biological conclusion.
 
-Future reviews should normally contain:
+Do not promote a statement to PROVEN REPEATEDLY merely because it sounds plausible. New data can strengthen, weaken or remove a prior conclusion.
 
-### 1. Overall control
-- GMI
-- Average glucose
-- Time in Range
-- High / Very High
-- Low / Very Low
-- CV / variability
-- AGP and time-of-day patterns
-- Change versus the previous comparable Dexcom period
+## Backups and rollback
 
-### 2. Meal performance
-- Best and worst-performing meals
-- Meal-by-meal peak and duration above 10 mmol/L
-- 2h / 4h / 6h response where data quality permits
-- Late-rise patterns
-- Meal-type and fat-content patterns
-
-### 3. ICR assessment
-A clear conclusion such as:
-
-- 1:15 looks appropriate
-- 1:15 looks too weak
-- 1:15 looks too strong
-- 1:15 works for normal meals but not certain meal types
-- More clean data is needed before changing the ratio
-
-The conclusion must be supported by the actual meal data, not just headline TIR.
-
-### 4. Context and exceptions
-- Sensor faults
-- New sensor days
-- Exercise
-- Alcohol
-- Ketones
-- Illness or steroid exposure
-- Other relevant confounders
-
-### 5. Questions for the diabetes team
-Only include clinically useful questions arising from the data, especially around ICR, high-fat meals, delayed rises, correction rules and safety.
-
-## Quarterly surgery update
-
-Approximately every 90 days, prepare a concise, easy-to-read Dexcom summary for the GP surgery/diabetes nurse because the surgery does not have direct Dexcom access.
-
-The quarterly summary should focus on:
-
-- 90-day headline Dexcom metrics
-- Change from the previous 90-day Dexcom period
-- Current ICR and whether the data supports it
-- Key meal/fat patterns
-- Relevant sensor artefacts and clinical exceptions
-- Short questions or actions for the diabetes team
-
-## Data-quality principle
-
-Accuracy comes before completeness. Do not invent missing meal details, fat estimates, insulin doses, timings or glucose responses. If information is missing or ambiguous, state that clearly.
-
-## Version
-
-CGM Analysis Protocol v1.0
-Created: 23 August 2026
-Repository: dsainsbury-dotcom/Insulin
+Before a material app release, preserve the previous stable version in GitHub as a rollback branch. GitHub commit history plus the rollback branch protects the code, while Supabase and CSV export provide separate recovery paths for meal data.
