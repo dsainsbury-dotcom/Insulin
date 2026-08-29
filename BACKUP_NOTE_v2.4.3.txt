@@ -1,0 +1,1 @@
+Rollback target for the pre-v2.4.3 app is commit e10d7b8980bf3a3bac2b17e82b5d6a6b46d34241 (v2.4.2 index.html). Existing GitHub history also preserves that version.
