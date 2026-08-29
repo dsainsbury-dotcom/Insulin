@@ -1,31 +1,43 @@
-# ICR Meal Dashboard v2.2
+# ICR Meal Dashboard v2.4
 
-Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and evidence-based diabetes learning.
+Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
 ## Live version
-- v2.2 is the current production version on the repository root.
+- v2.4 is the current production version on the repository root.
+- Meal Tracker remains the default view; CGM Progress is a separate tab.
 - Supabase provides authenticated cross-device meal storage.
-- Authentication uses email + password.
 - Entries are cached locally first and then synced to cloud when signed in.
-- Cloud data refreshes automatically when the page opens, regains focus, comes back online and periodically while open.
 - CSV export remains available as a user-controlled backup/export option.
+
+## Smart Food System v2.4
+- Barcode camera scanning plus manual barcode entry.
+- Open Food Facts lookup for product name and nutrition per 100 g.
+- Nutrition-label photo OCR using Tesseract.js in the browser.
+- OCR values must be checked/confirmed before use.
+- Manual nutrition mode for packet labels, restaurant websites and foods not found by barcode.
+- Portion mode supports exact weight eaten or number of servings, including 0.5 servings.
+- Calculates carbohydrate, fat and protein for the amount actually eaten.
+- One-tap transfer into the normal meal tracker.
+- Nutrition source is written into the meal notes with a structured SFS marker for later CGM review context.
+- Personal food library remembers used products and recent/usual portion sizes on the device.
+- Food report cards do not invent CGM outcomes. Glucose-response statistics will only be added when real review matching supports them.
+
+See `SMART_FOOD_SYSTEM_v2.4.md` for implementation and data-quality rules.
 
 ## Meal logging
 - Default ICR is 1:15.
 - Default target glucose is 8.0 mmol/L.
 - No correction dose is calculated.
 - Meal dose updates live as carbohydrate or ICR changes.
-- The exact calculated meal dose is shown, while the 'Insulin actually taken' field is pre-filled by rounding the calculated dose up to the next whole unit. The field can be changed to record the true dose used.
-- Fat is either entered as grams when known or as a Low / Medium / High / Very high estimate when grams are unknown. The alternative field is disabled to avoid double entry.
-- Meal description, meal type, carbohydrate, fat, starting glucose, ICR, actual insulin, bolus timing, target glucose and notes are retained for later CGM matching.
+- The exact calculated meal dose is shown and the actual-insulin field is pre-filled by rounding up to the next whole unit; it remains editable to record what was actually taken.
+- Fat is either entered as grams when known or as a Low / Medium / High / Very high estimate when grams are unknown.
 
-## v2.2 progress dashboard
-- My CGM Progress shows the latest verified review metrics and change versus the prior period.
-- Clinical Goals uses the real Dexcom/AGP targets rather than an invented score.
+## CGM progress dashboard
+- Latest verified review metrics and change versus prior period.
+- Clinical Goals use the real Dexcom/AGP targets rather than an invented score.
 - What I've Learned About Darren's Diabetes separates PROVEN REPEATEDLY, LIKELY, UNDER INVESTIGATION and ANALYSIS RULE statements.
-- Review Timeline keeps the latest five verified upload summaries visible in the app.
-- The 3-file review protocol is shown inside the app.
-- Version History records major app releases and why they changed.
+- Review Timeline keeps the latest five verified upload summaries visible.
+- Version History records major app releases.
 
 ## 3-file review rule
 A complete review requires:
@@ -33,17 +45,16 @@ A complete review requires:
 2. Dexcom raw CSV
 3. ICR Meal Dashboard CSV
 
-If any one is missing, the full review should wait until all three are available.
+If any one is missing, the full review waits until all three are available.
 
-See `CGM_ANALYSIS_PROTOCOL_v1.0.md` for the detailed workflow, including the unmatched fast-acting insulin rule, sensor-error handling, ICR review method, app update steps and review email format.
+See `CGM_ANALYSIS_PROTOCOL_v1.0.md` for the detailed workflow.
 
 ## Data and rollback
-- Supabase is the central cross-device store.
+- Supabase is the central cross-device meal store.
 - Browser localStorage remains a local-first safety cache.
 - CSV export provides an additional manual backup.
-- `backup/v2.1-pre-v2.2` preserves the stable app immediately before the v2.2 release.
-- The frozen local-only v1.0 remains available on `backup/v1.0-local`.
-- GitHub commit history provides an additional source-code recovery path.
+- `backup/v2.3-pre-v2.4` preserves the pre-Smart-Food release.
+- Earlier rollback branches and GitHub commit history remain available.
 
 ## Safety
-This is a personal logging/calculation aid and review dashboard, not a medical device. It does not calculate correction doses or independently determine insulin settings. Insulin ratios and treatment decisions should follow the user's agreed diabetes-team plan.
+This is a personal logging/calculation and review aid, not a medical device. Barcode and OCR nutrition values must be checked before use. It does not calculate correction doses or independently determine insulin settings. Treatment decisions should follow the user's agreed diabetes-team plan.
