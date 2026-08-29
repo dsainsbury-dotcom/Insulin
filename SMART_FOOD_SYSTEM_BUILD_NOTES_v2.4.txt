@@ -1,0 +1,12 @@
+Smart Food System v2.4 build notes
+
+- Preserve v2.3 tracker/CGM tabs.
+- Add Smart Food section to Meal Tracker.
+- Barcode scan: camera scanner plus manual barcode fallback.
+- Database: Open Food Facts public API.
+- Label scan: in-browser OCR, always user-confirmed.
+- Portion: grams or servings, including half portions.
+- Populate meal description, carbs and fat from selected portion.
+- Store nutrition source in notes for later CGM review.
+- Personal food library with usual-portion history.
+- Do not invent CGM response statistics before review matching exists.
