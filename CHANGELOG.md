@@ -1,5 +1,33 @@
 # Version History
 
+## v2.4.4 - 29 Aug 2026
+- Processed the complete 3-file review set through 29 Aug 2026.
+- Updated production CGM Progress to TIR 88%, average glucose 7.5 mmol/L, GMI 6.5% and CV 27.1%.
+- Recorded improvement versus the prior 14 days: TIR 85% to 88%, average glucose 7.6 to 7.5, GMI 6.6% to 6.5%, CV 27.8% to 27.1%.
+- Current clean meal evidence continues to support 1:15 as the working ICR baseline.
+- Recorded the first verified real-world Smart Food nutrition-label OCR case: app 44.4 g carbs / 3 U at 12:28, Dexcom 44 g / 3 U at 12:28.
+- Added the first OCR meal glucose outcome as UNDER INVESTIGATION rather than claiming a proven response pattern.
+- Flagged the documented 27 Aug faulty-sensor lows as a sensor exception.
+- Created rollback branch `backup/v2.4.3-pre-v2.5` before publication.
+- Added repository-level project continuity documentation and detailed review record.
+
+## v2.4.3 - 29 Aug 2026
+- Added Smart Meal Assistant meal-dose display inside Smart Food.
+- Exact carbohydrate/ICR calculation is shown before transfer.
+- Whole-unit rounded-up pre-fill is shown before transfer.
+- High-fat meals receive a delayed-rise context reminder only, with no automatic extra insulin.
+- Existing cloud-first storage, barcode lookup, label OCR, manual nutrition, portion calculation and CGM Progress remain unchanged.
+
+## v2.4.2 - 29 Aug 2026
+- Removed manual refresh controls from normal use.
+- Added last-refresh and queue health indicators.
+- Fixed cloud-food queue ordering to reduce cross-device conflicts.
+- Added direct cloud barcode check before public lookup.
+- Added legacy v2.4 food-library migration into cloud storage.
+- Added favourites and food-library search.
+- Improved duplicate-barcode handling and error reporting.
+- Added rollback branch `backup/v2.4.1-pre-v2.4.2`.
+
 ## v2.4.1 - 29 Aug 2026
 - Moved the Smart Food library to a Supabase cloud-first design.
 - Supabase becomes the source of truth when signed in.
