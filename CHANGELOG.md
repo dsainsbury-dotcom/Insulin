@@ -1,5 +1,18 @@
 # Version History
 
+## v2.4.1 - 29 Aug 2026
+- Moved the Smart Food library to a Supabase cloud-first design.
+- Supabase becomes the source of truth when signed in.
+- Browser storage is reduced to an offline queue/cache only.
+- Added automatic retry of queued meal and food changes after reconnecting.
+- Added automatic refresh on app focus, reconnect, visibility change and periodic background checks.
+- Personal food library is checked before Open Food Facts for barcode scans.
+- User-confirmed nutrition values take priority over public database values on future scans.
+- Added cross-device food-library sync for barcode, nutrition, serving weight, usual portion, use count and source.
+- Added visible cloud-readiness status for the food library.
+- Added Supabase migration `supabase_food_library_v2.4.1.sql` with row-level security.
+- Added rollback branch `backup/v2.4-pre-v2.4.1`.
+
 ## v2.4 - 29 Aug 2026
 - Added Smart Food System to the Meal Tracker.
 - Added barcode camera scanning with manual barcode fallback.
