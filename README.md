@@ -1,15 +1,15 @@
-# ICR Meal Dashboard v2.4.4
+# ICR Meal Dashboard v2.4.5
 
 Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
 ## Live version
-- v2.4.4 is the current production version on the repository root.
+- v2.4.5 is the current production version on the repository root.
 - Meal Tracker remains the default view; CGM Progress is a separate tab.
 - Supabase is the source of truth when signed in.
 - Browser storage is used only as an offline queue/cache for unsynced changes.
 - Automatic sync runs at sign-in, app focus/return, reconnect and every 60 seconds while open.
 - CSV export remains available as a user-controlled backup/export option.
-- The 29 Aug 2026 complete 3-file CGM review is now the latest verified progress snapshot.
+- The 29 Aug 2026 complete 3-file CGM review is the latest verified progress snapshot.
 
 ## Smart Food System
 - Barcode camera scanning plus manual barcode entry.
@@ -24,6 +24,26 @@ Live GitHub Pages app for cloud-synced meal and insulin logging, personalised De
 - Favourites, search, offline queueing and retry are included.
 - Food outcome claims remain evidence-only.
 
+## Smarter meal types v2.4.5
+Smart Food now suggests a more useful meal type instead of defaulting every entry to Normal mixed meal.
+
+Current categories:
+- Balanced / mixed meal
+- Pasta
+- Rice / noodles
+- Bread / sandwich
+- Potato / chips
+- Pizza
+- Curry
+- High-fat + high-carb
+- Very high-carb (100g+)
+- Lower-carb meal
+- Dessert / sweet food
+- Snack
+- Other / unknown
+
+The suggestion uses the food/product name first, then portion carbohydrate and fat where useful. The user can always change the suggested type before saving. Fat grams remain a separate field so later CGM analysis can distinguish food category from fat effect.
+
 ### First verified real-world Smart Food case
 On 29 Aug 2026 the nutrition-label OCR workflow produced a real meal record that matched Dexcom closely:
 - App: 44.4 g carbohydrate, 3 U fast-acting, 12:28 BST.
@@ -31,7 +51,7 @@ On 29 Aug 2026 the nutrition-label OCR workflow produced a real meal record that
 - App nutrition source: `Nutrition label OCR - confirmed`.
 - This verifies the scanner-to-meal-log workflow end to end. It is one glucose-response observation, not enough by itself to define a food-response rule.
 
-## Smart Meal Assistant v2.4.3
+## Smart Meal Assistant
 - Shows exact carbohydrate/ICR calculation before transfer.
 - Shows the whole-unit rounded-up pre-fill before transfer.
 - High-fat meals receive a delayed-rise context reminder only. No automatic extra insulin is added.
@@ -79,7 +99,7 @@ If any one is missing, the full review waits until all three are available. See 
 - Supabase is the central cross-device store for meals and the food library.
 - Browser localStorage is only an offline queue/cache.
 - CSV export provides an additional manual backup.
-- `backup/v2.4.3-pre-v2.5` preserves the stable state immediately before the 29 Aug CGM review publication.
+- `backup/v2.4.4-pre-v2.4.5` preserves the stable state immediately before the smarter meal-type release.
 - Earlier rollback branches and GitHub commit history remain available.
 
 ## Safety
