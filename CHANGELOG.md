@@ -1,5 +1,24 @@
 # Version History
 
+## v2.4.6 - 30 Aug 2026
+- Added a Delete action to every row in the Unified meal log.
+- Added a confirmation prompt before deletion.
+- Queued/offline-only entries can be deleted locally.
+- Cloud entries require an active signed-in online session before deletion.
+- Cloud deletion targets the current user's meal by `user_id` and `client_id`.
+- The matching local queue entry is also removed so deleted meals cannot be re-uploaded on the next sync.
+- Offline cloud deletion is refused rather than allowing an entry to reappear later.
+- Created rollback branch `backup/v2.4.5-pre-v2.4.6` before publication.
+
+## v2.4.5 - 30 Aug 2026
+- Replaced the generic Normal mixed meal default with analysis-focused meal categories.
+- Added Pasta, Rice / noodles, Bread / sandwich, Potato / chips, Pizza, Curry, High-fat + high-carb, Very high-carb, Lower-carb, Dessert / sweet food, Snack and Other / unknown.
+- Smart Food now suggests meal type from product/food name and actual portion nutrition.
+- Specific food-name matches take priority over broad nutrition-based classification.
+- Suggested meal type remains editable before saving.
+- Fat grams remain separate from meal type for future CGM analysis.
+- Created rollback branch `backup/v2.4.4-pre-v2.4.5` before publication.
+
 ## v2.4.4 - 29 Aug 2026
 - Processed the complete 3-file review set through 29 Aug 2026.
 - Updated production CGM Progress to TIR 88%, average glucose 7.5 mmol/L, GMI 6.5% and CV 27.1%.
