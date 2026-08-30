@@ -1,15 +1,24 @@
-# ICR Meal Dashboard v2.4.5
+# ICR Meal Dashboard v2.4.6
 
 Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
 ## Live version
-- v2.4.5 is the current production version on the repository root.
+- v2.4.6 is the current production version on the repository root.
 - Meal Tracker remains the default view; CGM Progress is a separate tab.
 - Supabase is the source of truth when signed in.
 - Browser storage is used only as an offline queue/cache for unsynced changes.
 - Automatic sync runs at sign-in, app focus/return, reconnect and every 60 seconds while open.
 - CSV export remains available as a user-controlled backup/export option.
 - The 29 Aug 2026 complete 3-file CGM review is the latest verified progress snapshot.
+
+## Meal log deletion v2.4.6
+- Every Unified meal log row now has a Delete action.
+- A confirmation prompt is required before deletion.
+- Offline/queued-only entries are removed from the local queue immediately after confirmation.
+- Cloud entries require an active signed-in online session and are deleted from Supabase using the current user's ID plus the meal client ID.
+- The local queue is also cleared for the same client ID so a deleted entry cannot be re-uploaded by the sync process.
+- If a cloud delete is attempted while offline, the app refuses rather than pretending the deletion succeeded.
+- Rollback branch: `backup/v2.4.5-pre-v2.4.6`.
 
 ## Smart Food System
 - Barcode camera scanning plus manual barcode entry.
@@ -25,7 +34,7 @@ Live GitHub Pages app for cloud-synced meal and insulin logging, personalised De
 - Food outcome claims remain evidence-only.
 
 ## Smarter meal types v2.4.5
-Smart Food now suggests a more useful meal type instead of defaulting every entry to Normal mixed meal.
+Smart Food suggests a useful meal type instead of defaulting every entry to Normal mixed meal.
 
 Current categories:
 - Balanced / mixed meal
@@ -99,7 +108,7 @@ If any one is missing, the full review waits until all three are available. See 
 - Supabase is the central cross-device store for meals and the food library.
 - Browser localStorage is only an offline queue/cache.
 - CSV export provides an additional manual backup.
-- `backup/v2.4.4-pre-v2.4.5` preserves the stable state immediately before the smarter meal-type release.
+- `backup/v2.4.5-pre-v2.4.6` preserves the stable state immediately before meal-log deletion was added.
 - Earlier rollback branches and GitHub commit history remain available.
 
 ## Safety
