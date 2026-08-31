@@ -1,5 +1,12 @@
 # Version History
 
+## v2.4.7 - 31 Aug 2026
+- Added a dedicated Favourite foods quick-use panel.
+- Added one-tap Use actions for starred foods.
+- Added All foods / Favourites filtering in My food library.
+- Favourite state remains cloud-synced across signed-in devices.
+- Created rollback branch `backup/v2.4.6-pre-v2.4.7` before publication.
+
 ## v2.4.6 - 30 Aug 2026
 - Added a Delete action to every row in the Unified meal log.
 - Added a confirmation prompt before deletion.

@@ -4,7 +4,7 @@
 This repository is the authoritative source for Darren's personal CGM/meal-analysis app. A fresh developer or AI agent should be able to continue the project from this repository without relying on an old chat thread.
 
 ## Current production state
-- Current production release: v2.4.6.
+- Current production release: v2.4.7.
 - Live app entry point: `index.html` on `main` via GitHub Pages.
 - `smart-meal.html` contains the Smart Meal Assistant test/standalone implementation.
 - Supabase is the cloud source of truth for meal and food-library data when signed in.
@@ -25,6 +25,7 @@ Build a personal diabetes learning and logging tool that combines meal details, 
 - Delete-meal action with confirmation and cloud/local queue protection.
 - Smart Food System: barcode, Open Food Facts lookup, nutrition-label OCR, manual nutrition, portion calculation and personal cloud food library.
 - Smart Food suggests meal type from food name and actual portion nutrition while keeping the choice editable.
+- Favourite foods quick-use panel and All/Favourites library filter provide fast reuse of cloud-synced saved foods.
 - CGM Progress dashboard uses verified 3-file reviews only.
 
 ## Meal type categories
