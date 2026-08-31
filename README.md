@@ -1,15 +1,21 @@
-# ICR Meal Dashboard v2.4.7
+# ICR Meal Dashboard v2.4.8
 
 Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
 ## Live version
-- v2.4.7 is the current production version on the repository root.
+- v2.4.8 is the current production version on the repository root.
 - Meal Tracker remains the default view; CGM Progress is a separate tab.
 - Supabase is the source of truth when signed in.
 - Browser storage is used only as an offline queue/cache for unsynced changes.
 - Automatic sync runs at sign-in, app focus/return, reconnect and every 60 seconds while open.
 - CSV export remains available as a user-controlled backup/export option.
 - The 29 Aug 2026 complete 3-file CGM review is the latest verified progress snapshot.
+
+## Favourite persistence fix v2.4.8
+- Fixed a bug where tapping Favourite changed the value but the general food save path restored the previous favourite state.
+- Favourite/unfavourite now writes the changed food directly to Supabase when online.
+- Offline changes are queued and reflected in the local library immediately.
+- Rollback branch: `backup/v2.4.7-pre-v2.4.8`.
 
 ## Favourite foods v2.4.7
 - Starred foods now appear in a dedicated Favourite foods quick-use panel.

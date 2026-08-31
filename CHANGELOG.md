@@ -1,5 +1,11 @@
 # Version History
 
+## v2.4.8 - 31 Aug 2026
+- Fixed Favourite toggles being overwritten by the previous saved food state.
+- Favourite/unfavourite changes now write directly to Supabase when online.
+- Offline favourite changes are queued and immediately reflected locally.
+- Created rollback branch `backup/v2.4.7-pre-v2.4.8` before publication.
+
 ## v2.4.7 - 31 Aug 2026
 - Added a dedicated Favourite foods quick-use panel.
 - Added one-tap Use actions for starred foods.
