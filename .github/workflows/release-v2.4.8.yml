@@ -1,0 +1,54 @@
+name: Release v2.4.8 favourite persistence fix
+on:
+  push:
+    paths:
+      - '.github/workflows/release-v2.4.8.yml'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch favourite persistence and version
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('v2.4.7','v2.4.8')
+          old="async function toggleFavourite(f){f=normalizeFood(f);f.favourite=!f.favourite;await saveFood(f,false)}"
+          new="async function toggleFavourite(f){f=normalizeFood(f);f.favourite=!f.favourite;if(session&&navigator.onLine&&foodCloudReady&&await upsertFood(f)){await fetchFoods();setNotice(f.favourite?'Added to favourites.':'Removed from favourites.','good');return}queueFood(f);foodRows=[f,...foodRows.filter(x=>x.client_id!==f.client_id)];write(FOOD_CACHE,foodRows);renderLibrary();setNotice(f.favourite?'Favourite queued and will sync automatically.':'Favourite change queued and will sync automatically.','warn')}"
+          if old not in s: raise SystemExit('expected toggleFavourite code not found')
+          s=s.replace(old,new)
+          needle='<section class="card"><h2>Version history</h2><div class="versionGrid">'
+          insert='<section class="card"><h2>Version history</h2><div class="versionGrid"><div class="versionItem"><strong>v2.4.8 - favourite persistence fix</strong><ul><li>Fixed Favourite toggles being overwritten by the previous saved state.</li><li>Favourite and unfavourite changes now write directly to Supabase when online.</li><li>Offline favourite changes are queued and update the local library immediately.</li></ul></div>'
+          if needle not in s: raise SystemExit('version history insertion point not found')
+          s=s.replace(needle,insert,1)
+          p.write_text(s)
+
+          r=Path('README.md'); t=r.read_text().replace('# ICR Meal Dashboard v2.4.7','# ICR Meal Dashboard v2.4.8',1).replace('- v2.4.7 is the current production version on the repository root.','- v2.4.8 is the current production version on the repository root.',1)
+          block='''## Favourite persistence fix v2.4.8\n- Fixed a bug where tapping Favourite changed the value but the general food save path restored the previous favourite state.\n- Favourite/unfavourite now writes the changed food directly to Supabase when online.\n- Offline changes are queued and reflected in the local library immediately.\n- Rollback branch: `backup/v2.4.7-pre-v2.4.8`.\n\n'''
+          t=t.replace('## Favourite foods v2.4.7\n',block+'## Favourite foods v2.4.7\n',1); r.write_text(t)
+
+          c=Path('CHANGELOG.md'); t=c.read_text(); entry='''## v2.4.8 - 31 Aug 2026\n- Fixed Favourite toggles being overwritten by the previous saved food state.\n- Favourite/unfavourite changes now write directly to Supabase when online.\n- Offline favourite changes are queued and immediately reflected locally.\n- Created rollback branch `backup/v2.4.7-pre-v2.4.8` before publication.\n\n'''; t=t.replace('# Version History\n\n','# Version History\n\n'+entry,1); c.write_text(t)
+
+          b=Path('PROJECT_BRAIN.md'); t=b.read_text().replace('Current production release: v2.4.7.','Current production release: v2.4.8.',1); t=t.replace('- CGM Progress dashboard uses verified 3-file reviews only.','- Favourite foods quick access and cloud-persisted favourite/unfavourite controls.\n- CGM Progress dashboard uses verified 3-file reviews only.',1); b.write_text(t)
+          PY
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(); js=s.rsplit('<script>',1)[1].split('</script>',1)[0]; Path('/tmp/app.js').write_text(js)
+          PY
+          node --check /tmp/app.js
+      - name: Commit release
+        shell: bash
+        run: |
+          git config user.name "dsainsbury-dotcom"
+          git config user.email "dsainsbury@gmail.com"
+          git add index.html README.md CHANGELOG.md PROJECT_BRAIN.md
+          git commit -m "Release v2.4.8 fix favourite persistence"
+          git push
