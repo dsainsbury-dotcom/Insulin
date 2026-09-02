@@ -1,5 +1,15 @@
 # Version History
 
+## v2.4.9 - 2 Sep 2026
+- Processed the complete Dexcom PDF + raw CSV + app CSV review for 20 Aug-2 Sep.
+- Updated CGM Progress: TIR 85%, average glucose 7.7 mmol/L, GMI 6.6%, CV 28.8%.
+- All headline AGP goals remain achieved.
+- ICR verdict remains 1:15 as the working baseline. No clear post-meal low signal supports winding back to 1:20; current evening highs are too confounded to justify strengthening the global ratio.
+- Added whole-unit round-up on small-carb meals as a specific safety-monitoring rule.
+- Added review record `reviews/CGM_REVIEW_2026-09-02.md`.
+- Created rollback branch `backup/v2.4.8-pre-v2.4.9`.
+
+
 ## v2.4.8 - 31 Aug 2026
 - Fixed Favourite toggles being overwritten by the previous saved food state.
 - Favourite/unfavourite changes now write directly to Supabase when online.

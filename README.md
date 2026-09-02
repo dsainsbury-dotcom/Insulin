@@ -1,4 +1,11 @@
-# ICR Meal Dashboard v2.4.8
+# ICR Meal Dashboard v2.4.9
+
+## v2.4.9 review update - 2 Sep 2026
+- Latest 14-day Dexcom metrics: TIR 85%, average 7.7 mmol/L, GMI 6.6%, CV 28.8%.
+- 1:15 remains the working ICR. Current data does not show a clear post-meal low signal that would support winding back to 1:20, and does not yet justify a stronger global ratio.
+- Evening/high-fat/overlapping meals remain the main watch area.
+- Full evidence record: `reviews/CGM_REVIEW_2026-09-02.md`.
+
 
 Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
