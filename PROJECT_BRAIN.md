@@ -4,7 +4,7 @@
 This repository is the authoritative source for Darren's personal CGM/meal-analysis app. A fresh developer or AI agent should be able to continue the project from this repository without relying on an old chat thread.
 
 ## Current production state
-- Current production release: v2.4.9.
+- Current production release: v2.5.0.
 - Live app entry point: `index.html` on `main` via GitHub Pages.
 - `smart-meal.html` contains the Smart Meal Assistant test/standalone implementation.
 - Supabase is the cloud source of truth for meal and food-library data when signed in.
@@ -113,3 +113,6 @@ GitHub remains the live source. Google Drive is the disaster-recovery mirror. Af
 
 ## Longer-term direction
 Gradually move away from hard-coded CGM Progress values toward stored review records and an evidence database. Future goals include food outcomes, repeated-meal comparisons, confidence grading, automated review imports and personalised pattern detection. Do this incrementally without risking the stable working app.
+
+## Pre-bolus evidence phase
+From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue treating `At first bite / eating time` as the usual observed timing unless Darren records something different. Do not infer a fixed pre-bolus formula yet. Future reviews should combine starting glucose, CGM trend, meal type, carbohydrate, fat, actual timing and later Dexcom response. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.

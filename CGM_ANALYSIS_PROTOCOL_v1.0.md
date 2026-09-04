@@ -162,3 +162,6 @@ Do not promote a statement to PROVEN REPEATEDLY merely because it sounds plausib
 ## Backups and rollback
 
 Before a material app release, preserve the previous stable version in GitHub as a rollback branch. GitHub commit history plus the rollback branch protects the code, while Supabase and CSV export provide separate recovery paths for meal data.
+
+## Pre-bolus timing evidence
+From app v2.5.0 onward, include the recorded CGM trend arrow in suitable meal reviews. Analyse starting glucose and trend together with meal type, carbohydrate, fat and actual bolus timing. Do not convert a single social-media formula into a personalised timing rule. Build repeated clean evidence first, then flag any consistent earlier/meal-time/later pattern for discussion with the diabetes team.

@@ -1,5 +1,14 @@
 # Version History
 
+## v2.5.0 - 4 Sep 2026
+- Added required CGM trend-arrow capture at meal logging: rapidly rising, rising, slightly rising, stable, slightly falling, falling or rapidly falling.
+- Trend is stored in a machine-readable notes tag for compatibility with the current Supabase schema and exported as a dedicated `cgm_trend` CSV column.
+- Added `PREBOLUS_EVIDENCE_PROTOCOL.md`.
+- Pre-bolus timing remains observation-only. No automated timing or correction advice is generated yet.
+- Future reviews will test whether timing should vary by starting glucose, trend arrow, meal type, carbohydrate, fat and later Dexcom response.
+- Rollback branch: `backup/v2.4.9-pre-v2.5.0`.
+
+
 ## v2.4.9 - 2 Sep 2026
 - Processed the complete Dexcom PDF + raw CSV + app CSV review for 20 Aug-2 Sep.
 - Updated CGM Progress: TIR 85%, average glucose 7.7 mmol/L, GMI 6.6%, CV 28.8%.

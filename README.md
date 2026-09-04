@@ -1,4 +1,8 @@
-# ICR Meal Dashboard v2.4.9
+# ICR Meal Dashboard v2.5.0
+
+## v2.5.0 - CGM trend capture
+Meal logging now records the Dexcom trend arrow alongside current glucose. This starts the evidence-gathering phase for a future personalised pre-bolus timing assistant. The app continues to record the timing Darren actually used and does not yet prescribe a specific pre-bolus interval. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.
+
 
 ## v2.4.9 review update - 2 Sep 2026
 - Latest 14-day Dexcom metrics: TIR 85%, average 7.7 mmol/L, GMI 6.6%, CV 28.8%.
