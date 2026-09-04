@@ -1,0 +1,106 @@
+name: Release v2.5.0 CGM trend capture
+on:
+  push:
+    paths:
+      - '.github/workflows/release-v2.5.0.yml'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update app and docs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('<title>ICR Meal Dashboard v2.4.9</title>','<title>ICR Meal Dashboard v2.5.0</title>')
+          s=s.replace('>v2.4.9</small></h1>','>v2.5.0</small></h1>',1)
+          s=s.replace('<div class="badge">v2.4.9 LIVE</div>','<div class="badge">v2.5.0 LIVE</div>',1)
+
+          bg='<div><label>Current glucose (mmol/L)</label><input id="bg" type="number" min="1" max="40" step="0.1" required></div>'
+          trend='''<div><label>CGM trend now</label><select id="cgmTrend" required><option value="" selected>Select trend...</option><option>↑↑ Rapidly rising</option><option>↑ Rising</option><option>↗ Slightly rising</option><option>→ Stable</option><option>↘ Slightly falling</option><option>↓ Falling</option><option>↓↓ Rapidly falling</option></select><div class="hint">Record the Dexcom arrow at the same time as the glucose reading. This is observation-only for now and will be used to learn your future pre-bolus timing.</div></div>'''
+          if bg not in s: raise SystemExit('BG field marker not found')
+          s=s.replace(bg,bg+trend,1)
+
+          helper="""function trendFromNotes(n){const m=String(n||'').match(/\\[CGM trend: ([^\\]]+)\\]/);return m?m[1]:'Not recorded'}\nfunction cleanTrendNotes(n){return String(n||'').replace(/\\s*\\[CGM trend: [^\\]]+\\]\\s*\\|?\\s*/g,'').trim()}\n"""
+          marker="function normMeal(r,source='queued'){"
+          if marker not in s: raise SystemExit('normMeal marker not found')
+          s=s.replace(marker,helper+marker,1)
+
+          old="bolus_timing:r.bolus_timing??r.bolusTiming??'Not recorded',notes:r.notes||'',source}}"
+          new="bolus_timing:r.bolus_timing??r.bolusTiming??'Not recorded',cgm_trend:r.cgm_trend??r.cgmTrend??trendFromNotes(r.notes||''),notes:r.notes||'',source}}"
+          if old not in s: raise SystemExit('normMeal tail not found')
+          s=s.replace(old,new,1)
+
+          oldrow='<td>${r.bg.toFixed(1)}</td><td>1:${r.icr}</td>'
+          newrow='<td>${r.bg.toFixed(1)}</td><td>${esc(r.cgm_trend||\'Not recorded\')}</td><td>1:${r.icr}</td>'
+          if oldrow not in s: raise SystemExit('meal row marker not found')
+          s=s.replace(oldrow,newrow,1)
+          s=s.replace('<th>BG</th><th>ICR</th>','<th>BG</th><th>CGM trend</th><th>ICR</th>',1)
+          s=s.replace('<td>${esc(r.notes)}</td>','<td>${esc(cleanTrendNotes(r.notes))}</td>',1)
+          s=s.replace('table{width:100%;border-collapse:collapse;min-width:1220px}','table{width:100%;border-collapse:collapse;min-width:1320px}',1)
+
+          oldsave="async function saveMeal(e){e.preventDefault();const fg=$('fatGrams').value.trim(),ai=$('actualInsulin').value.trim(),r={client_id:uid(),timestamp:new Date().toISOString(),meal_name:$('mealName').value.trim(),meal_type:$('mealType').value,fat_level:$('fatLevel').value,fat_grams:fg===''?null:Number(fg),carbs:Number($('carbs').value),bg:Number($('bg').value),icr:Number($('icr').value||15),target:Number($('target').value||8),actual_insulin:ai===''?null:Number(ai),bolus_timing:$('bolusTiming').value,notes:$('notes').value.trim()};"
+          newsave="async function saveMeal(e){e.preventDefault();const fg=$('fatGrams').value.trim(),ai=$('actualInsulin').value.trim(),trend=$('cgmTrend').value,userNotes=$('notes').value.trim(),r={client_id:uid(),timestamp:new Date().toISOString(),meal_name:$('mealName').value.trim(),meal_type:$('mealType').value,fat_level:$('fatLevel').value,fat_grams:fg===''?null:Number(fg),carbs:Number($('carbs').value),bg:Number($('bg').value),cgm_trend:trend,icr:Number($('icr').value||15),target:Number($('target').value||8),actual_insulin:ai===''?null:Number(ai),bolus_timing:$('bolusTiming').value,notes:`[CGM trend: ${trend}]${userNotes?' | '+userNotes:''}`};"
+          if oldsave not in s: raise SystemExit('saveMeal marker not found')
+          s=s.replace(oldsave,newsave,1)
+          s=s.replace("$('bolusTiming').value='At first bite / eating time';$('fatLevel').disabled=false;","$('bolusTiming').value='At first bite / eating time';$('cgmTrend').value='';$('fatLevel').disabled=false;",1)
+
+          oldexp="const h=['timestamp','meal_description','meal_type','fat_level','fat_grams','carbs_g','starting_glucose_mmol_l','icr_denominator','calculated_meal_dose_u','actual_insulin_u','dose_difference_u','bolus_timing','target_glucose_mmol_l','notes']"
+          newexp="const h=['timestamp','meal_description','meal_type','fat_level','fat_grams','carbs_g','starting_glucose_mmol_l','cgm_trend','icr_denominator','calculated_meal_dose_u','actual_insulin_u','dose_difference_u','bolus_timing','target_glucose_mmol_l','notes']"
+          if oldexp not in s: raise SystemExit('export header marker not found')
+          s=s.replace(oldexp,newexp,1)
+          oldvals="r.fat_grams??'',r.carbs,r.bg,r.icr,r.calculated_dose"
+          newvals="r.fat_grams??'',r.carbs,r.bg,r.cgm_trend||trendFromNotes(r.notes),r.icr,r.calculated_dose"
+          if oldvals not in s: raise SystemExit('export row marker not found')
+          s=s.replace(oldvals,newvals,1)
+
+          version_marker='<section class="card"><h2>Version history</h2><div class="versionGrid">'
+          version='''<div class="versionItem"><strong>v2.5.0 - CGM trend capture / pre-bolus evidence</strong><ul><li>Added a required Dexcom CGM trend-arrow field beside the current glucose reading.</li><li>New meals now capture rising, stable or falling direction for later matched CGM analysis.</li><li>The trend is preserved in Supabase-compatible notes and exported as its own CSV column without requiring a database migration.</li><li>Bolus timing remains observation-only: the app does not yet recommend a specific number of minutes before eating.</li><li>Future 3-file reviews will use starting glucose + trend + meal type + carbs + fat + actual timing to build personalised pre-bolus evidence.</li></ul></div>'''
+          if version_marker not in s: raise SystemExit('version marker not found')
+          s=s.replace(version_marker,version_marker+version,1)
+          p.write_text(s)
+
+          ch=Path('CHANGELOG.md'); c=ch.read_text()
+          block='''\n## v2.5.0 - 4 Sep 2026\n- Added required CGM trend-arrow capture at meal logging: rapidly rising, rising, slightly rising, stable, slightly falling, falling or rapidly falling.\n- Trend is stored in a machine-readable notes tag for compatibility with the current Supabase schema and exported as a dedicated `cgm_trend` CSV column.\n- Added `PREBOLUS_EVIDENCE_PROTOCOL.md`.\n- Pre-bolus timing remains observation-only. No automated timing or correction advice is generated yet.\n- Future reviews will test whether timing should vary by starting glucose, trend arrow, meal type, carbohydrate, fat and later Dexcom response.\n- Rollback branch: `backup/v2.4.9-pre-v2.5.0`.\n'''
+          if '## v2.5.0 - 4 Sep 2026' not in c:c=c.replace('# Version History\n','# Version History\n'+block+'\n',1)
+          ch.write_text(c)
+
+          r=Path('README.md'); t=r.read_text(); t=re.sub(r'^# ICR Meal Dashboard v[^\n]+','# ICR Meal Dashboard v2.5.0',t,count=1)
+          note='''\n## v2.5.0 - CGM trend capture\nMeal logging now records the Dexcom trend arrow alongside current glucose. This starts the evidence-gathering phase for a future personalised pre-bolus timing assistant. The app continues to record the timing Darren actually used and does not yet prescribe a specific pre-bolus interval. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.\n'''
+          if '## v2.5.0 - CGM trend capture' not in t:t=t.split('\n',1)[0]+'\n'+note+'\n'+t.split('\n',1)[1]
+          r.write_text(t)
+
+          b=Path('PROJECT_BRAIN.md'); t=b.read_text(); t=t.replace('- Current production release: v2.4.9.','- Current production release: v2.5.0.',1)
+          add='''\n## Pre-bolus evidence phase\nFrom v2.5.0, every new meal can record the current Dexcom trend arrow. Continue treating `At first bite / eating time` as the usual observed timing unless Darren records something different. Do not infer a fixed pre-bolus formula yet. Future reviews should combine starting glucose, CGM trend, meal type, carbohydrate, fat, actual timing and later Dexcom response. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.\n'''
+          if '## Pre-bolus evidence phase' not in t:t += add
+          b.write_text(t)
+
+          proto=Path('CGM_ANALYSIS_PROTOCOL_v1.0.md'); t=proto.read_text()
+          add='''\n## Pre-bolus timing evidence\nFrom app v2.5.0 onward, include the recorded CGM trend arrow in suitable meal reviews. Analyse starting glucose and trend together with meal type, carbohydrate, fat and actual bolus timing. Do not convert a single social-media formula into a personalised timing rule. Build repeated clean evidence first, then flag any consistent earlier/meal-time/later pattern for discussion with the diabetes team.\n'''
+          if '## Pre-bolus timing evidence' not in t:t += add
+          proto.write_text(t)
+          PY
+      - name: Validate release
+        run: |
+          grep -q 'v2.5.0 LIVE' index.html
+          grep -q 'id="cgmTrend"' index.html
+          grep -q "'cgm_trend'" index.html
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(); js=s.split('<script>')[-1].rsplit('</script>',1)[0]; Path('/tmp/app.js').write_text(js)
+          PY
+          node --check /tmp/app.js
+      - name: Commit release
+        run: |
+          git config user.name "dsainsbury-dotcom"
+          git config user.email "dsainsbury@gmail.com"
+          git add index.html README.md CHANGELOG.md PROJECT_BRAIN.md CGM_ANALYSIS_PROTOCOL_v1.0.md PREBOLUS_EVIDENCE_PROTOCOL.md
+          git commit -m "Release v2.5.0 - add CGM trend capture" || exit 0
+          git push
