@@ -1,0 +1,26 @@
+name: Package v2.8.0 Recovery
+on:
+  push:
+    paths:
+      - '.github/workflows/package-v2.8.0-recovery.yml'
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build recovery folder
+        run: |
+          mkdir -p recovery/testinsulinapp
+          cp index.html restaurant_foods_v2.8.0.js README.md CHANGELOG.md PROJECT_BRAIN.md PROJECT_RULES.md BACKUP_AND_RECOVERY.md CGM_ANALYSIS_PROTOCOL_v1.0.md PREBOLUS_EVIDENCE_PROTOCOL.md SMART_FOOD_SYSTEM_v2.4.md SMART_MEAL_ASSISTANT_v2.4.3.md recovery/
+          cp testinsulinapp/index.html recovery/testinsulinapp/index.html
+          [ -f supabase_food_library_v2.4.1.sql ] && cp supabase_food_library_v2.4.1.sql recovery/ || true
+          [ -f beta/supabase_schema.sql ] && mkdir -p recovery/beta && cp beta/supabase_schema.sql recovery/beta/ || true
+          printf 'CGM App v2.8.0 recovery package\nProduction commit: %s\nCreated: 2026-09-05\n' "$GITHUB_SHA" > recovery/RECOVERY_VERSION.txt
+          cd recovery && zip -r ../CGM_App_v2.8.0_FULL_RECOVERY_2026-09-05.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CGM_App_v2.8.0_FULL_RECOVERY_2026-09-05
+          path: CGM_App_v2.8.0_FULL_RECOVERY_2026-09-05.zip
+          retention-days: 90
