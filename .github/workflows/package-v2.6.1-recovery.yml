@@ -1,0 +1,31 @@
+name: Package v2.6.1 Recovery
+on:
+  push:
+    branches:
+      - release/v2.6.1-final
+    paths:
+      - .github/workflows/package-v2.6.1-recovery.yml
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v2.6.1-final
+      - name: Build recovery package
+        run: |
+          mkdir -p recovery/CGM_App_v2.6.1
+          cp index.html README.md CHANGELOG.md PROJECT_BRAIN.md PROJECT_RULES.md BACKUP_AND_RECOVERY.md CGM_ANALYSIS_PROTOCOL_v1.0.md PREBOLUS_EVIDENCE_PROTOCOL.md SMART_FOOD_SYSTEM_v2.4.md SMART_MEAL_ASSISTANT_v2.4.3.md recovery/CGM_App_v2.6.1/ 2>/dev/null || true
+          cp supabase_food_library_v2.4.1.sql recovery/CGM_App_v2.6.1/ 2>/dev/null || true
+          mkdir -p recovery/CGM_App_v2.6.1/beta recovery/CGM_App_v2.6.1/reviews
+          cp beta/supabase_schema.sql recovery/CGM_App_v2.6.1/beta/ 2>/dev/null || true
+          cp reviews/*.md recovery/CGM_App_v2.6.1/reviews/ 2>/dev/null || true
+          printf 'CGM App v2.6.1 recovery package\nBuilt 2026-09-05\nProduction source: release/v2.6.1-final commit 79bdc4dab12c2e861e80921dcd82df981d805465\n' > recovery/CGM_App_v2.6.1/RECOVERY_MANIFEST.txt
+          cd recovery && zip -r CGM_App_v2.6.1_FULL_RECOVERY_2026-09-05.zip CGM_App_v2.6.1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CGM_App_v2.6.1_FULL_RECOVERY_2026-09-05
+          path: recovery/CGM_App_v2.6.1_FULL_RECOVERY_2026-09-05.zip
+          if-no-files-found: error
