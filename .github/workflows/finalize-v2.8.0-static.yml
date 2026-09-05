@@ -1,0 +1,31 @@
+name: Finalize v2.8.0 static restaurant baseline
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/finalize_v280_static.py'
+      - '.github/workflows/finalize-v2.8.0-static.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply verified static updates and checks
+        run: python tools/finalize_v280_static.py
+      - name: Commit verified v2.8.0 baseline
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0_verification.json
+          if git diff --cached --quiet; then
+            echo 'No data changes required.'
+          else
+            git commit -m 'Freeze verified v2.8.0 restaurant baseline'
+            git push
+          fi
