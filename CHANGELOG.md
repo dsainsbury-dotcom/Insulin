@@ -1,7 +1,9 @@
 # v2.8.0 - Expanded restaurant database + isolated demo
-- Expanded the restaurant database to 436 verified entries across Greggs, PizzaExpress and McDonald's UK.
-- Greggs values use the official August 2026 nutrition guide; PizzaExpress values use the official July 2026 nutrition menu.
+- Expanded the restaurant database to 438 verified entries across Greggs, PizzaExpress and McDonald's UK.
+- Greggs core values use the official nutrition guide, with 5 Sep 2026 product-page refreshes for changed/current items; PizzaExpress values use the official July 2026 nutrition menu.
 - McDonald's entries use the current UK menu with published nutrition references and are labelled CHECKED rather than pretending every macro was directly exposed by the official product-page renderer.
+- v2.8.0 restaurant data is frozen as a verified static baseline. McDonald's live scraping is not a release gate because repeated GitHub Actions requests timed out.
+- Added `restaurant_foods_v2.8.0_verification.json` with per-chain counts and release spot-checks.
 - Added source-date visibility and LIMITED badges in the restaurant browser.
 - Added a shareable /testinsulinapp/ playground. Demo mode uses separate local-only data and hides cloud sign-in, Nightscout, Live Intelligence and Darren-specific CGM Progress.
 - Demo ICR and target start blank and a warning says not to use the demo for insulin dosing decisions.

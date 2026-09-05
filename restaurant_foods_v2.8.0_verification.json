@@ -5,8 +5,8 @@
   "method": "verified static UK nutrition data; no live McDonalds scrape required",
   "counts": {
     "Greggs": 209,
-    "PizzaExpress": 140,
-    "McDonald's": 89
+    "McDonald's": 89,
+    "PizzaExpress": 140
   },
   "spotChecks": [
     {
