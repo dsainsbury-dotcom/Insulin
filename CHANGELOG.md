@@ -1,5 +1,11 @@
 # Version History
 
+
+## v2.6.1 - 5 Sep 2026
+- Collapsed Nightscout connection settings by default after setup, with a manual Connection settings toggle.
+- Added favourite search, recently-used ordering, top-six quick view, Show all favourites, and a persistent Hide favourites control.
+- No changes to Live CGM Intelligence, Nightscout analysis, insulin calculations, or clinical logic.
+
 ## v2.5.0 - 4 Sep 2026
 - Added required CGM trend-arrow capture at meal logging: rapidly rising, rising, slightly rising, stable, slightly falling, falling or rapidly falling.
 - Trend is stored in a machine-readable notes tag for compatibility with the current Supabase schema and exported as a dedicated `cgm_trend` CSV column.

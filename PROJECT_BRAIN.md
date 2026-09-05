@@ -133,3 +133,8 @@ From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue 
 - Pattern, ICR and low/high panels are evidence summaries only, not dosing recommendations.
 - Sensor faults, overlapping meals, alcohol, exercise and other confounders remain review exclusions.
 - Browser closure does not prevent later outcome reconstruction because Nightscout retains history.
+
+### v2.6.1 usability update
+- Nightscout connection settings are collapsed during normal use once configured.
+- Favourite foods have a compact mobile workflow: recently used first, quick search, top-six default, optional full expansion, and a persistent hide/show control.
+- v2.6.1 is UI-only. Live CGM intelligence and clinical analysis logic are unchanged.
