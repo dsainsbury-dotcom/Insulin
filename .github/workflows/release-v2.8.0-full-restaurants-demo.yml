@@ -1,0 +1,87 @@
+name: Release v2.8.0 Full Restaurant Database and Demo
+on:
+  push:
+    paths:
+      - '.github/workflows/release-v2.8.0-full-restaurants-demo.yml'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch v2.8.0
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('ICR Meal Dashboard v2.7.1','ICR Meal Dashboard v2.8.0')
+          s=s.replace('restaurant_foods_v2.7.0.js','restaurant_foods_v2.8.0.js')
+          s=s.replace('v2.7.1</small>','v2.8.0</small>')
+          s=s.replace('v2.7.1 LIVE','v2.8.0 LIVE')
+          s=s.replace('<body><div class="shell">','<body><div class="shell"><div id="demoBanner" class="notice warn hidden" style="margin-bottom:12px"><strong>DEMO / PLAYGROUND</strong> - local test data only. Do not use this demo copy to make insulin dosing decisions. Nothing entered here is added to Darren\'s cloud data.</div>')
+          s=s.replace('<section class="card"><h2>Cloud</h2>','<section id="cloudCard" class="card"><h2>Cloud</h2>')
+          s=s.replace('<section class="card"><div class="liveCgmHero">','<section id="nightscoutCard" class="card"><div class="liveCgmHero">')
+          s=s.replace('Choose a restaurant, then tap the item you ate. Portion nutrition is copied straight into your meal.','Choose a restaurant and add everything you are having to the meal basket. The full carbohydrate total is calculated before insulin rounding is applied once.')
+          s=s.replace('<div id="restaurantCats" class="restaurantCats"></div>','<div id="restaurantFreshness" class="sectionNote" style="margin-top:10px"></div><div id="restaurantCats" class="restaurantCats"></div>')
+          s=s.replace("const SUPABASE_URL='https://qladmrgdjkdouspmvhff.supabase.co',SUPABASE_KEY='sb_publishable_cJC9_tLx-MUqQ3-8c1LkSQ_zWzl3b9c';\nconst MEAL_QUEUE='icrMealDashboard_v1',FOOD_QUEUE='icrFoodQueue_v241',FOOD_CACHE='icrFoodCache_v241',LEGACY_FOOD='icrSmartFoodLibrary_v24',LEGACY_MIGRATED='icrLegacyFoodMigrated_v242';",
+          "const DEMO_MODE=new URLSearchParams(location.search).get('demo')==='1';\nconst SUPABASE_URL='https://qladmrgdjkdouspmvhff.supabase.co',SUPABASE_KEY='sb_publishable_cJC9_tLx-MUqQ3-8c1LkSQ_zWzl3b9c';\nconst KEY_PREFIX=DEMO_MODE?'demo_':'';\nconst MEAL_QUEUE=KEY_PREFIX+'icrMealDashboard_v1',FOOD_QUEUE=KEY_PREFIX+'icrFoodQueue_v241',FOOD_CACHE=KEY_PREFIX+'icrFoodCache_v241',LEGACY_FOOD=KEY_PREFIX+'icrSmartFoodLibrary_v24',LEGACY_MIGRATED=KEY_PREFIX+'icrLegacyFoodMigrated_v242';")
+          s=s.replace("let sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}})","let sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:!DEMO_MODE,autoRefreshToken:!DEMO_MODE,detectSessionInUrl:!DEMO_MODE}})")
+          s=s.replace("function nightscoutConfig(){return{url:(localStorage.getItem(NIGHTSCOUT_URL_KEY)||'').trim().replace(/\\/$/,''),token:(localStorage.getItem(NIGHTSCOUT_TOKEN_KEY)||'').trim()}}","function nightscoutConfig(){if(DEMO_MODE)return{url:'',token:''};return{url:(localStorage.getItem(NIGHTSCOUT_URL_KEY)||'').trim().replace(/\\/$/,''),token:(localStorage.getItem(NIGHTSCOUT_TOKEN_KEY)||'').trim()}}")
+          s=s.replace("function restaurantFoods(){return Array.isArray(window.RESTAURANT_FOODS_V270)?window.RESTAURANT_FOODS_V270:[]}","function restaurantFoods(){return Array.isArray(window.RESTAURANT_FOODS_V280)?window.RESTAURANT_FOODS_V280:[]}")
+          old="function renderRestaurantBrowser(){const all=restaurantFoods(),restaurants=[...new Set(all.map(x=>x.restaurant))];if(!restaurants.includes(restaurantSelected))restaurantSelected=restaurants[0]||'';$('restaurantChains').innerHTML=restaurants.map(r=>{const n=all.filter(x=>x.restaurant===r).length;return `<button class=\"restaurantChain ${r===restaurantSelected?'active':''}\" data-r=\"${esc(r)}\" type=\"button\"><strong>${esc(r)}</strong><span>${n} menu item${n===1?'':'s'}</span></button>`}).join('');document.querySelectorAll('.restaurantChain').forEach(b=>b.onclick=()=>{restaurantSelected=b.dataset.r;restaurantCategory='All';$('restaurantSearch').value='';renderRestaurantBrowser()});const base=all.filter(x=>x.restaurant===restaurantSelected),cats=['All',...new Set(base.map(x=>x.category))];if(!cats.includes(restaurantCategory))restaurantCategory='All';$('restaurantCats').innerHTML=cats.map(c=>`<button class=\"restaurantCat ${c===restaurantCategory?'active':''}\" data-c=\"${esc(c)}\" type=\"button\">${esc(c)}</button>`).join('');document.querySelectorAll('.restaurantCat').forEach(b=>b.onclick=()=>{restaurantCategory=b.dataset.c;renderRestaurantResults()});renderRestaurantResults()}"
+          new="function renderRestaurantBrowser(){const all=restaurantFoods(),restaurants=[...new Set(all.map(x=>x.restaurant))];if(!restaurants.includes(restaurantSelected))restaurantSelected=restaurants[0]||'';$('restaurantChains').innerHTML=restaurants.map(r=>{const n=all.filter(x=>x.restaurant===r).length;return `<button class=\"restaurantChain ${r===restaurantSelected?'active':''}\" data-r=\"${esc(r)}\" type=\"button\"><strong>${esc(r)}</strong><span>${n} menu item${n===1?'':'s'}</span></button>`}).join('');document.querySelectorAll('.restaurantChain').forEach(b=>b.onclick=()=>{restaurantSelected=b.dataset.r;restaurantCategory='All';$('restaurantSearch').value='';renderRestaurantBrowser()});const base=all.filter(x=>x.restaurant===restaurantSelected),dates=[...new Set(base.map(x=>x.sourceDate).filter(Boolean))];$('restaurantFreshness').textContent=`${base.length} verified menu entries · source date${dates.length===1?'':'s'}: ${dates.join(', ')}`;const cats=['All',...new Set(base.map(x=>x.category))];if(!cats.includes(restaurantCategory))restaurantCategory='All';$('restaurantCats').innerHTML=cats.map(c=>`<button class=\"restaurantCat ${c===restaurantCategory?'active':''}\" data-c=\"${esc(c)}\" type=\"button\">${esc(c)}</button>`).join('');document.querySelectorAll('.restaurantCat').forEach(b=>b.onclick=()=>{restaurantCategory=b.dataset.c;renderRestaurantResults()});renderRestaurantResults()}"
+          if old not in s: raise SystemExit('renderRestaurantBrowser marker missing')
+          s=s.replace(old,new)
+          s=s.replace("<span class=\"pill\">${x.evidence==='official'?'OFFICIAL':'CHECKED'}</span>","<span class=\"pill\">${x.status==='limited'?'LIMITED':(x.evidence==='official'?'OFFICIAL':'CHECKED')}</span>")
+          # Demo mode early-return inside init before any auth/Nightscout data is read.
+          marker="async function init(){offlineState();renderFoodLibraryCollapse();"
+          demo="async function init(){if(DEMO_MODE){offlineState();renderFoodLibraryCollapse();$('demoBanner').classList.remove('hidden');$('cloudCard').classList.add('hidden');$('nightscoutCard').classList.add('hidden');document.querySelectorAll('.viewBtn').forEach(b=>{if(b.dataset.view!=='tracker')b.classList.add('hidden')});$('intelligence').classList.add('hidden');$('progress').classList.add('hidden');$('icr').value='';$('target').value='';session=null;cloudRows=[];foodCloudReady=false;foodRows=read(FOOD_CACHE).map(normalizeFood);renderMeals();renderLibrary();updateDose();updateQueueUI();return;}offlineState();renderFoodLibraryCollapse();"
+          if marker not in s: raise SystemExit('init marker missing')
+          s=s.replace(marker,demo)
+          s=s.replace("$('icr').value=15;$('target').value=8;","$('icr').value=DEMO_MODE?'':15;$('target').value=DEMO_MODE?'':8;")
+          # Add version history card before prior v2.6.2 card.
+          vh='<div class="versionGrid"><div class="versionItem"><strong>v2.6.2 - Collapsible food library</strong>'
+          vnew='<div class="versionGrid"><div class="versionItem"><strong>v2.8.0 - Expanded restaurant database + safe demo</strong><ul><li>Expanded restaurant nutrition to 436 verified entries across Greggs, PizzaExpress and McDonald\'s UK.</li><li>Restaurant cards now show source freshness and limited-menu flags.</li><li>Added an isolated local-only demo mode for sharing the Meal Tracker and restaurant builder without Darren\'s cloud, Nightscout or CGM Progress data.</li><li>Restaurant meal basket and one-time insulin rounding remain unchanged.</li></ul></div><div class="versionItem"><strong>v2.6.2 - Collapsible food library</strong>'
+          if vh not in s: raise SystemExit('version history marker missing')
+          s=s.replace(vh,vnew)
+          p.write_text(s)
+          # Demo wrapper keeps the shareable /testinsulinapp/ URL visible while loading demo mode.
+          d=Path('testinsulinapp'); d.mkdir(exist_ok=True)
+          (d/'index.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Insulin App Demo</title><style>html,body,iframe{margin:0;width:100%;height:100%;border:0}body{overflow:hidden}</style></head><body><iframe src="../?demo=1" title="Insulin App Demo" allow="camera"></iframe></body></html>''')
+          # Docs
+          c=Path('CHANGELOG.md')
+          c.write_text("# v2.8.0 - Expanded restaurant database + isolated demo\n- Expanded the restaurant database to 436 verified entries across Greggs, PizzaExpress and McDonald's UK.\n- Greggs values use the official August 2026 nutrition guide; PizzaExpress values use the official July 2026 nutrition menu.\n- McDonald's entries use the current UK menu with published nutrition references and are labelled CHECKED rather than pretending every macro was directly exposed by the official product-page renderer.\n- Added source-date visibility and LIMITED badges in the restaurant browser.\n- Added a shareable /testinsulinapp/ playground. Demo mode uses separate local-only data and hides cloud sign-in, Nightscout, Live Intelligence and Darren-specific CGM Progress.\n- Demo ICR and target start blank and a warning says not to use the demo for insulin dosing decisions.\n- Restaurant meal basket still totals carbohydrates first and rounds the existing meal dose once.\n- No change to production ICR, Nightscout, correction-dose logic or CGM intelligence.\n\n"+c.read_text())
+          r=Path('README.md')
+          r.write_text(r.read_text()+"\n\n## v2.8.0 restaurant database and demo\nThe Restaurant Food browser now uses a versioned 436-entry UK dataset for Greggs, PizzaExpress and McDonald's. Nutrition source dates are retained on each item. A separate `/testinsulinapp/` playground loads the current app in isolated demo mode with separate local storage and without production cloud/Nightscout access.\n")
+          b=Path('PROJECT_BRAIN.md')
+          b.write_text(b.read_text()+"\n\n## v2.8.0 - Restaurant database and public demo\n- Restaurant dataset: `restaurant_foods_v2.8.0.js`, 436 entries.\n- Greggs official nutrition guide source date: August 2026.\n- PizzaExpress official nutritional menu source date: July 2026.\n- McDonald's current UK menu is cross-checked against published nutrition references; these entries use CHECKED provenance where direct official macro rendering was unavailable.\n- Limited items carry `status: limited`.\n- `/testinsulinapp/` is the permanent shareable playground wrapper and invokes `?demo=1`.\n- Demo mode uses prefixed local-storage keys, never reads Nightscout credentials, skips Supabase auth/session reads, hides Darren-specific CGM intelligence/progress, and starts ICR/target blank.\n- Production remains the source of truth and demo changes never sync into Darren's data.\n")
+          PY
+      - name: Validate restaurant data and JavaScript
+        shell: bash
+        run: |
+          node --check restaurant_foods_v2.8.0.js
+          python - <<'PY'
+          import re, json
+          s=open('index.html').read()
+          scripts=re.findall(r'<script>(.*?)</script>',s,re.S)
+          open('/tmp/app.js','w').write(scripts[-1])
+          data=open('restaurant_foods_v2.8.0.js').read()
+          payload=data.split('=',1)[1].strip().rstrip(';')
+          rows=json.loads(payload)
+          assert len(rows)==436, len(rows)
+          assert set(x['restaurant'] for x in rows)=={'Greggs','PizzaExpress',"McDonald's"}
+          assert all(isinstance(x['carbs'],(int,float)) and x['carbs']>=0 for x in rows)
+          print('Restaurant entries:',len(rows))
+          PY
+          node --check /tmp/app.js
+      - name: Commit release
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html testinsulinapp/index.html CHANGELOG.md README.md PROJECT_BRAIN.md restaurant_foods_v2.8.0.js
+          git commit -m "Release v2.8.0 expanded restaurants and demo"
+          git push
