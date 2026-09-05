@@ -1,3 +1,9 @@
+## v2.6.2 - Collapsible food library
+- Collapsed the full My food library section by default to reduce page length on mobile.
+- Added a Show library / Hide library control and tappable section header.
+- The library open/closed state is remembered on the current device.
+- Favourite quick access remains separate and unchanged.
+
 # Version History
 
 
