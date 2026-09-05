@@ -1,0 +1,33 @@
+name: Build v2.8.0 verified restaurant data
+on:
+  push:
+    branches: [release/v2.8.0-full-menus]
+    paths:
+      - 'tools/build_restaurant_database.py'
+      - '.github/workflows/build-v2.8.0-menu-data.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pdfplumber
+      - run: python tools/build_restaurant_database.py
+      - run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('restaurant_foods_v2.8.0.json'))
+          print(d['counts'])
+          print('Total verified rows:',len(d['items']))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: restaurant-foods-v2.8.0-verified
+          path: |
+            restaurant_foods_v2.8.0.js
+            restaurant_foods_v2.8.0.json
