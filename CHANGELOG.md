@@ -1,3 +1,13 @@
+# v2.8.0 - Expanded restaurant database + isolated demo
+- Expanded the restaurant database to 436 verified entries across Greggs, PizzaExpress and McDonald's UK.
+- Greggs values use the official August 2026 nutrition guide; PizzaExpress values use the official July 2026 nutrition menu.
+- McDonald's entries use the current UK menu with published nutrition references and are labelled CHECKED rather than pretending every macro was directly exposed by the official product-page renderer.
+- Added source-date visibility and LIMITED badges in the restaurant browser.
+- Added a shareable /testinsulinapp/ playground. Demo mode uses separate local-only data and hides cloud sign-in, Nightscout, Live Intelligence and Darren-specific CGM Progress.
+- Demo ICR and target start blank and a warning says not to use the demo for insulin dosing decisions.
+- Restaurant meal basket still totals carbohydrates first and rounds the existing meal dose once.
+- No change to production ICR, Nightscout, correction-dose logic or CGM intelligence.
+
 # v2.7.1 - Restaurant Meal Builder
 - Added a restaurant meal basket so multiple menu items can be combined into one meal.
 - Added quantity controls, remove, clear and running nutrition totals.

@@ -151,3 +151,7 @@ The full My food library section is now collapsible and defaults closed for a cl
 
 ## Restaurant Foods (v2.7.0)
 Smart Food now includes a separate UK restaurant browser. The starter database covers Greggs, PizzaExpress and McDonald's. Choose a chain, filter/search the menu and use an item to prefill the meal description, carbohydrate, fat and meal type. Restaurant records keep source and source-date metadata and remain separate from the personal cloud food library. Add future chains by extending `restaurant_foods_v2.7.0.js`.
+
+
+## v2.8.0 restaurant database and demo
+The Restaurant Food browser now uses a versioned 436-entry UK dataset for Greggs, PizzaExpress and McDonald's. Nutrition source dates are retained on each item. A separate `/testinsulinapp/` playground loads the current app in isolated demo mode with separate local storage and without production cloud/Nightscout access.

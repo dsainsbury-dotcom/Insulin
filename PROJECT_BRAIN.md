@@ -151,3 +151,14 @@ The full food library is collapsed by default and can be expanded on demand. Its
 - Every restaurant item records portion nutrition plus provenance/source date.
 - New chains should be added to the versioned restaurant dataset and surfaced automatically by the existing browser.
 - Using an item fills meal name, carbs, fat and meal type, while the user still confirms the actual meal and insulin details.
+
+
+## v2.8.0 - Restaurant database and public demo
+- Restaurant dataset: `restaurant_foods_v2.8.0.js`, 436 entries.
+- Greggs official nutrition guide source date: August 2026.
+- PizzaExpress official nutritional menu source date: July 2026.
+- McDonald's current UK menu is cross-checked against published nutrition references; these entries use CHECKED provenance where direct official macro rendering was unavailable.
+- Limited items carry `status: limited`.
+- `/testinsulinapp/` is the permanent shareable playground wrapper and invokes `?demo=1`.
+- Demo mode uses prefixed local-storage keys, never reads Nightscout credentials, skips Supabase auth/session reads, hides Darren-specific CGM intelligence/progress, and starts ICR/target blank.
+- Production remains the source of truth and demo changes never sync into Darren's data.
