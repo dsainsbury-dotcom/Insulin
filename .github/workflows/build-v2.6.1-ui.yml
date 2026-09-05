@@ -1,0 +1,118 @@
+name: Build v2.6.1 UI
+on:
+  push:
+    branches:
+      - release/v2.6.1-final
+    paths:
+      - .github/workflows/build-v2.6.1-ui.yml
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v2.6.1-final
+      - name: Patch v2.6.1
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('<title>ICR Meal Dashboard v2.6.0</title>','<title>ICR Meal Dashboard v2.6.1</title>')
+          s=s.replace('<small style="font-size:.48em;color:#0b5cab">v2.6.0</small>','<small style="font-size:.48em;color:#0b5cab">v2.6.1</small>')
+          s=s.replace('<div class="badge">v2.6.0 LIVE</div>','<div class="badge">v2.6.1 LIVE</div>')
+
+          old_css='.favQuickItem strong{display:block}.favQuickItem button{margin-top:8px;width:100%}.filterBtns{display:flex;gap:7px;flex-wrap:wrap}'
+          new_css='.favQuickItem strong{display:block}.favQuickItem button{margin-top:8px;width:100%}.favQuickControls{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin-top:10px}.favQuickControls>div{min-width:180px;flex:1}.favQuickToggle{white-space:nowrap}.settingsToggleRow{margin-top:10px}.settingsToggleRow button{width:100%}.filterBtns{display:flex;gap:7px;flex-wrap:wrap}'
+          assert old_css in s
+          s=s.replace(old_css,new_css,1)
+
+          old_fav='<div id="favouriteQuick" class="favQuick hidden"><div class="reviewHead"><div><strong>Favourite foods</strong><div class="sectionNote">One-tap access to foods you use often.</div></div><span id="favouriteCount" class="pill">0 favourites</span></div><div id="favouriteQuickGrid" class="favQuickGrid"></div></div>'
+          new_fav='<div id="favouriteQuick" class="favQuick hidden"><div class="reviewHead"><div><strong>Favourite foods</strong><div class="sectionNote">Quick access to your most recently used favourites.</div></div><span id="favouriteCount" class="pill">0 favourites</span></div><div class="favQuickControls"><div><label for="favouriteSearch">Search favourites</label><input id="favouriteSearch" placeholder="Find a favourite"></div><button id="toggleFavouritePanel" class="secondary favQuickToggle" type="button">Hide favourites</button></div><div id="favouriteQuickBody"><div id="favouriteQuickGrid" class="favQuickGrid"></div><div class="actions"><button id="showAllQuickFavourites" class="secondary" type="button">Show all favourites</button></div></div></div>'
+          assert old_fav in s
+          s=s.replace(old_fav,new_fav,1)
+
+          old_ns='<div class="actions"><button id="useLiveCgm" class="primary" type="button" disabled>Use live reading</button><button id="refreshLiveCgm" class="secondary" type="button">Refresh now</button></div><div class="liveCgmSettings"><div class="grid"><div><label>Nightscout site URL</label><input id="nightscoutUrl" type="url" placeholder="https://your-site.example.com"></div><div><label>Read-only Nightscout token</label><input id="nightscoutToken" type="password" autocomplete="off" placeholder="subject-xxxxxxxxxxxxxxxx"></div></div><div class="actions"><button id="saveNightscout" class="secondary" type="button">Save connection on this device</button><button id="forgetNightscout" class="danger" type="button">Forget token</button></div><div class="hint">The token is stored only in this browser on this device. It is not saved to Supabase and is not included in GitHub. Use a Nightscout subject with the readable role, never your API_SECRET.</div></div>'
+          new_ns='<div class="actions"><button id="useLiveCgm" class="primary" type="button" disabled>Use live reading</button><button id="refreshLiveCgm" class="secondary" type="button">Refresh now</button></div><div class="settingsToggleRow"><button id="toggleNightscoutSettings" class="secondary" type="button" aria-expanded="false">Connection settings</button></div><div id="nightscoutSettings" class="liveCgmSettings hidden"><div class="grid"><div><label>Nightscout site URL</label><input id="nightscoutUrl" type="url" placeholder="https://your-site.example.com"></div><div><label>Read-only Nightscout token</label><input id="nightscoutToken" type="password" autocomplete="off" placeholder="subject-xxxxxxxxxxxxxxxx"></div></div><div class="actions"><button id="saveNightscout" class="secondary" type="button">Save connection on this device</button><button id="forgetNightscout" class="danger" type="button">Forget token</button></div><div class="hint">The token is stored only in this browser on this device. It is not saved to Supabase and is not included in GitHub. Use a Nightscout subject with the readable role, never your API_SECRET.</div></div>'
+          assert old_ns in s
+          s=s.replace(old_ns,new_ns,1)
+
+          old_vars="let sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}),session=null,cloudRows=[],foodRows=[],foodCloudReady=false,actualEdited=false,scanner=null,currentSmart=null,syncBusy=false,foodFilter='all',latestCgm=null,cgmHistory=[],cgmChart=null,intelligenceOutcomes=[],intelligenceHours=24;"
+          new_vars="let sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}),session=null,cloudRows=[],foodRows=[],foodCloudReady=false,actualEdited=false,scanner=null,currentSmart=null,syncBusy=false,foodFilter='all',favouriteExpanded=false,favouritePanelOpen=localStorage.getItem('icrFavouritePanelOpen_v261')!=='0',latestCgm=null,cgmHistory=[],cgmChart=null,intelligenceOutcomes=[],intelligenceHours=24;"
+          assert old_vars in s
+          s=s.replace(old_vars,new_vars,1)
+
+          old_render="function renderFavouriteQuick(){const base=(foodRows.length?foodRows:read(FOOD_CACHE).map(normalizeFood)).filter(f=>!f.hidden&&f.favourite);$('favouriteCount').textContent=base.length+' favourite'+(base.length===1?'':'s');$('favouriteQuick').classList.toggle('hidden',base.length===0);$('favouriteQuickGrid').innerHTML=base.slice(0,6).map((f,i)=>`<div class=\"favQuickItem\"><strong>★ ${esc(f.name)}</strong><div class=\"foodMeta\">${f.usual_portion_g?'Usual portion '+Number(f.usual_portion_g).toFixed(0)+' g | ':''}Used ${f.use_count||0} time(s)</div><button class=\"primary favQuickUse\" data-i=\"${i}\" type=\"button\">Use</button></div>`).join('');document.querySelectorAll('.favQuickUse').forEach(b=>b.onclick=()=>openSavedFood(base[Number(b.dataset.i)]))}"
+          new_render="function renderFavouriteQuick(){let base=(foodRows.length?foodRows:read(FOOD_CACHE).map(normalizeFood)).filter(f=>!f.hidden&&f.favourite);base.sort((a,b)=>(new Date(b.last_used_at||0)-new Date(a.last_used_at||0))||((b.use_count||0)-(a.use_count||0))||a.name.localeCompare(b.name));$('favouriteCount').textContent=base.length+' favourite'+(base.length===1?'':'s');$('favouriteQuick').classList.toggle('hidden',base.length===0);if(!base.length)return;const term=($('favouriteSearch')?.value||'').trim().toLowerCase();let shown=term?base.filter(f=>(f.name+' '+f.brand).toLowerCase().includes(term)):base;const visible=favouriteExpanded||term?shown:shown.slice(0,6);$('favouriteQuickGrid').innerHTML=visible.map((f,i)=>`<div class=\"favQuickItem\"><strong>★ ${esc(f.name)}</strong><div class=\"foodMeta\">${f.usual_portion_g?'Usual portion '+Number(f.usual_portion_g).toFixed(0)+' g | ':''}Used ${f.use_count||0} time(s)</div><button class=\"primary favQuickUse\" data-i=\"${i}\" type=\"button\">Use</button></div>`).join('')||'<div class=\"sectionNote\">No matching favourites.</div>';document.querySelectorAll('.favQuickUse').forEach(b=>b.onclick=()=>openSavedFood(visible[Number(b.dataset.i)]));$('favouriteQuickBody').classList.toggle('hidden',!favouritePanelOpen);$('toggleFavouritePanel').textContent=favouritePanelOpen?'Hide favourites':'Show favourites';$('showAllQuickFavourites').classList.toggle('hidden',shown.length<=6||!!term);$('showAllQuickFavourites').textContent=favouriteExpanded?'Show top 6':'Show all favourites'}"
+          assert old_render in s
+          s=s.replace(old_render,new_render,1)
+
+          marker="function mmolFromSgv(sgv){return Number(sgv)/18}"
+          add="function setNightscoutSettings(open){$('nightscoutSettings').classList.toggle('hidden',!open);$('toggleNightscoutSettings').setAttribute('aria-expanded',String(open));$('toggleNightscoutSettings').textContent=open?'Hide connection settings':'Connection settings'}\n"+marker
+          assert marker in s
+          s=s.replace(marker,add,1)
+
+          old_init="async function init(){offlineState();$('email').value=localStorage.getItem('icrCloudEmail')||'';const ns=nightscoutConfig();$('nightscoutUrl').value=ns.url;$('nightscoutToken').value=ns.token;renderLiveCgm();if(ns.url&&ns.token)await refreshLiveCgm(true);session=(await sb.auth.getSession()).data.session||null;"
+          new_init="async function init(){offlineState();$('email').value=localStorage.getItem('icrCloudEmail')||'';const ns=nightscoutConfig();$('nightscoutUrl').value=ns.url;$('nightscoutToken').value=ns.token;setNightscoutSettings(!(ns.url&&ns.token));renderLiveCgm();if(ns.url&&ns.token)await refreshLiveCgm(true);session=(await sb.auth.getSession()).data.session||null;"
+          assert old_init in s
+          s=s.replace(old_init,new_init,1)
+
+          old_events="$('barcodeMode').onclick=()=>smartMode('barcode');$('labelMode').onclick=()=>smartMode('label');$('manualMode').onclick=()=>smartMode('manual');$('lookupBarcode').onclick=()=>lookupBarcode();$('startScanner').onclick=startScanner;$('stopScanner').onclick=stopScanner;$('runOcr').onclick=runOcr;$('portionMode').onchange=calcPortion;['portionWeight','portionServings','servingWeight','smartCarbs100','smartFat100','smartProtein100'].forEach(id=>$(id).addEventListener('input',calcPortion));$('useSmartFood').onclick=useSmartFood;$('closeSmart').onclick=()=>{$('smartPanel').classList.add('hidden');stopScanner()};$('foodSearch').addEventListener('input',renderLibrary);$('showAllFoods').onclick=()=>{foodFilter='all';renderLibrary()};$('showFavouriteFoods').onclick=()=>{foodFilter='favourites';renderLibrary()};"
+          new_events="$('barcodeMode').onclick=()=>smartMode('barcode');$('labelMode').onclick=()=>smartMode('label');$('manualMode').onclick=()=>smartMode('manual');$('lookupBarcode').onclick=()=>lookupBarcode();$('startScanner').onclick=startScanner;$('stopScanner').onclick=stopScanner;$('runOcr').onclick=runOcr;$('portionMode').onchange=calcPortion;['portionWeight','portionServings','servingWeight','smartCarbs100','smartFat100','smartProtein100'].forEach(id=>$(id).addEventListener('input',calcPortion));$('useSmartFood').onclick=useSmartFood;$('closeSmart').onclick=()=>{$('smartPanel').classList.add('hidden');stopScanner()};$('foodSearch').addEventListener('input',renderLibrary);$('favouriteSearch').addEventListener('input',renderFavouriteQuick);$('toggleFavouritePanel').onclick=()=>{favouritePanelOpen=!favouritePanelOpen;localStorage.setItem('icrFavouritePanelOpen_v261',favouritePanelOpen?'1':'0');renderFavouriteQuick()};$('showAllQuickFavourites').onclick=()=>{favouriteExpanded=!favouriteExpanded;renderFavouriteQuick()};$('showAllFoods').onclick=()=>{foodFilter='all';renderLibrary()};$('showFavouriteFoods').onclick=()=>{foodFilter='favourites';renderLibrary()};"
+          assert old_events in s
+          s=s.replace(old_events,new_events,1)
+
+          old_ns_events="$('saveNightscout').onclick=saveNightscoutConfig;$('forgetNightscout').onclick=forgetNightscoutConfig;$('refreshLiveCgm').onclick=()=>refreshLiveCgm(true);$('useLiveCgm').onclick=()=>{if(fillFromLive(true))setNotice('Live Nightscout glucose and trend copied into this meal.','good')};"
+          new_ns_events="$('toggleNightscoutSettings').onclick=()=>setNightscoutSettings($('nightscoutSettings').classList.contains('hidden'));$('saveNightscout').onclick=saveNightscoutConfig;$('forgetNightscout').onclick=forgetNightscoutConfig;$('refreshLiveCgm').onclick=()=>refreshLiveCgm(true);$('useLiveCgm').onclick=()=>{if(fillFromLive(true))setNotice('Live Nightscout glucose and trend copied into this meal.','good')};"
+          assert old_ns_events in s
+          s=s.replace(old_ns_events,new_ns_events,1)
+
+          hist='<section class="card"><h2>Version history</h2><div class="versionGrid">'
+          hist_new=hist+'<div class="versionItem"><strong>v2.6.1 - Mobile usability tidy-up</strong><ul><li>Nightscout connection settings now collapse automatically once a working connection is saved.</li><li>Added a Connection settings toggle so the URL and read-only token stay out of the way during normal use.</li><li>Favourite foods now prioritise recently used items, support direct favourite search, and can expand from the quick top six to the full list.</li><li>Added a persistent Hide favourites control to reduce vertical scrolling on phones.</li></ul></div>'
+          assert hist in s
+          s=s.replace(hist,hist_new,1)
+
+          p.write_text(s)
+
+          ch=Path('CHANGELOG.md')
+          c=ch.read_text()
+          entry='''\n## v2.6.1 - 5 Sep 2026\n- Collapsed Nightscout connection settings by default after setup, with a manual Connection settings toggle.\n- Added favourite search, recently-used ordering, top-six quick view, Show all favourites, and a persistent Hide favourites control.\n- No changes to Live CGM Intelligence, Nightscout analysis, insulin calculations, or clinical logic.\n'''
+          if '## v2.6.1 - 5 Sep 2026' not in c:
+              if c.startswith('#'):
+                  lines=c.splitlines(True); idx=1
+                  while idx<len(lines) and not lines[idx].strip(): idx+=1
+                  c=''.join(lines[:idx])+entry+'\n'+''.join(lines[idx:])
+              else: c=entry+'\n'+c
+              ch.write_text(c)
+
+          brain=Path('PROJECT_BRAIN.md')
+          b=brain.read_text()
+          note='''\n### v2.6.1 usability update\n- Nightscout connection settings are collapsed during normal use once configured.\n- Favourite foods have a compact mobile workflow: recently used first, quick search, top-six default, optional full expansion, and a persistent hide/show control.\n- v2.6.1 is UI-only. Live CGM intelligence and clinical analysis logic are unchanged.\n'''
+          if '### v2.6.1 usability update' not in b:
+              brain.write_text(b.rstrip()+"\n"+note)
+          PY
+      - name: Validate JavaScript syntax
+        run: |
+          python - <<'PY'
+          import re, pathlib
+          s=pathlib.Path('index.html').read_text()
+          scripts=re.findall(r'<script>(.*?)</script>',s,re.S)
+          pathlib.Path('/tmp/app.js').write_text('\n'.join(scripts))
+          PY
+          node --check /tmp/app.js
+      - name: Verify release markers
+        run: |
+          grep -q 'v2.6.1 LIVE' index.html
+          grep -q 'toggleNightscoutSettings' index.html
+          grep -q 'favouriteSearch' index.html
+          grep -q 'showAllQuickFavourites' index.html
+      - name: Commit build
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html CHANGELOG.md PROJECT_BRAIN.md
+          git commit -m 'Release v2.6.1 mobile usability update'
+          git push origin HEAD:release/v2.6.1-final
