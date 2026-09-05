@@ -1,0 +1,73 @@
+name: Release v2.6.2 Collapsible Food Library
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/release-v2.6.2-library-collapse.yml']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply v2.6.2 UI changes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('<title>ICR Meal Dashboard v2.6.1</title>','<title>ICR Meal Dashboard v2.6.2</title>',1)
+          s=s.replace('<small style="font-size:.48em;color:#0b5cab">v2.6.1</small>','<small style="font-size:.48em;color:#0b5cab">v2.6.2</small>',1)
+          s=s.replace('<div class="badge">v2.6.1 LIVE</div>','<div class="badge">v2.6.2 LIVE</div>',1)
+          css_old='.settingsToggleRow{margin-top:10px}.settingsToggleRow button{width:100%}'
+          css_new=css_old+'.libraryCollapse{margin-top:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.libraryCollapseHead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 13px;cursor:pointer}.libraryCollapseHead h3{margin:0}.libraryCollapseBody{padding:0 13px 13px}.libraryCollapseToggle{white-space:nowrap}'
+          if css_old not in s: raise SystemExit('CSS marker not found')
+          s=s.replace(css_old,css_new,1)
+          old='<div style="margin-top:14px"><div class="libraryTools"><div><h3 style="margin:0">My food library</h3><div class="sectionNote">Cloud-backed when signed in. Favourites appear first.</div><div class="filterBtns" style="margin-top:8px"><button id="showAllFoods" class="filterBtn active" type="button">All foods</button><button id="showFavouriteFoods" class="filterBtn" type="button">Favourites</button></div></div><div><label for="foodSearch">Find saved food</label><input id="foodSearch" placeholder="Search foods or barcode"></div></div><div id="foodLibrary" class="library" style="margin-top:10px"></div></div>'
+          new='<div id="foodLibrarySection" class="libraryCollapse"><div id="foodLibraryHeader" class="libraryCollapseHead" role="button" tabindex="0" aria-expanded="false"><div><h3>My food library</h3><div class="sectionNote">Cloud-backed when signed in. Tap to open when you need the full list.</div></div><button id="toggleFoodLibrary" class="secondary libraryCollapseToggle" type="button">Show library</button></div><div id="foodLibraryBody" class="libraryCollapseBody hidden"><div class="libraryTools"><div><div class="filterBtns" style="margin-top:8px"><button id="showAllFoods" class="filterBtn active" type="button">All foods</button><button id="showFavouriteFoods" class="filterBtn" type="button">Favourites</button></div></div><div><label for="foodSearch">Find saved food</label><input id="foodSearch" placeholder="Search foods or barcode"></div></div><div id="foodLibrary" class="library" style="margin-top:10px"></div></div></div>'
+          if old not in s: raise SystemExit('Library block not found')
+          s=s.replace(old,new,1)
+          state_old="intelligenceOutcomes=[],intelligenceHours=24;"
+          state_new="intelligenceOutcomes=[],intelligenceHours=24,foodLibraryOpen=localStorage.getItem('icrFoodLibraryOpen_v262')==='1';"
+          if state_old not in s: raise SystemExit('State marker not found')
+          s=s.replace(state_old,state_new,1)
+          marker='function smartMode(mode){'
+          fn="function renderFoodLibraryCollapse(){const body=$('foodLibraryBody'),btn=$('toggleFoodLibrary'),head=$('foodLibraryHeader');if(!body||!btn)return;body.classList.toggle('hidden',!foodLibraryOpen);btn.textContent=foodLibraryOpen?'Hide library':'Show library';head?.setAttribute('aria-expanded',String(foodLibraryOpen))}\nfunction toggleFoodLibrary(){foodLibraryOpen=!foodLibraryOpen;localStorage.setItem('icrFoodLibraryOpen_v262',foodLibraryOpen?'1':'0');renderFoodLibraryCollapse();if(foodLibraryOpen)renderLibrary()}\n"
+          if marker not in s: raise SystemExit('Function marker not found')
+          s=s.replace(marker,fn+marker,1)
+          init_old="async function init(){offlineState();$('email').value=localStorage.getItem('icrCloudEmail')||'';"
+          init_new="async function init(){offlineState();renderFoodLibraryCollapse();$('email').value=localStorage.getItem('icrCloudEmail')||'';"
+          if init_old not in s: raise SystemExit('Init marker not found')
+          s=s.replace(init_old,init_new,1)
+          hook="$('exportBtn').onclick=exportCsv;"
+          add="$('toggleFoodLibrary').onclick=toggleFoodLibrary;$('foodLibraryHeader').onclick=e=>{if(e.target.id!=='toggleFoodLibrary')toggleFoodLibrary()};$('foodLibraryHeader').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleFoodLibrary()}};\n"
+          if hook not in s: raise SystemExit('Hook marker not found')
+          s=s.replace(hook,add+hook,1)
+          vh='<div class="versionGrid">'
+          entry='<div class="versionItem"><strong>v2.6.2 - Collapsible food library</strong><ul><li>My food library is now collapsed by default to keep the Meal Tracker shorter and cleaner.</li><li>Tap Show library or the section header to expand the full saved-food list.</li><li>The open/closed choice is remembered on this device.</li><li>Favourite foods remain available separately for quick access without opening the full library.</li></ul></div>'
+          if vh not in s: raise SystemExit('Version history marker not found')
+          s=s.replace(vh,vh+entry,1)
+          p.write_text(s)
+          PY
+      - name: Update release docs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          c=Path('CHANGELOG.md'); t=c.read_text(); c.write_text('## v2.6.2 - Collapsible food library\n- Collapsed the full My food library section by default to reduce page length on mobile.\n- Added Show library / Hide library and a tappable section header.\n- The library open/closed state is remembered on the device.\n- Favourite quick access remains separate and unchanged.\n\n'+t)
+          r=Path('README.md'); t=r.read_text(); r.write_text(t+'\n\n### v2.6.2\nThe full My food library section is now collapsible and defaults closed for a cleaner mobile Meal Tracker. Favourite quick access remains available above it.\n')
+          b=Path('PROJECT_BRAIN.md'); t=b.read_text(); b.write_text(t+'\n\n## v2.6.2 UI note\nThe full food library is collapsed by default and can be expanded on demand. Its open/closed state is remembered locally on the device.\n')
+          PY
+      - name: JavaScript syntax check
+        run: |
+          python - <<'PY'
+          import re
+          s=open('index.html').read(); scripts=re.findall(r'<script>(.*?)</script>',s,re.S); open('/tmp/app.js','w').write(scripts[-1])
+          PY
+          node --check /tmp/app.js
+      - name: Commit release
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html README.md CHANGELOG.md PROJECT_BRAIN.md
+          git commit -m 'Release v2.6.2 collapsible food library'
+          git push
