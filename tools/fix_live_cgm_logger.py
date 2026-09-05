@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# v2.8.0 live CGM logger hotfix
 p = Path('index.html')
 s = p.read_text(encoding='utf-8')
 
