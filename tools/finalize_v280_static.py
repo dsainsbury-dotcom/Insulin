@@ -12,10 +12,11 @@ if not raw.startswith(PREFIX) or not raw.endswith(';'):
 rows = json.loads(raw[len(PREFIX):-1])
 
 
-def find(restaurant, name):
-    matches = [r for r in rows if r.get('restaurant') == restaurant and r.get('name') == name]
+def find(restaurant, name, category=None):
+    matches = [r for r in rows if r.get('restaurant') == restaurant and r.get('name') == name and (category is None or r.get('category') == category)]
     if len(matches) != 1:
-        raise SystemExit(f'Expected exactly one row for {restaurant} / {name}, found {len(matches)}')
+        suffix = f' / {category}' if category else ''
+        raise SystemExit(f'Expected exactly one row for {restaurant} / {name}{suffix}, found {len(matches)}')
     return matches[0]
 
 # Greggs current-source corrections/checks, 5 Sep 2026.
@@ -62,21 +63,21 @@ upsert({
 # Static-source verification. McDonald's is deliberately verified from the frozen UK dataset,
 # not by live scraping, because their site repeatedly times out from GitHub Actions.
 checks = [
-    ('Greggs', 'Southern Fried Potato Wedges', 278, 42, 9.6, 4.0),
-    ('Greggs', 'BBQ Bites Meal Box', 566, 64, 23, 23),
-    ('Greggs', 'Steak & Stilton® Bake', 465, 30, 30, 17),
-    ('PizzaExpress', 'Margherita', 711, 91.7, 22.1, 35.1),
-    ("McDonald's", 'McCrispy', 484, 53, 18, 26),
-    ("McDonald's", 'Big Mac', 509, 41, 25, 27),
+    ('Greggs', 'Southern Fried Potato Wedges', None, 278, 42, 9.6, 4.0),
+    ('Greggs', 'BBQ Bites Meal Box', None, 566, 64, 23, 23),
+    ('Greggs', 'Steak & Stilton® Bake', None, 465, 30, 30, 17),
+    ('PizzaExpress', 'Margherita', 'Pizza - Classic', 711, 91.7, 22.1, 35.1),
+    ("McDonald's", 'McCrispy', None, 484, 53, 18, 26),
+    ("McDonald's", 'Big Mac', None, 509, 41, 25, 27),
 ]
 verified = []
-for restaurant, name, kcal, carbs, fat, protein in checks:
-    r = find(restaurant, name)
+for restaurant, name, category, kcal, carbs, fat, protein in checks:
+    r = find(restaurant, name, category)
     actual = (r.get('kcal'), r.get('carbs'), r.get('fat'), r.get('protein'))
     expected = (kcal, carbs, fat, protein)
     if actual != expected:
         raise SystemExit(f'Spot-check failed for {restaurant} / {name}: {actual} != {expected}')
-    verified.append({'restaurant': restaurant, 'name': name, 'kcal': kcal, 'carbs': carbs, 'fat': fat, 'protein': protein})
+    verified.append({'restaurant': restaurant, 'name': name, 'category': category, 'kcal': kcal, 'carbs': carbs, 'fat': fat, 'protein': protein})
 
 counts = {}
 for r in rows:
