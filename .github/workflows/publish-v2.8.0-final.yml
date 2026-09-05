@@ -38,6 +38,8 @@ jobs:
           cp restaurant_foods_v2.8.0.json /tmp/restaurant_foods_v2.8.0.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git reset --hard
+          git clean -fd
           git fetch origin main
           git checkout -B main origin/main
           cp /tmp/restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0.js
