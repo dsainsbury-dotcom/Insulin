@@ -1,0 +1,31 @@
+name: Fix v2.7.1 Restaurant Data Reference
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-v2.7.1-restaurant-data.yml'
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix data file reference and verify JS
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html'); s=p.read_text(); s=s.replace('restaurant_foods_v2.7.1.js','restaurant_foods_v2.7.0.js'); p.write_text(s)
+          PY
+          python - <<'PY'
+          import re
+          s=open('index.html').read(); js=re.findall(r'<script>(.*?)</script>',s,re.S)[-1]; open('/tmp/app.js','w').write(js)
+          PY
+          node --check /tmp/app.js
+          test -f restaurant_foods_v2.7.0.js
+      - name: Commit fix
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html
+          git commit -m "Fix v2.7.1 restaurant data reference"
+          git push
