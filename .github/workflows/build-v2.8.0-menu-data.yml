@@ -7,7 +7,7 @@ on:
       - '.github/workflows/build-v2.8.0-menu-data.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,11 +18,18 @@ jobs:
           python-version: '3.12'
       - run: pip install requests beautifulsoup4 pdfplumber
       - run: python tools/build_restaurant_database.py
-      - run: |
+      - name: Validate verified data
+        run: |
           python - <<'PY'
           import json
           d=json.load(open('restaurant_foods_v2.8.0.json'))
-          print(d['counts'])
+          c=d['counts']
+          assert c.get('Greggs',0) >= 80
+          assert c.get('PizzaExpress',0) >= 60
+          assert c.get('Burger King',0) >= 10
+          assert "McDonald's" not in c and 'McDonalds' not in c
+          assert all(all(k in x for k in ('carbs','fat','protein','kcal')) for x in d['items'])
+          print(c)
           print('Total verified rows:',len(d['items']))
           PY
       - uses: actions/upload-artifact@v4
@@ -31,3 +38,20 @@ jobs:
           path: |
             restaurant_foods_v2.8.0.js
             restaurant_foods_v2.8.0.json
+      - name: Publish verified database to main
+        run: |
+          cp restaurant_foods_v2.8.0.js /tmp/restaurant_foods_v2.8.0.js
+          cp restaurant_foods_v2.8.0.json /tmp/restaurant_foods_v2.8.0.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git checkout -B main origin/main
+          cp /tmp/restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0.js
+          cp /tmp/restaurant_foods_v2.8.0.json restaurant_foods_v2.8.0.json
+          git add restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0.json
+          if git diff --cached --quiet; then
+            echo 'Verified production database already current.'
+          else
+            git commit -m 'Publish verified v2.8.0 restaurant database'
+            git push origin main
+          fi
