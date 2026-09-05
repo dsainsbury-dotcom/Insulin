@@ -1,0 +1,24 @@
+name: Package v2.6.0 Recovery
+
+on:
+  push:
+    paths:
+      - '.github/workflows/package_v260.yml'
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Build recovery archive
+        run: |
+          mkdir -p recovery
+          zip -r recovery/CGM_App_v2.6.0_FULL_RECOVERY_2026-09-05.zip . -x '.git/*' -x 'recovery/*'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CGM-App-v2.6.0-Recovery
+          path: recovery/CGM_App_v2.6.0_FULL_RECOVERY_2026-09-05.zip
+          retention-days: 30
