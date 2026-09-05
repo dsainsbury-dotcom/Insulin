@@ -18,14 +18,27 @@ jobs:
           python-version: '3.12'
       - name: Apply verified static updates and checks
         run: python tools/finalize_v280_static.py
+      - name: Refresh v2.8.0 changelog wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('CHANGELOG.md')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('Expanded the restaurant database to 436 verified entries across Greggs, PizzaExpress and McDonald\'s UK.', 'Expanded the restaurant database to 438 verified entries across Greggs, PizzaExpress and McDonald\'s UK.')
+          s = s.replace('Greggs values use the official August 2026 nutrition guide; PizzaExpress values use the official July 2026 nutrition menu.', 'Greggs core values use the official nutrition guide, with 5 Sep 2026 product-page refreshes for changed/current items; PizzaExpress values use the official July 2026 nutrition menu.')
+          marker = '- McDonald\'s entries use the current UK menu with published nutrition references and are labelled CHECKED rather than pretending every macro was directly exposed by the official product-page renderer.\n'
+          extra = '- McDonald\'s entries use the current UK menu with published nutrition references and are labelled CHECKED rather than pretending every macro was directly exposed by the official product-page renderer.\n- v2.8.0 restaurant data is frozen as a verified static baseline. McDonald\'s live scraping is not a release gate because repeated GitHub Actions requests timed out.\n- Added `restaurant_foods_v2.8.0_verification.json` with per-chain counts and release spot-checks.\n'
+          s = s.replace(marker, extra)
+          p.write_text(s, encoding='utf-8')
+          PY
       - name: Commit verified v2.8.0 baseline
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0_verification.json
+          git add restaurant_foods_v2.8.0.js restaurant_foods_v2.8.0_verification.json CHANGELOG.md
           if git diff --cached --quiet; then
-            echo 'No data changes required.'
+            echo 'No data or documentation changes required.'
           else
-            git commit -m 'Freeze verified v2.8.0 restaurant baseline'
+            git commit -m 'Complete verified v2.8.0 baseline'
             git push
           fi
