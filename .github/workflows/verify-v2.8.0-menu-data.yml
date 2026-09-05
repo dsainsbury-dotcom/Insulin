@@ -1,0 +1,24 @@
+name: Verify v2.8.0 official restaurant menu data
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-v2.8.0-menu-data.yml']
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v2.8.0-full-menus
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4 pdfplumber
+      - run: python tools/build_restaurant_database.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: restaurant-foods-v2.8.0-verified
+          path: |
+            restaurant_foods_v2.8.0.js
+            restaurant_foods_v2.8.0.json
