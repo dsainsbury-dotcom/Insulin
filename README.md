@@ -140,3 +140,6 @@ This is a personal logging/calculation and review aid, not a medical device. Bar
 
 ### Live Nightscout CGM
 v2.5.1 can read the latest CGM value and direction from a user's Nightscout site using a dedicated `readable` subject token. The connection is configured per device in the browser. The token must never be replaced with `API_SECRET` and must never be committed to the public repository. Fresh readings may populate meal-start glucose and trend, but remain manually editable.
+
+### Live CGM Intelligence
+v2.6.0 expands the Nightscout connection into a personal analytics layer. The app can fetch recent CGM history, plot it, match it to logged meals and reconstruct post-meal outcomes even after the browser was closed. It can summarise repeated meal responses, ICR evidence and low/high patterns. Derived intelligence is observational and remains subject to sensor/confounder review.

@@ -125,3 +125,11 @@ From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue 
 - Manual glucose/trend entry remains available and takes precedence when the user edits it.
 - Do not place Nightscout `API_SECRET` or readable tokens in public GitHub source or Supabase meal records.
 - This feature is data capture/supportive only. Dexcom remains the treatment-decision source.
+
+## v2.6.0 Live CGM Intelligence
+- Nightscout history now powers rolling trend visualisation and retrospective meal-response analysis.
+- Recent meals can be matched to CGM history for start, peak, peak rise/time, 2h/4h/6h, approximate time >10, low observations and delayed rises.
+- Repeated meals build personal meal-memory summaries.
+- Pattern, ICR and low/high panels are evidence summaries only, not dosing recommendations.
+- Sensor faults, overlapping meals, alcohol, exercise and other confounders remain review exclusions.
+- Browser closure does not prevent later outcome reconstruction because Nightscout retains history.

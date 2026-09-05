@@ -140,3 +140,10 @@
 - Fresh live readings can populate the meal glucose and CGM trend fields with manual override retained.
 - Nightscout site URL and readable token are stored only in local browser storage, not GitHub or Supabase.
 - Readings older than 10 minutes are treated as stale and are not used for meal auto-fill.
+
+## v2.6.0 - 2026-09-05
+- Added Live CGM Intelligence dashboard and rolling Nightscout CGM graph.
+- Added retrospective meal outcome calculation from Nightscout history.
+- Added personal meal memory, repeated-pattern detection, ICR evidence dashboard, low/high event summary and personalised learning panel.
+- Added live Nightscout source timestamp tagging to new meal records.
+- Analysis remains observational and does not calculate correction insulin or issue autonomous pre-bolus instructions.
