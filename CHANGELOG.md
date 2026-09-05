@@ -1,3 +1,10 @@
+# v2.7.1 - Restaurant Meal Builder
+- Added a restaurant meal basket so multiple menu items can be combined into one meal.
+- Added quantity controls, remove, clear and running nutrition totals.
+- Carbohydrates are summed before the existing ICR calculation and whole-unit rounding are applied once.
+- Combined restaurant components and source details are retained in meal notes.
+- No change to ICR, correction-dose logic, Nightscout or CGM intelligence.
+
 # v2.7.0 - Restaurant Foods
 - Added a clean mobile restaurant-food browser inside Smart Food.
 - Starter UK chains: Greggs, PizzaExpress and McDonald's.
