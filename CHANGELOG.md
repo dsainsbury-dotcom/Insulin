@@ -133,3 +133,10 @@
 
 ## v1.0
 - Original local meal and ICR calculator.
+
+## v2.5.1 - 2026-09-05
+- Added live read-only Nightscout CGM integration.
+- Current glucose, trend direction and reading age are retrieved from the latest SGV endpoint.
+- Fresh live readings can populate the meal glucose and CGM trend fields with manual override retained.
+- Nightscout site URL and readable token are stored only in local browser storage, not GitHub or Supabase.
+- Readings older than 10 minutes are treated as stale and are not used for meal auto-fill.

@@ -116,3 +116,12 @@ Gradually move away from hard-coded CGM Progress values toward stored review rec
 
 ## Pre-bolus evidence phase
 From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue treating `At first bite / eating time` as the usual observed timing unless Darren records something different. Do not infer a fixed pre-bolus formula yet. Future reviews should combine starting glucose, CGM trend, meal type, carbohydrate, fat, actual timing and later Dexcom response. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.
+
+## v2.5.1 live Nightscout
+- Live Nightscout API access was proven on 5 Sep 2026 using `/api/v1/entries.json?count=1&token=...` and repeated 5-minute SGV data.
+- Production app now supports a per-device Nightscout URL + dedicated readable token held in browser localStorage only.
+- Live readings supply mmol/L, Nightscout direction and reading age. Supported direction mapping: DoubleUp, SingleUp, FortyFiveUp, Flat, FortyFiveDown, SingleDown, DoubleDown.
+- A reading older than 10 minutes is stale and must not be auto-filled into a meal.
+- Manual glucose/trend entry remains available and takes precedence when the user edits it.
+- Do not place Nightscout `API_SECRET` or readable tokens in public GitHub source or Supabase meal records.
+- This feature is data capture/supportive only. Dexcom remains the treatment-decision source.

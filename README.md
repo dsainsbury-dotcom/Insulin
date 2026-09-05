@@ -137,3 +137,6 @@ If any one is missing, the full review waits until all three are available. See 
 
 ## Safety
 This is a personal logging/calculation and review aid, not a medical device. Barcode and OCR nutrition values must be checked before use. It does not calculate correction doses or independently determine insulin settings. Treatment decisions should follow the agreed diabetes-team plan.
+
+### Live Nightscout CGM
+v2.5.1 can read the latest CGM value and direction from a user's Nightscout site using a dedicated `readable` subject token. The connection is configured per device in the browser. The token must never be replaced with `API_SECRET` and must never be committed to the public repository. Fresh readings may populate meal-start glucose and trend, but remain manually editable.
