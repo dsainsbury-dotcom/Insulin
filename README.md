@@ -143,3 +143,7 @@ v2.5.1 can read the latest CGM value and direction from a user's Nightscout site
 
 ### Live CGM Intelligence
 v2.6.0 expands the Nightscout connection into a personal analytics layer. The app can fetch recent CGM history, plot it, match it to logged meals and reconstruct post-meal outcomes even after the browser was closed. It can summarise repeated meal responses, ICR evidence and low/high patterns. Derived intelligence is observational and remains subject to sensor/confounder review.
+
+
+### v2.6.2
+The full My food library section is now collapsible and defaults closed for a cleaner mobile Meal Tracker. Favourite quick access remains available above it.

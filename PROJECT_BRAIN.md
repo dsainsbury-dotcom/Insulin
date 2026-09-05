@@ -138,3 +138,7 @@ From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue 
 - Nightscout connection settings are collapsed during normal use once configured.
 - Favourite foods have a compact mobile workflow: recently used first, quick search, top-six default, optional full expansion, and a persistent hide/show control.
 - v2.6.1 is UI-only. Live CGM intelligence and clinical analysis logic are unchanged.
+
+
+## v2.6.2 UI note
+The full food library is collapsed by default and can be expanded on demand. Its open/closed state is remembered locally on the device.
