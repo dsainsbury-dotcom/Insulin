@@ -142,3 +142,12 @@ From v2.5.0, every new meal can record the current Dexcom trend arrow. Continue 
 
 ## v2.6.2 UI note
 The full food library is collapsed by default and can be expanded on demand. Its open/closed state is remembered locally on the device.
+
+
+## v2.7.0 Restaurant Foods
+- Smart Food has a separate restaurant browser designed for an expanding UK chain database.
+- Initial chains: Greggs, PizzaExpress and McDonald's.
+- Restaurant data lives in `restaurant_foods_v2.7.0.js`, separate from the user's personal Supabase food library.
+- Every restaurant item records portion nutrition plus provenance/source date.
+- New chains should be added to the versioned restaurant dataset and surfaced automatically by the existing browser.
+- Using an item fills meal name, carbs, fat and meal type, while the user still confirms the actual meal and insulin details.

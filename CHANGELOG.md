@@ -1,3 +1,12 @@
+# v2.7.0 - Restaurant Foods
+- Added a clean mobile restaurant-food browser inside Smart Food.
+- Starter UK chains: Greggs, PizzaExpress and McDonald's.
+- Added restaurant and category filters plus menu search.
+- Restaurant item cards show portion carbs, fat, protein, kcal, source and source date.
+- One tap copies meal description, carbs, fat and suggested meal type into Add meal.
+- Restaurant nutrition is kept in a separate versioned dataset so future chains can be added without bloating the personal food library.
+- No change to ICR, dose calculation, Nightscout or CGM intelligence logic.
+
 ## v2.6.2 - Collapsible food library
 - Collapsed the full My food library section by default to reduce page length on mobile.
 - Added Show library / Hide library and a tappable section header.
