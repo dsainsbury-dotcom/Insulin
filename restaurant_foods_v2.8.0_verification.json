@@ -1,0 +1,73 @@
+{
+  "release": "v2.8.0",
+  "verifiedDate": "2026-09-05",
+  "status": "stable-baseline",
+  "method": "verified static UK nutrition data; no live McDonalds scrape required",
+  "counts": {
+    "Greggs": 209,
+    "PizzaExpress": 140,
+    "McDonald's": 89
+  },
+  "spotChecks": [
+    {
+      "restaurant": "Greggs",
+      "name": "Southern Fried Potato Wedges",
+      "category": null,
+      "kcal": 278,
+      "carbs": 42,
+      "fat": 9.6,
+      "protein": 4.0
+    },
+    {
+      "restaurant": "Greggs",
+      "name": "BBQ Bites Meal Box",
+      "category": null,
+      "kcal": 566,
+      "carbs": 64,
+      "fat": 23,
+      "protein": 23
+    },
+    {
+      "restaurant": "Greggs",
+      "name": "Steak & Stilton® Bake",
+      "category": null,
+      "kcal": 465,
+      "carbs": 30,
+      "fat": 30,
+      "protein": 17
+    },
+    {
+      "restaurant": "PizzaExpress",
+      "name": "Margherita",
+      "category": "Pizza - Classic",
+      "kcal": 711,
+      "carbs": 91.7,
+      "fat": 22.1,
+      "protein": 35.1
+    },
+    {
+      "restaurant": "McDonald's",
+      "name": "McCrispy",
+      "category": null,
+      "kcal": 484,
+      "carbs": 53,
+      "fat": 18,
+      "protein": 26
+    },
+    {
+      "restaurant": "McDonald's",
+      "name": "Big Mac",
+      "category": null,
+      "kcal": 509,
+      "carbs": 41,
+      "fat": 25,
+      "protein": 27
+    }
+  ],
+  "notes": [
+    "Greggs Southern Fried Potato Wedges refreshed from current official product page.",
+    "Greggs BBQ Bites Meal Box rechecked against the current official nutrition guide.",
+    "Greggs Steak & Stilton Bake and Regular Pumpkin Spice Latte added from current official product pages.",
+    "McDonalds UK dataset is frozen/static and spot-checked against official UK product nutrition; live scraping is not a release gate."
+  ]
+}
