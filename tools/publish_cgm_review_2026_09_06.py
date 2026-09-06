@@ -34,7 +34,6 @@ s, n = timeline_pattern.subn(timeline_replacement, s, count=1)
 if n != 1:
     raise SystemExit(f'Expected one timeline section, replaced {n}')
 
-# Add the CGM review to in-app version history before the existing v2.8.3 technical fix.
 marker = '<div class="versionGrid"><div class="versionItem"><strong>v2.8.3 - Live CGM autofill reliability</strong>'
 new_item = '<div class="versionGrid"><div class="versionItem"><strong>v2.8.4 - 6 Sep CGM 3-file review</strong><ul><li>Processed the Dexcom Clarity PDF, raw Dexcom CSV and full ICR Meal Dashboard export together.</li><li>Updated CGM Progress to TIR 84%, average 7.7 mmol/L, GMI 6.6% and CV 29.9%.</li><li>Retained 1:15 as the working evidence-supported ICR because the review still shows no six-hour post-meal low signal.</li><li>Uses the app as the primary meal-context record, groups overlapping food entries into eating episodes, and uses Dexcom meal/insulin logging as corroboration.</li></ul></div><div class="versionItem"><strong>v2.8.3 - Live CGM autofill reliability</strong>'
 if marker in s and 'v2.8.4 - 6 Sep CGM 3-file review' not in s:
@@ -52,3 +51,5 @@ if brain.exists():
     bt = brain.read_text(encoding='utf-8')
     bt = re.sub(r'- Current production release: v[^.]+\.[^.]+\.[^.]+\.', '- Current production release: v2.8.4.', bt, count=1)
     brain.write_text(bt, encoding='utf-8')
+
+# Trigger note: final publication pass after workflow verification correction.
