@@ -1,4 +1,4 @@
-# v2.8.3 - CGM 3-file review update - 6 Sep 2026
+# v2.8.4 - CGM 3-file review update - 6 Sep 2026
 - Processed the complete Dexcom Clarity PDF + raw Dexcom CSV + ICR Meal Dashboard CSV review.
 - Updated CGM Progress to TIR 84%, average glucose 7.7 mmol/L, GMI 6.6% and CV 29.9%.
 - Kept 1:15 as the evidence-supported working ICR baseline; no six-hour post-meal low signal currently supports winding back to 1:20.

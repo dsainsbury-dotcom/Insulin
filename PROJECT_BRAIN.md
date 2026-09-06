@@ -4,7 +4,7 @@
 This repository is the authoritative source for Darren's personal CGM/meal-analysis app. A fresh developer or AI agent should be able to continue the project from this repository without relying on an old chat thread.
 
 ## Current production state
-- Current production release: v2.5.0.
+- Current production release: v2.8.4.
 - Live app entry point: `index.html` on `main` via GitHub Pages.
 - `smart-meal.html` contains the Smart Meal Assistant test/standalone implementation.
 - Supabase is the cloud source of truth for meal and food-library data when signed in.
