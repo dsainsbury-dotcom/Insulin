@@ -1,3 +1,13 @@
+# v2.8.3 - CGM 3-file review update - 6 Sep 2026
+- Processed the complete Dexcom Clarity PDF + raw Dexcom CSV + ICR Meal Dashboard CSV review.
+- Updated CGM Progress to TIR 84%, average glucose 7.7 mmol/L, GMI 6.6% and CV 29.9%.
+- Kept 1:15 as the evidence-supported working ICR baseline; no six-hour post-meal low signal currently supports winding back to 1:20.
+- Added richer analysis using the app as the primary meal-context record and Dexcom meal/insulin entries as corroboration.
+- Grouped closely spaced food records into eating episodes before judging ICR response.
+- Added review record `reviews/CGM_REVIEW_2026-09-06.md`.
+- Rollback branch: `backup/pre-cgm-review-2026-09-06`.
+- No change to insulin calculation logic, correction-dose logic, Nightscout analysis or clinical automation.
+
 # v2.8.0 - Expanded restaurant database + isolated demo
 - Expanded the restaurant database to 438 verified entries across Greggs, PizzaExpress and McDonald's UK.
 - Greggs core values use the official nutrition guide, with 5 Sep 2026 product-page refreshes for changed/current items; PizzaExpress values use the official July 2026 nutrition menu.
