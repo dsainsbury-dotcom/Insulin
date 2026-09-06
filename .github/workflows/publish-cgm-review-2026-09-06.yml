@@ -1,0 +1,32 @@
+name: Publish CGM review 2026-09-06
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/publish_cgm_review_2026_09_06.py
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply reviewed CGM update
+        run: python tools/publish_cgm_review_2026_09_06.py
+      - name: Verify
+        run: |
+          grep -q "Latest review - 6 Sep 2026" index.html
+          grep -q "v2.8.3 LIVE" index.html
+          grep -q "CGM_REVIEW_2026-09-06.md" CHANGELOG.md
+      - name: Publish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html CHANGELOG.md PROJECT_BRAIN.md
+          git diff --cached --check
+          git diff --cached --quiet && exit 0
+          git commit -m "Publish CGM review 6 Sep 2026 (v2.8.3)"
+          git push origin main
