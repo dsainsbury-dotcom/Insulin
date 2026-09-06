@@ -1,0 +1,64 @@
+name: Build v2.8.1 manual meal basket
+
+on:
+  push:
+    branches:
+      - release/v2.8.1-manual-basket
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/v2.8.1-manual-basket
+      - name: Apply manual basket patch
+        run: python tools/add_manual_meal_basket_v281.py
+      - name: Verify required behaviour
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text()
+          checks=[
+            'v2.8.1 LIVE',
+            'Build multi-item meal',
+            'Manual meal basket',
+            "manualBasketMode=false,manualBasket=[]",
+            "No per-item insulin suggestion is shown while basket mode is active.",
+            "$('saveMealBtn').disabled=on",
+            "function addManualBasketItem()",
+            "function useManualBasket()",
+            "function cancelManualBasket()",
+            "Finish or cancel the manual meal basket before saving the meal.",
+            'v2.8.1 - Manual multi-item meal basket',
+          ]
+          missing=[x for x in checks if x not in s]
+          assert not missing, f'Missing required markers: {missing}'
+          assert s.count('id="manualBasketPanel"')==1
+          assert s.count('id="saveMealBtn"')==1
+          print('Static behaviour checks passed')
+          PY
+      - name: Check embedded JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text()
+          js=s.rsplit('<script>',1)[1].split('</script>',1)[0]
+          Path('/tmp/app.js').write_text(js)
+          PY
+          node --check /tmp/app.js
+      - name: Commit built app
+        run: |
+          if git diff --quiet -- index.html; then
+            echo 'No index.html changes to commit'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Add manual multi-item meal basket v2.8.1'
+          git push origin HEAD:release/v2.8.1-manual-basket
