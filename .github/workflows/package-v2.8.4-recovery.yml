@@ -1,0 +1,29 @@
+name: Package v2.8.4 recovery
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/package-v2.8.4-recovery.yml
+  workflow_dispatch:
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Build recovery archive
+        run: |
+          mkdir -p recovery
+          cp index.html README.md CHANGELOG.md PROJECT_BRAIN.md PROJECT_RULES.md BACKUP_AND_RECOVERY.md CGM_ANALYSIS_PROTOCOL_v1.0.md PREBOLUS_EVIDENCE_PROTOCOL.md recovery/
+          cp restaurant_foods_v2.8.0.js recovery/ 2>/dev/null || true
+          cp reviews/CGM_REVIEW_2026-09-06.md recovery/
+          cp -r beta recovery/ 2>/dev/null || true
+          printf 'CGM App v2.8.4 recovery package\nProduction review: 6 Sep 2026\nSource: dsainsbury-dotcom/Insulin main\n' > recovery/RECOVERY_MANIFEST.txt
+          cd recovery
+          zip -r ../CGM_App_v2.8.4_FULL_RECOVERY_2026-09-06.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CGM_App_v2.8.4_FULL_RECOVERY_2026-09-06
+          path: CGM_App_v2.8.4_FULL_RECOVERY_2026-09-06.zip
+          retention-days: 90
