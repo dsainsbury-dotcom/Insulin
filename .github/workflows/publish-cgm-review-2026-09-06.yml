@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - tools/publish_cgm_review_2026_09_06.py
+      - .github/workflows/publish-cgm-review-2026-09-06.yml
   workflow_dispatch:
 permissions:
   contents: write
