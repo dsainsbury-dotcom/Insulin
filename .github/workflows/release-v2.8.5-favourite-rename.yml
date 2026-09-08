@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - tools/release_v2_8_5_favourite_rename.py
+      - tools/release_v2_8_5_trigger.txt
   workflow_dispatch:
 permissions:
   contents: write
