@@ -1,4 +1,4 @@
-name: Release v2.8.5 favourite rename
+name: Release v2.8.5 favourite rename and context notes
 on:
   push:
     branches: [main]
@@ -22,7 +22,11 @@ jobs:
           grep -q "async function renameFavourite" index.html
           grep -q "favQuickRename" index.html
           grep -q "libRename" index.html
-          grep -q "# v2.8.5 - Favourite renaming" CHANGELOG.md
+          grep -q "Quick context note" index.html
+          grep -q "function isContextEvent" index.html
+          grep -q "async function saveContextEvent" index.html
+          grep -q "event_type" index.html
+          grep -q "# v2.8.5 - Favourite rename + quick context notes" CHANGELOG.md
           python - <<'PY'
           import re, pathlib, subprocess, tempfile
           s=pathlib.Path('index.html').read_text()
@@ -39,5 +43,5 @@ jobs:
           git add index.html CHANGELOG.md PROJECT_BRAIN.md
           git diff --cached --check
           git diff --cached --quiet && exit 0
-          git commit -m "Release v2.8.5 favourite renaming"
+          git commit -m "Release v2.8.5 favourite rename and context notes"
           git push origin main
