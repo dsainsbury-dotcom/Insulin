@@ -162,3 +162,13 @@ The full food library is collapsed by default and can be expanded on demand. Its
 - `/testinsulinapp/` is the permanent shareable playground wrapper and invokes `?demo=1`.
 - Demo mode uses prefixed local-storage keys, never reads Nightscout credentials, skips Supabase auth/session reads, hides Darren-specific CGM intelligence/progress, and starts ICR/target blank.
 - Production remains the source of truth and demo changes never sync into Darren's data.
+
+## v2.8.5 - Favourite rename + quick context notes (8 Sep 2026)
+- Favourite foods can be renamed from quick favourites or My food library without changing nutrition, portion or usage history.
+- Quick context notes capture untracked food, missed insulin, both, or other confounders without pretending they are normal meal/ICR tests.
+- Context rows are stored in the existing meal_entries sync path with `meal_type=Context event` and `[CONTEXT_EVENT]` in notes.
+- CSV export now has an `event_type` column (`meal` or `context`).
+- Context rows are excluded from Live Intelligence meal outcomes, meal memory and ICR evidence.
+- Future 3-file CGM reviews should use context rows to explain otherwise-unmatched glucose rises and should never treat them as clean ICR evidence.
+- No dosing logic changed.
+
