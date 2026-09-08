@@ -1,3 +1,13 @@
+# v2.8.5 - Favourite rename + quick context notes
+
+- Added Rename controls to favourite quick-access cards and favourite items in My food library.
+- Added Quick context note for untracked food, missed insulin, both, or other context.
+- Context notes can include optional approximate carbs and a plain-language description.
+- Context notes sync through the existing meal log and are tagged `[CONTEXT_EVENT]`.
+- Added `event_type` to CSV export so context rows are easy to identify during CGM review.
+- Context events are excluded from Live Intelligence meal outcomes, meal memory, ICR evidence and meal markers.
+- No correction-dose logic or insulin recommendation behaviour changed.
+
 # v2.8.4 - CGM 3-file review update - 6 Sep 2026
 - Processed the complete Dexcom Clarity PDF + raw Dexcom CSV + ICR Meal Dashboard CSV review.
 - Updated CGM Progress to TIR 84%, average glucose 7.7 mmol/L, GMI 6.6% and CV 29.9%.
