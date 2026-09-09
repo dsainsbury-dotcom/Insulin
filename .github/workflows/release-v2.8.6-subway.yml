@@ -1,0 +1,51 @@
+name: Build v2.8.6 Subway release
+on:
+  push:
+    branches: [work/subway-v2.8.6]
+    paths:
+      - tools/release_v2_8_6_subway.py
+      - .github/workflows/release-v2.8.6-subway.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/subway-v2.8.6
+      - name: Apply release
+        run: python tools/release_v2_8_6_subway.py
+      - name: Verify release
+        run: |
+          grep -q "v2.8.6 LIVE" index.html
+          grep -q "restaurant_foods_v2.8.6.js" index.html
+          grep -q '"restaurant":"Subway"' restaurant_foods_v2.8.6.js
+          grep -q 'Chicken Tikka - Footlong' restaurant_foods_v2.8.6.js
+          grep -q '# v2.8.6 - Subway UK restaurant foods' CHANGELOG.md
+          python - <<'PY'
+          from pathlib import Path
+          import json,re,subprocess,tempfile
+          r=Path('restaurant_foods_v2.8.6.js').read_text()
+          data=json.loads(r.split('=',1)[1].strip().rstrip(';'))
+          sw=[x for x in data if x.get('restaurant')=='Subway']
+          assert len(sw)==22, len(sw)
+          assert any(x['name']=='Chicken Tikka' and x['carbs']==42 for x in sw)
+          assert any(x['name']=='Chicken Tikka - Footlong' and x['carbs']==84 for x in sw)
+          s=Path('index.html').read_text()
+          scripts=re.findall(r'<script(?: [^>]*)?>(.*?)</script>',s,re.S)
+          inline='\n'.join(x for x in scripts if x.strip())
+          with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False) as f:
+              f.write(inline); name=f.name
+          subprocess.run(['node','--check',name],check=True)
+          PY
+      - name: Commit release to work branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html restaurant_foods_v2.8.6.js CHANGELOG.md PROJECT_BRAIN.md
+          git diff --cached --check
+          git diff --cached --quiet && exit 0
+          git commit -m "Release v2.8.6 Subway UK restaurant foods"
+          git push origin HEAD:work/subway-v2.8.6
