@@ -1,3 +1,12 @@
+# v2.8.6 - Subway UK restaurant foods
+
+- Added Subway UK to the restaurant-food browser.
+- Added verified 6-inch Sub entries and Footlong versions using Subway's published rule that a Footlong is two 6-inch servings.
+- Added a current Chicken Breast & Cheese Jacket Potato, Subway sides and Chocolate Chunk Cookie.
+- Live/current product-page values are used where available; older official 2026 UK nutrition snapshots are clearly source-dated in the app.
+- Current Subway UK menu presence was checked before inclusion.
+- No insulin, ICR, correction-dose, Nightscout or CGM analysis logic changed.
+
 # v2.8.5 - Favourite rename + quick context notes
 
 - Added Rename controls to favourite quick-access cards and favourite items in My food library.

@@ -172,3 +172,10 @@ The full food library is collapsed by default and can be expanded on demand. Its
 - Future 3-file CGM reviews should use context rows to explain otherwise-unmatched glucose rises and should never treat them as clean ICR evidence.
 - No dosing logic changed.
 
+## v2.8.6 - Subway UK restaurant foods (9 Sep 2026)
+- Subway added to the restaurant browser with a verified starter set.
+- Includes 6-inch Subs, derived Footlong versions, a Jacket Potato, sides and Chocolate Chunk Cookie.
+- Current product pages are preferred; other entries retain explicit official-source dates.
+- Footlong values use Subway UK's published 2 x 6-inch serving rule.
+- No dosing or clinical logic changed.
+
