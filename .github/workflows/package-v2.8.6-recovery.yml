@@ -1,0 +1,33 @@
+name: Package v2.8.6 recovery
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/package-v2.8.6-recovery.yml
+  workflow_dispatch:
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify production version
+        run: |
+          grep -q "v2.8.6 LIVE" index.html
+          test -f restaurant_foods_v2.8.6.js
+      - name: Build recovery folder
+        run: |
+          mkdir recovery
+          cp index.html recovery/
+          cp restaurant_foods_v2.8.6.js recovery/
+          cp README.md CHANGELOG.md PROJECT_BRAIN.md recovery/ 2>/dev/null || true
+          cp PROJECT_RULES.md BACKUP_AND_RECOVERY.md CGM_REVIEW_PROTOCOL.md PREBOLUS_EVIDENCE_PROTOCOL.md recovery/ 2>/dev/null || true
+          mkdir -p recovery/reviews recovery/tools recovery/.github/workflows
+          cp reviews/*.md recovery/reviews/ 2>/dev/null || true
+          cp tools/*.py recovery/tools/ 2>/dev/null || true
+          cp .github/workflows/*.yml recovery/.github/workflows/ 2>/dev/null || true
+          printf 'CGM App v2.8.6 recovery\nProduction commit: %s\nCreated: 2026-09-09\n' "$GITHUB_SHA" > recovery/RECOVERY_MANIFEST.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CGM_App_v2.8.6_FULL_RECOVERY_2026-09-09
+          path: recovery/
+          if-no-files-found: error
