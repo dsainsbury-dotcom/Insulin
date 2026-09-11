@@ -63,14 +63,18 @@ Evidence labels used in the app:
 Do not turn one meal outcome into a proven response pattern.
 
 ## Current verified CGM baseline
-Latest verified review is 2 Sep 2026 for 20 Aug-2 Sep 2026: TIR 85%, average glucose 7.7 mmol/L, GMI 6.6%, CV 28.8%, very high 1%.
-- TIR 88%
-- Average glucose 7.5 mmol/L
-- GMI 6.5%
-- CV 27.1%
-- Very high 0%
+Latest verified review is 11 Sep 2026 for 29 Aug-11 Sep 2026:
+- TIR 86%
+- Average glucose 7.6 mmol/L
+- GMI 6.6%
+- CV 30.0%
+- Very high 2%
+- High 12%
+- Low 0%
+- Very low 0%
+- CGM active 99.9%
 
-The current clean meal evidence supports 1:15 as the working baseline. Any insulin-setting change should remain a discussion point for the diabetes team rather than an automatic app decision.
+The current evidence continues to support 1:15 as the working baseline. Context-only untracked food is excluded from clean ICR evidence, closely spaced eating is grouped, and high-fat/high-carb meals are assessed over the full delayed trace. Any insulin-setting change remains a discussion point for the diabetes team rather than an automatic app decision.
 
 ## Important analysis rules
 - Fast-acting insulin in Dexcom with no matching app meal is treated as unknown/best-guess nutrition dosing and excluded from clean ICR evidence.

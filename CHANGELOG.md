@@ -1,3 +1,14 @@
+# CGM review update - 11 Sep 2026
+
+- Processed the complete Dexcom Clarity PDF, raw Dexcom CSV and ICR Meal Dashboard CSV review set.
+- Updated CGM Progress to TIR 86%, average glucose 7.6 mmol/L, GMI 6.6% and CV 30.0%.
+- Current 14-day window records 0% low and 0% very low; all headline AGP goals remain achieved.
+- Kept 1:15 as the evidence-supported working ICR baseline.
+- Context-only untracked food, including the 10 Sep pub episode, is excluded from clean ICR evidence.
+- Added `reviews/CGM_REVIEW_2026-09-11.md`.
+- Rollback branch: `backup/pre-cgm-review-2026-09-11`.
+- No insulin calculation, correction-dose, Nightscout or clinical automation logic changed.
+
 # v2.8.6 - Subway UK restaurant foods
 
 - Added Subway UK to the restaurant-food browser.
