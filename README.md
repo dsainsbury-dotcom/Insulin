@@ -1,4 +1,4 @@
-# ICR Meal Dashboard v2.5.0
+# ICR Meal Dashboard v2.9.0
 
 ## v2.5.0 - CGM trend capture
 Meal logging now records the Dexcom trend arrow alongside current glucose. This starts the evidence-gathering phase for a future personalised pre-bolus timing assistant. The app continues to record the timing Darren actually used and does not yet prescribe a specific pre-bolus interval. See `PREBOLUS_EVIDENCE_PROTOCOL.md`.
@@ -14,8 +14,8 @@ Meal logging now records the Dexcom trend arrow alongside current glucose. This 
 Live GitHub Pages app for cloud-synced meal and insulin logging, personalised Dexcom review history and Smart Food nutrition lookup.
 
 ## Live version
-- v2.4.8 is the current production version on the repository root.
-- Meal Tracker remains the default view; CGM Progress is a separate tab.
+- v2.9.0 is the current production version on the repository root.
+- The app uses four compact main destinations: Meal, CGM, Foods and More. Meal remains the default view.
 - Supabase is the source of truth when signed in.
 - Browser storage is used only as an offline queue/cache for unsynced changes.
 - Automatic sync runs at sign-in, app focus/return, reconnect and every 60 seconds while open.

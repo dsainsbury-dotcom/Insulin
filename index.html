@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b5cab">
-<title>ICR Meal Dashboard v2.8.7</title>
+<title>ICR Meal Dashboard v2.9.0</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
@@ -16,11 +16,59 @@
 @media(max-width:800px){.restaurantResults{grid-template-columns:1fr}.restaurantChains{grid-template-columns:1fr 1fr 1fr}.restaurantMacros{grid-template-columns:repeat(4,1fr)}.intelligenceGrid,.outcomeGrid,.memoryGrid,.patternGrid{grid-template-columns:1fr}.chartWrap{height:270px}.top{flex-direction:column}.grid,.progressGrid{grid-template-columns:1fr}.metrics,.signalGrid,.nutritionResult{grid-template-columns:1fr 1fr}.smartGrid,.favQuickGrid{grid-template-columns:1fr}.navTabs .viewBtn{flex:1}.libraryTools{align-items:stretch}}
 .restaurantPanel{margin-top:12px;border:1px solid #b9d8ff;background:linear-gradient(180deg,#f5faff,#fff);border-radius:16px;padding:14px}.restaurantChains{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:11px}.restaurantChain{border:1px solid var(--line);background:#fff;color:var(--ink);padding:13px;border-radius:13px;text-align:left}.restaurantChain strong{display:block;font-size:1rem}.restaurantChain span{display:block;color:var(--muted);font-size:.72rem;margin-top:3px}.restaurantChain.active{background:var(--blue);color:#fff;border-color:var(--blue)}.restaurantChain.active span{color:#eaf3ff}.restaurantTools{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin-top:12px}.restaurantTools>div{flex:1;min-width:180px}.restaurantCats{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.restaurantCat{background:#edf2f7;color:#344054;padding:7px 10px;font-size:.76rem}.restaurantCat.active{background:#dbeafe;color:#0b5cab}.restaurantResults{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:10px}.restaurantItem{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fff}.restaurantItemHead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.restaurantBrand{font-size:.7rem;font-weight:850;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}.restaurantMacros{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}.restaurantMacro{background:#f8fafc;border-radius:9px;padding:7px;text-align:center}.restaurantMacro span{display:block;font-size:.64rem;color:var(--muted)}.restaurantMacro strong{font-size:.9rem}.restaurantSource{font-size:.67rem;color:var(--muted);line-height:1.35;margin-top:8px}.restaurantUse{width:100%;margin-top:10px}.restaurantDisclaimer{font-size:.72rem;color:#475467;line-height:1.4;margin-top:10px;padding:9px 10px;background:#f8fafc;border-radius:10px}.restaurantClose{white-space:nowrap}.restaurantBasket{margin-top:12px;border:1px solid #b7e1cf;background:#f2fbf7;border-radius:14px;padding:12px}.basketRow{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #dcefe6}.basketRow:last-child{border-bottom:0}.basketTotals{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}.basketActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .intelligenceGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.intelCard{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff}.intelCard span{display:block;color:var(--muted);font-size:.72rem}.intelCard strong{display:block;font-size:1.05rem;margin-top:4px}.chartWrap{height:330px}.outcomeGrid,.memoryGrid,.patternGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.outcomeCard,.memoryCard,.patternCard{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff}.mini{font-size:.74rem;color:var(--muted);line-height:1.45}.sectionTitle{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.rangeBtns{display:flex;gap:6px;flex-wrap:wrap}.rangeBtn{background:#edf2f7;color:#344054}.rangeBtn.active{background:var(--blue);color:#fff}.intelNote{border-left:4px solid var(--blue);background:var(--softblue);padding:10px 12px;border-radius:10px;font-size:.8rem;line-height:1.45;margin-top:10px}
+
+/* v2.9.0 compact app shell */
+.compactNav{z-index:40}
+.compactNavBtn{flex:1;border:1px solid var(--line);background:#fff;color:#344054;border-radius:12px;padding:10px 12px;font-weight:850;cursor:pointer}
+.compactNavBtn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.compactStatusBar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 12px}
+.compactStatusCell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 10px;min-width:0}
+.compactStatusCell span{display:block;font-size:.65rem;color:var(--muted);font-weight:750;text-transform:uppercase;letter-spacing:.03em}
+.compactStatusCell strong{display:block;font-size:.9rem;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.compactPageIntro{padding:12px 14px;margin-bottom:10px}
+.compactPageIntro h2{margin:0 0 3px;font-size:1.08rem}
+.compactQuickActions{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 10px}
+.compactQuickActions button{flex:1;min-width:105px;padding:9px 10px}
+.compactAdvancedToggle,.compactSectionToggle{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;background:#f8fafc;color:#344054;border:1px solid var(--line);margin-top:10px}
+.compactSectionToggle{margin:0;padding:10px 12px}
+.compactCollapsible{padding:0;overflow:hidden}
+.compactCollapsible>.compactBody{padding:12px 13px 13px}
+.compactCollapsible.compactCollapsed>.compactBody{display:none}
+.compactChevron{font-size:.8rem;color:var(--muted)}
+.mealAdvanced{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
+.cgmProgressDrawer{margin-top:10px}
+.compactProgressToggle{margin-bottom:10px}
+#tracker>.card,#foods>.card,#more>.card,#intelligence>.card{margin-bottom:10px}
+@media(max-width:800px){
+  .shell{padding:10px 10px 92px}
+  .top{flex-direction:row;align-items:center;margin-bottom:6px;gap:8px}
+  .top .logo{width:38px;height:38px;border-radius:11px;font-size:17px}
+  .top h1{font-size:1.12rem}
+  .top .sub{display:none}
+  .top .badge{padding:6px 8px;font-size:.68rem}
+  .navTabs.compactNav{position:fixed;left:8px;right:8px;bottom:8px;top:auto;margin:0;padding:6px;background:rgba(244,247,251,.96);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 28px #0002;backdrop-filter:blur(10px)}
+  .compactNavBtn{border:0;background:transparent;padding:10px 6px;border-radius:11px;font-size:.78rem}
+  .compactNavBtn.active{background:var(--blue);color:#fff}
+  .compactStatusBar{grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:8px}
+  .compactStatusCell{padding:7px 9px}
+  .card{padding:12px;border-radius:14px;margin-bottom:9px}
+  .grid{gap:8px}
+  input,select,textarea{padding:10px 11px}
+  .liveDose{padding:11px;margin-top:9px}
+  .liveDose strong{font-size:1.65rem}
+  .smartGrid{grid-template-columns:1fr 1fr;gap:7px}
+  .smartAction{padding:10px}
+  .smartAction span{display:none}
+  .restaurantChains{grid-template-columns:repeat(2,1fr)}
+  .compactQuickActions{position:sticky;top:0;z-index:12;background:var(--bg);padding:4px 0}
+  .chartWrap{height:240px}
+}
+
 </style>
 </head>
 <body><div class="shell"><div id="demoBanner" class="notice warn hidden" style="margin-bottom:12px"><strong>DEMO / PLAYGROUND</strong> - local test data only. Do not use this demo copy to make insulin dosing decisions. Nothing entered here is added to Darren's cloud data.</div>
-<div class="top"><div class="brand"><div class="logo">15</div><div><h1>ICR Meal Dashboard <small style="font-size:.48em;color:#0b5cab">v2.8.7</small></h1><p class="sub">Understand my diabetes, not diabetes.</p></div></div><div class="badge">v2.8.7 LIVE</div></div>
-<div class="navTabs"><button class="viewBtn active" data-view="tracker">Meal Tracker</button><button class="viewBtn" data-view="intelligence">Live Intelligence</button><button class="viewBtn" data-view="progress">CGM Progress</button></div>
+<div class="top"><div class="brand"><div class="logo">15</div><div><h1>ICR Meal Dashboard <small style="font-size:.48em;color:#0b5cab">v2.9.0</small></h1><p class="sub">Understand my diabetes, not diabetes.</p></div></div><div class="badge">v2.9.0 LIVE</div></div>
+<div class="navTabs compactNav" aria-label="Main navigation"><button class="compactNavBtn active" data-compact-view="tracker" type="button"><span>Meal</span></button><button class="compactNavBtn" data-compact-view="intelligence" type="button"><span>CGM</span></button><button class="compactNavBtn" data-compact-view="foods" type="button"><span>Foods</span></button><button class="compactNavBtn" data-compact-view="more" type="button"><span>More</span></button></div>
 <div id="offlineBar" class="offlineBar hidden">Offline - changes are queued and will sync automatically</div>
 <div id="tracker" class="viewPane active">
 <section id="cloudCard" class="card"><h2>Cloud</h2>
@@ -57,7 +105,7 @@
 <div id="manualBasketPanel" class="restaurantBasket hidden full"><div class="reviewHead"><div><strong>Manual meal basket</strong><div class="sectionNote">Build the whole meal item by item. No per-item insulin suggestion is shown while basket mode is active.</div></div><span id="manualBasketCount" class="pill">0 items</span></div><div class="sectionNote">Enter one food above, including its carbohydrate and fat if known, then tap Add current item. When the whole meal is in the basket, tap Use combined meal.</div><div class="actions"><button id="addManualBasketItem" class="primary" type="button">Add current item to basket</button></div><div id="manualBasketItems"></div><div id="manualBasketTotals" class="basketTotals"></div><div class="basketActions"><button id="useManualBasket" class="primary" type="button">Use combined meal</button><button id="cancelManualBasket" class="secondary" type="button">Cancel basket</button></div><div class="sectionNote">Carbohydrates are totalled first. Your normal meal-dose calculation and whole-unit rounding are then applied once to the combined meal.</div></div>
 <div><label>Current glucose (mmol/L)</label><input id="bg" type="number" min="1" max="40" step="0.1" required></div><div><label>CGM trend now</label><select id="cgmTrend" required><option value="" selected>Select trend...</option><option>↑↑ Rapidly rising</option><option>↑ Rising</option><option>↗ Slightly rising</option><option>→ Stable</option><option>↘ Slightly falling</option><option>↓ Falling</option><option>↓↓ Rapidly falling</option></select><div class="hint">Record the Dexcom arrow at the same time as the glucose reading. This is observation-only for now and will be used to learn your future pre-bolus timing.</div></div>
 <div><label>ICR used</label><input id="icr" type="number" min="3" max="50" step="0.5" value="15"></div>
-<div><label>Insulin actually taken (units)</label><input id="actualInsulin" type="number" min="0" max="50" step="0.01"><div class="hint">Pre-filled by rounding the calculated meal dose up to the next whole unit. Change it to what was actually taken.</div></div>
+<div><label>Insulin actually taken (units)</label><input id="actualInsulin" type="number" min="0" max="50" step="0.01"><div class="hint">Pre-filled using nearest-whole-unit rounding: below 0.5 rounds down and 0.5 or above rounds up. Change it to what was actually taken.</div></div>
 <div><label>Bolus timing</label><select id="bolusTiming"><option>At first bite / eating time</option><option>0-5 min before</option><option>6-10 min before</option><option>11-20 min before</option><option>More than 20 min before</option><option>After starting meal</option><option>Not recorded</option></select></div>
 <div><label>Target glucose (mmol/L)</label><input id="target" type="number" min="3" max="15" step="0.1" value="8"></div>
 <div class="full"><label>Notes / confounders</label><textarea id="notes" rows="2"></textarea></div>
@@ -210,4 +258,106 @@ window.addEventListener('online',()=>{syncAll();refreshLiveCgmReliable(false)});
 renderMeals();renderLibrary();updateDose();updateQueueUI();init();
 })();
 </script>
+
+<script>
+(function(){
+  function initCompactUi(){
+    if(document.getElementById('foods')) return;
+    const $=id=>document.getElementById(id);
+    const tracker=$('tracker'), intelligence=$('intelligence'), progress=$('progress');
+    const nav=document.querySelector('.compactNav');
+    if(!tracker||!intelligence||!nav) return;
+
+    const foods=document.createElement('div'); foods.id='foods'; foods.className='viewPane';
+    const more=document.createElement('div'); more.id='more'; more.className='viewPane';
+    tracker.insertAdjacentElement('afterend',foods); foods.insertAdjacentElement('afterend',more);
+
+    const directSections=root=>Array.from(root.children).filter(el=>el.tagName==='SECTION'&&el.classList.contains('card'));
+    const sectionByText=(root,text)=>directSections(root).find(s=>s.textContent.includes(text));
+    const cloud=$('cloudCard');
+    const smart=sectionByText(tracker,'Smart Food System');
+    const night=$('nightscoutCard');
+    const addMeal=sectionByText(tracker,'Add meal');
+    const context=sectionByText(tracker,'Quick context note');
+    const log=sectionByText(tracker,'Unified meal log');
+
+    if(smart) foods.appendChild(smart);
+    [cloud,night,context,log].forEach(s=>{if(s) more.appendChild(s)});
+
+    const intro=(title,text)=>{const d=document.createElement('div');d.className='card compactPageIntro';d.innerHTML=`<h2>${title}</h2><div class="sectionNote">${text}</div>`;return d};
+    foods.insertBefore(intro('Foods','Favourites, barcode and label scanning, manual nutrition, restaurant foods and your full saved library.'),foods.firstChild);
+    more.insertBefore(intro('More','Cloud and Nightscout settings, context notes, meal history and backup/export tools.'),more.firstChild);
+
+    const showView=(target,scrollTop=true)=>{
+      document.querySelectorAll('.viewPane').forEach(p=>p.classList.remove('active'));
+      const pane=$(target); if(pane) pane.classList.add('active');
+      nav.querySelectorAll('.compactNavBtn').forEach(b=>b.classList.toggle('active',b.dataset.compactView===target));
+      if(scrollTop) window.scrollTo({top:0,behavior:'auto'});
+    };
+    nav.querySelectorAll('.compactNavBtn').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.compactView)));
+
+    const expandSection=s=>{if(!s)return;s.classList.remove('compactCollapsed');const ch=s.querySelector(':scope > .compactSectionToggle .compactChevron');if(ch)ch.textContent='Hide'};
+    const makeCollapsible=(section,label,open=false)=>{
+      if(!section||section.dataset.compactReady)return;
+      section.dataset.compactReady='1'; section.classList.add('compactCollapsible');
+      const body=document.createElement('div'); body.className='compactBody';
+      while(section.firstChild) body.appendChild(section.firstChild);
+      const btn=document.createElement('button');btn.type='button';btn.className='compactSectionToggle';btn.innerHTML=`<strong>${label}</strong><span class="compactChevron">${open?'Hide':'Show'}</span>`;
+      section.append(btn,body); if(!open)section.classList.add('compactCollapsed');
+      btn.addEventListener('click',()=>{section.classList.toggle('compactCollapsed');btn.querySelector('.compactChevron').textContent=section.classList.contains('compactCollapsed')?'Show':'Hide'});
+    };
+    makeCollapsible(cloud,'Cloud & sign-in',false);
+    makeCollapsible(night,'Nightscout connection',false);
+    makeCollapsible(context,'Quick context note',false);
+    makeCollapsible(log,'Meal log & CSV export',false);
+
+    if(addMeal){
+      const form=$('mealForm'), mainGrid=form?form.querySelector('.grid'):null;
+      if(form&&mainGrid){
+        const advanced=document.createElement('div');advanced.className='grid mealAdvanced hidden';advanced.id='mealAdvanced';
+        ['fatGrams','fatLevel','icr','bolusTiming','target','notes'].forEach(id=>{const el=$(id);if(el&&el.parentElement)advanced.appendChild(el.parentElement)});
+        const toggle=document.createElement('button');toggle.type='button';toggle.className='compactAdvancedToggle';toggle.innerHTML='<strong>Meal details</strong><span class="compactChevron">Fat, ICR, timing, target & notes</span>';
+        mainGrid.insertAdjacentElement('afterend',toggle);toggle.insertAdjacentElement('afterend',advanced);
+        toggle.addEventListener('click',()=>{advanced.classList.toggle('hidden');toggle.querySelector('.compactChevron').textContent=advanced.classList.contains('hidden')?'Fat, ICR, timing, target & notes':'Hide details'});
+      }
+      const quick=document.createElement('div');quick.className='compactQuickActions';quick.innerHTML='<button type="button" class="foodBtn" data-compact-go="foods">Choose / scan food</button><button type="button" class="secondary" data-compact-go="context">Context note</button><button type="button" class="secondary" data-compact-go="log">Meal log</button>';
+      const h=addMeal.querySelector('h2'); if(h) h.insertAdjacentElement('afterend',quick); else addMeal.prepend(quick);
+      quick.addEventListener('click',e=>{const b=e.target.closest('[data-compact-go]');if(!b)return;const dest=b.dataset.compactGo;if(dest==='foods')showView('foods');else{showView('more',false);const sec=dest==='context'?context:log;expandSection(sec);setTimeout(()=>sec&&sec.scrollIntoView({behavior:'smooth',block:'start'}),30)}});
+    }
+
+    if(progress){
+      const toggleCard=document.createElement('section');toggleCard.className='card compactProgressToggle';
+      const btn=document.createElement('button');btn.type='button';btn.className='compactAdvancedToggle';btn.style.marginTop='0';btn.innerHTML='<strong>CGM Progress & review history</strong><span class="compactChevron">Show</span>';
+      toggleCard.appendChild(btn);
+      const drawer=document.createElement('div');drawer.className='cgmProgressDrawer hidden';drawer.id='cgmProgressDrawer';
+      while(progress.firstChild) drawer.appendChild(progress.firstChild);
+      intelligence.append(toggleCard,drawer);
+      btn.addEventListener('click',()=>{drawer.classList.toggle('hidden');btn.querySelector('.compactChevron').textContent=drawer.classList.contains('hidden')?'Show':'Hide'});
+    }
+
+    directSections(intelligence).forEach((s,i)=>{
+      const txt=s.textContent;
+      if(i>2 && !txt.includes('CGM Progress & review history')){
+        const h=s.querySelector('h2');makeCollapsible(s,h?h.textContent.trim():'CGM detail',false);
+      }
+    });
+
+    const status=document.createElement('div');status.className='compactStatusBar';status.innerHTML='<div class="compactStatusCell"><span>Glucose</span><strong id="compactGlucose">--</strong></div><div class="compactStatusCell"><span>Trend</span><strong id="compactTrend">--</strong></div><div class="compactStatusCell"><span>ICR</span><strong id="compactIcr">1:15</strong></div><div class="compactStatusCell"><span>Cloud</span><strong id="compactCloud">Checking</strong></div>';
+    nav.insertAdjacentElement('afterend',status);
+    const syncStatus=()=>{
+      const live=$('liveCgmValue')?.textContent?.trim(); const bg=$('bg')?.value;
+      $('compactGlucose').textContent=(live&& !live.startsWith('--'))?live:(bg?bg+' mmol/L':'--');
+      $('compactTrend').textContent=$('cgmTrend')?.value||'--';
+      $('compactIcr').textContent='1:'+($('icr')?.value||'15');
+      $('compactCloud').textContent=$('statusText')?.textContent||'Checking';
+    };
+    ['bg','cgmTrend','icr'].forEach(id=>$(id)?.addEventListener('input',syncStatus));
+    ['liveCgmValue','statusText'].forEach(id=>{const el=$(id);if(el)new MutationObserver(syncStatus).observe(el,{childList:true,subtree:true,characterData:true})});
+    syncStatus();
+    showView('tracker',false);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initCompactUi);else initCompactUi();
+})();
+</script>
+
 </body></html>

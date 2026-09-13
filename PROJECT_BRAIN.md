@@ -4,7 +4,7 @@
 This repository is the authoritative source for Darren's personal CGM/meal-analysis app. A fresh developer or AI agent should be able to continue the project from this repository without relying on an old chat thread.
 
 ## Current production state
-- Current production release: v2.8.7.
+- Current production release: v2.9.0.
 - Live app entry point: `index.html` on `main` via GitHub Pages.
 - `smart-meal.html` contains the Smart Meal Assistant test/standalone implementation.
 - Supabase is the cloud source of truth for meal and food-library data when signed in.
@@ -61,6 +61,13 @@ Evidence labels used in the app:
 - ANALYSIS RULE
 
 Do not turn one meal outcome into a proven response pattern.
+
+## v2.9.0 compact navigation - 13 Sep 2026
+- Production UI is organised into four main destinations: Meal, CGM, Foods and More.
+- This is a presentation/navigation release. Existing clinical calculations, v2.8.7 nearest-whole-unit rounding, Supabase data model, Nightscout behaviour, food data and CGM analysis logic are preserved.
+- Meal is the everyday default. Foods holds food capture/library tools. CGM combines live intelligence with expandable progress/review history. More holds lower-frequency settings, context, history and export.
+- On mobile the main navigation is fixed at the bottom to reduce long-scroll navigation.
+- Future UI additions should fit this information hierarchy rather than adding another long permanent section to Meal.
 
 ## Current verified CGM baseline
 Latest verified review is 11 Sep 2026 for 29 Aug-11 Sep 2026:

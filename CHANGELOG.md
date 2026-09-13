@@ -1,3 +1,17 @@
+# v2.9.0 - Compact mobile-first navigation - 13 Sep 2026
+
+- Reorganised the existing app into four main destinations: Meal, CGM, Foods and More.
+- Kept every existing feature while reducing vertical scrolling and making everyday meal logging the default focus.
+- Moved Smart Food, favourites, barcode/OCR/manual nutrition, restaurant foods and the full food library into Foods.
+- Consolidated Live Intelligence and CGM Progress under CGM, with detailed evidence/history collapsed until requested.
+- Moved cloud sign-in, Nightscout settings, context notes, meal log and CSV export into More with compact collapsible sections.
+- Added a compact status strip for glucose, trend, ICR and cloud state.
+- Added a Meal details expander for fat, ICR, bolus timing, target and notes while keeping the core logging fields immediately visible.
+- Added quick Meal shortcuts to Foods, context notes and the meal log.
+- Corrected the insulin-field helper text so it describes the v2.8.7 nearest-whole-unit rounding rule rather than the old always-round-up behaviour.
+- No Supabase schema, Nightscout data, ICR, rounding, correction-dose, food data or CGM analysis logic changed.
+- Rollback branch: `backup/pre-v2.9.0-compact-ui-2026-09-13`.
+
 # v2.8.7 - Nearest whole-unit meal-dose rounding
 
 - Changed the editable meal-dose prefill from always rounding up to conventional nearest-whole-unit rounding.
