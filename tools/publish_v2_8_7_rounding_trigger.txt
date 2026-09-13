@@ -1,0 +1,1 @@
+Publish v2.8.7 nearest whole-unit rounding on 13 Sep 2026.
