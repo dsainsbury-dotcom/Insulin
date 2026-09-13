@@ -1,0 +1,67 @@
+name: Publish v2.9.0 compact UI
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/publish_v2_9_0_compact_ui.py
+      - .github/workflows/publish-v2.9.0-compact-ui.yml
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply compact UI release
+        run: python tools/publish_v2_9_0_compact_ui.py
+      - name: Validate release markers and preserved functions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          h=Path('index.html').read_text()
+          required=[
+            'ICR Meal Dashboard v2.9.0','v2.9.0 LIVE','data-compact-view="tracker"',
+            'data-compact-view="intelligence"','data-compact-view="foods"','data-compact-view="more"',
+            'id="mealForm"','id="saveMealBtn"','id="barcodeMode"','id="labelMode"','id="restaurantMode"',
+            'id="nightscoutCard"','id="exportBtn"','id="refreshIntelligence"','id="cgmChart"',
+            'Math.round(d)','nearest-whole-unit rounding'
+          ]
+          missing=[x for x in required if x not in h]
+          if missing: raise SystemExit('Missing required markers: '+repr(missing))
+          ids=re.findall(r'id="([^"]+)"',h)
+          dup=sorted({x for x in ids if ids.count(x)>1})
+          if dup: raise SystemExit('Duplicate static IDs: '+repr(dup))
+          print('Release markers OK; static IDs unique')
+          PY
+      - name: Check inline JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          h=Path('index.html').read_text()
+          scripts=re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',h,re.S)
+          inline='\n'.join(s for s in scripts if s.strip())
+          Path('/tmp/inline.js').write_text(inline)
+          print('Inline JS bytes:',len(inline))
+          PY
+          node --check /tmp/inline.js
+      - name: Review diff
+        run: |
+          git diff --check
+          git diff --stat
+          grep -n "v2.9.0" index.html CHANGELOG.md PROJECT_BRAIN.md README.md | head -30
+      - name: Commit release
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add index.html CHANGELOG.md PROJECT_BRAIN.md README.md
+          if git diff --cached --quiet; then
+            echo "No release changes to commit"
+          else
+            git commit -m "Release v2.9.0 compact mobile-first UI"
+            git push origin main
+          fi
