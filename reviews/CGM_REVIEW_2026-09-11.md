@@ -19,7 +19,7 @@ The ICR Meal Dashboard remains the primary meal-context record. Dexcom meal, ins
 - Very low: 0%
 - CGM active: 99.9%
 
-Compared with the 8 Sep review, TIR improves from 85% to 86%, average glucose remains 7.6 mmol/L, GMI remains 6.6%, and CV improves slightly from 30.4% to 30.0%. The current 14-day window records 0% low and 0% very low. All headline AGP goals remain achieved.
+Compared with the 8 Sep review, TIR improves from 85% to 86%, average glucose remains 7.6 mmol/L, GMI remains 6.6%, and CV improves slightly from 30.4% to 30.0%. The 14-day headline rounds low and very low to 0%, but the detailed daily/hourly statistics still contain low readings. All headline AGP goals remain achieved.
 
 Dexcom's own comparison with 15-28 Aug shows the newer period has slightly more variability: TIR 88% to 86%, average glucose 7.4 to 7.6 mmol/L, GMI 6.5% to 6.6%, and CV 27.7% to 30.0%. This remains well inside the AGP goals.
 
@@ -40,7 +40,7 @@ Any insulin-setting change remains a discussion point for the diabetes team, not
 - 11 Sep Pizza: 50 g carbs, 18 g fat, 4 U, stable start about 7.2 mmol/L. The review export was generated too soon after this meal to provide a complete outcome, so it is retained for the next review rather than judged now.
 
 ## 7 Sep low concern
-The earlier provisional concern about a possible 7 Sep evening low is not supported strongly enough to use as evidence that 1:15 is too strong. The updated 14-day Clarity summary records 0% low and 0% very low. Keep watching future clean meals, but do not change the global ratio on this basis.
+The 7 Sep evening low caution remains because the detailed Clarity statistics include low readings, including evening minima around 3.7 mmol/L. However, that evening involved about 50 g carbohydrate with 5 U within minutes, an effective dose around 1:10, plus overlapping earlier insulin/food. This is a caution about stronger/stacked dosing and whole-unit rounding, not evidence that the 1:15 baseline is globally too strong.
 
 ## Current interpretation
 - PROVEN REPEATEDLY: headline control remains above the standard AGP targets, including TIR >70%, GMI <7% and CV <36%.
@@ -58,6 +58,6 @@ The earlier provisional concern about a possible 7 Sep evening low is not suppor
 - Average glucose: 7.6 mmol/L
 - GMI: 6.6%
 - CV: 30.0%
-- Low / very low: 0% / 0%
+- Low / very low headline: 0% / 0% (rounded; detailed statistics still contain low readings)
 - Working ICR verdict: keep 1:15 as the evidence-supported baseline for now
 - Main watch area: meal-specific excursions and uncertain/untracked food, not a repeated post-meal low signal

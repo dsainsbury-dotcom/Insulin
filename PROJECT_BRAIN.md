@@ -4,7 +4,7 @@
 This repository is the authoritative source for Darren's personal CGM/meal-analysis app. A fresh developer or AI agent should be able to continue the project from this repository without relying on an old chat thread.
 
 ## Current production state
-- Current production release: v2.8.4.
+- Current production release: v2.8.7.
 - Live app entry point: `index.html` on `main` via GitHub Pages.
 - `smart-meal.html` contains the Smart Meal Assistant test/standalone implementation.
 - Supabase is the cloud source of truth for meal and food-library data when signed in.
@@ -19,7 +19,7 @@ Build a personal diabetes learning and logging tool that combines meal details, 
 - Meal logging with carbs, fat, meal type, starting glucose, ICR, actual insulin, bolus timing and notes.
 - Default ICR 1:15 and target glucose 8.0 mmol/L.
 - Meal-dose calculation only. No correction dose is calculated.
-- Whole-unit dose prefill remains editable to record the actual dose taken.
+- Whole-unit dose prefill remains editable to record the actual dose taken. From v2.8.7, calculated doses use nearest-whole-unit rounding: 0.00-0.49 down and 0.50-0.99 up.
 - Cloud meal storage in Supabase plus safe offline queueing.
 - Unified cloud/offline meal log and CSV export.
 - Delete-meal action with confirmation and cloud/local queue protection.
@@ -70,8 +70,8 @@ Latest verified review is 11 Sep 2026 for 29 Aug-11 Sep 2026:
 - CV 30.0%
 - Very high 2%
 - High 12%
-- Low 0%
-- Very low 0%
+- Low 0% headline (rounded; detailed statistics include low readings)
+- Very low 0% headline (rounded)
 - CGM active 99.9%
 
 The current evidence continues to support 1:15 as the working baseline. Context-only untracked food is excluded from clean ICR evidence, closely spaced eating is grouped, and high-fat/high-carb meals are assessed over the full delayed trace. Any insulin-setting change remains a discussion point for the diabetes team rather than an automatic app decision.

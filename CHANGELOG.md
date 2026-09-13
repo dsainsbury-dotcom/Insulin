@@ -1,8 +1,18 @@
+# v2.8.7 - Nearest whole-unit meal-dose rounding
+
+- Changed the editable meal-dose prefill from always rounding up to conventional nearest-whole-unit rounding.
+- Calculated fractions 0.00-0.49 round down; 0.50-0.99 round up.
+- Working ICR remains 1:15 and the app still calculates meal dose only; no correction dose is added.
+- Actual insulin remains editable so the logged dose is always the dose actually taken.
+- Corrected the 11 Sep CGM review wording: the headline 0% low figure is rounded and detailed statistics still contain low readings.
+- Retained the 7 Sep low as a safety caution for stronger/stacked dosing rather than evidence that 1:15 is globally too strong.
+- Rollback branch: `backup/pre-v2.8.7-rounding-2026-09-13`.
+
 # CGM review update - 11 Sep 2026
 
 - Processed the complete Dexcom Clarity PDF, raw Dexcom CSV and ICR Meal Dashboard CSV review set.
 - Updated CGM Progress to TIR 86%, average glucose 7.6 mmol/L, GMI 6.6% and CV 30.0%.
-- Current 14-day window records 0% low and 0% very low; all headline AGP goals remain achieved.
+- Headline 14-day low and very-low values round to 0%; detailed daily/hourly statistics still contain low readings, while headline AGP goals remain achieved.
 - Kept 1:15 as the evidence-supported working ICR baseline.
 - Context-only untracked food, including the 10 Sep pub episode, is excluded from clean ICR evidence.
 - Added `reviews/CGM_REVIEW_2026-09-11.md`.
