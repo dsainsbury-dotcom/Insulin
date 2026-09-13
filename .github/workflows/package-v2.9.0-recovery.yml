@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Build recovery archive
+      - name: Build recovery folder
         run: |
           mkdir -p recovery
           cp index.html README.md CHANGELOG.md PROJECT_BRAIN.md PROJECT_RULES.md BACKUP_AND_RECOVERY.md CGM_ANALYSIS_PROTOCOL_v1.0.md PREBOLUS_EVIDENCE_PROTOCOL.md recovery/
@@ -21,10 +21,8 @@ jobs:
           cp -r beta recovery/ 2>/dev/null || true
           cp -r tools recovery/ 2>/dev/null || true
           printf 'CGM App v2.9.0 recovery package\nProduction release: 13 Sep 2026\nSource: dsainsbury-dotcom/Insulin main\nUI: compact Meal / CGM / Foods / More navigation\nClinical calculation logic preserved from v2.8.7\n' > recovery/RECOVERY_MANIFEST.txt
-          cd recovery
-          zip -r ../CGM_App_v2.9.0_FULL_RECOVERY_2026-09-13.zip .
       - uses: actions/upload-artifact@v4
         with:
-          name: CGM_App_v2.9.0_FULL_RECOVERY_2026-09-13
-          path: CGM_App_v2.9.0_FULL_RECOVERY_2026-09-13.zip
+          name: CGM_App_v2.9.0_FULL_RECOVERY_2026-09-13_SINGLE_LAYER
+          path: recovery/
           retention-days: 90
