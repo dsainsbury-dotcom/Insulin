@@ -1,0 +1,48 @@
+name: Publish v2.9.3 intelligence render fix
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-v2.9.3-intelligence-render-fix.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch v2.9.3
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('<title>ICR Meal Dashboard v2.9.2</title>','<title>ICR Meal Dashboard v2.9.3</title>')
+          s=s.replace('ICR Meal Dashboard <small style="font-size:.48em;color:#0b5cab">v2.9.1</small>','ICR Meal Dashboard <small style="font-size:.48em;color:#0b5cab">v2.9.3</small>')
+          s=s.replace('<div class="badge">v2.9.2 LIVE</div>','<div class="badge">v2.9.3 LIVE</div>')
+          old="calculateOutcomes();renderRightNow();renderCgmChart(Number(document.querySelector('.rangeBtn.active')?.dataset.hours||6));renderOutcomeCards();renderMealMemory();renderPatterns();renderIcrEvidence();renderEvents();renderLearned();"
+          new="calculateOutcomes();renderRightNow();renderOutcomeCards();renderMealMemory();renderPatterns();renderIcrEvidence();renderEvents();renderLearned();try{renderCgmChart(Number(document.querySelector('.rangeBtn.active')?.dataset.hours||6))}catch(chartError){console.error('CGM chart render',chartError)}"
+          if old not in s:
+              raise SystemExit('Expected refreshIntelligence render chain not found')
+          s=s.replace(old,new,1)
+          # Ensure panels show a useful state immediately even if a later async/chart step fails.
+          old2="try{$('intelState').textContent='Refreshing meals and Nightscout history...';$('intelState').className='notice warn';"
+          new2="try{$('intelState').textContent='Refreshing meals and Nightscout history...';$('intelState').className='notice warn';$('outcomeCards').innerHTML='<div class=\"sectionNote\">Loading matched meal outcomes...</div>';$('mealMemory').innerHTML='<div class=\"sectionNote\">Loading meal memory...</div>';$('patternCards').innerHTML='<div class=\"sectionNote\">Loading pattern evidence...</div>';$('learnedAboutMe').innerHTML='<div class=\"sectionNote\">Loading personalised evidence...</div>';"
+          if old2 not in s:
+              raise SystemExit('Expected refreshIntelligence start not found')
+          s=s.replace(old2,new2,1)
+          p.write_text(s)
+          PY
+      - name: Verify
+        run: |
+          grep -q 'v2.9.3 LIVE' index.html
+          grep -q '>v2.9.3</small>' index.html
+          grep -q "catch(chartError)" index.html
+          grep -q 'Loading matched meal outcomes' index.html
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git commit -m 'Publish v2.9.3 intelligence render fix'
+          git push
