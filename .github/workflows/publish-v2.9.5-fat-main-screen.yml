@@ -1,0 +1,60 @@
+name: Publish v2.9.5 fat field on main meal screen
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-v2.9.5-fat-main-screen.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move fat fields out of collapsed Meal details
+        shell: python
+        run: |
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          s=s.replace('v2.9.4','v2.9.5')
+          # Compact UI is built at runtime by moving existing form fields. Remove fat fields from the collapsed detail set
+          # and place them immediately after carbohydrate so they remain visible on the main meal screen.
+          marker="const detailIds=['fatGrams','fatLevel','icr','bolusTiming','target','notes'];"
+          if marker in s:
+              s=s.replace(marker,"const detailIds=['icr','bolusTiming','target','notes'];")
+          marker2="const compactDetailIds=['fatGrams','fatLevel','icr','bolusTiming','target','notes'];"
+          if marker2 in s:
+              s=s.replace(marker2,"const compactDetailIds=['icr','bolusTiming','target','notes'];")
+          # Generic fallback for the compact layout implementation: after it creates/moves the carbohydrate field,
+          # explicitly move both fat field wrappers directly after carbs and before glucose.
+          inject="""
+// v2.9.5: fat is core meal evidence, so keep it visible beside carbohydrate rather than under Meal details.
+(function keepFatVisible(){
+  const carbs=document.getElementById('carbs'), fat=document.getElementById('fatGrams'), fatLevel=document.getElementById('fatLevel'), bg=document.getElementById('bg');
+  if(!carbs||!fat||!fatLevel) return;
+  const form=carbs.closest('form'); if(!form) return;
+  const carbsWrap=carbs.parentElement, fatWrap=fat.parentElement, fatLevelWrap=fatLevel.parentElement;
+  const bgWrap=bg&&bg.parentElement;
+  if(bgWrap&&bgWrap.parentElement){
+    bgWrap.parentElement.insertBefore(fatWrap,bgWrap);
+    bgWrap.parentElement.insertBefore(fatLevelWrap,bgWrap);
+  } else if(carbsWrap&&carbsWrap.parentElement){
+    carbsWrap.after(fatWrap); fatWrap.after(fatLevelWrap);
+  }
+})();
+"""
+          anchor="</script>\n</body>"
+          if inject not in s and anchor in s:
+              s=s.replace(anchor,inject+"\n</script>\n</body>")
+          p.write_text(s)
+      - name: Verify
+        run: |
+          grep -q 'v2.9.5' index.html
+          grep -q 'keepFatVisible' index.html
+      - name: Commit app
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html
+          git commit -m 'Publish v2.9.5 keep fat visible on meal screen'
+          git push
