@@ -1,0 +1,35 @@
+from pathlib import Path
+
+p = Path('index.html')
+s = p.read_text()
+s = s.replace('v2.9.4', 'v2.9.6').replace('v2.9.5', 'v2.9.6')
+start = s.find('function renderMealMemory(')
+if start < 0:
+    raise SystemExit('renderMealMemory not found')
+nxt = s.find('\nfunction ', start + 10)
+if nxt < 0:
+    raise SystemExit('next function not found')
+new = r'''function mealFamilyName(name){
+  let x=String(name||'').toLowerCase().trim();
+  x=x.replace(/\b\d+(?:\.\d+)?\s*(?:g|gram|grams|carb|carbs|u|unit|units)\b/g,' ').replace(/[&+]/g,' and ').replace(/[^a-z0-9\s]/g,' ').replace(/\b(with|and|plus|the|a|an|my|meal|dinner|lunch|breakfast)\b/g,' ').replace(/\s+/g,' ').trim();
+  const aliases=[['curry',['curry']],['sandwich',['sandwich','sw']],['pizza',['pizza']],['pasta',['pasta']],['porridge',['porridge','oats']],['toast',['toast']],['burger',['burger']],['chips',['chips','fries']],['chicken',['chicken']],['cereal',['cereal']]];
+  for(const [family,words] of aliases) if(words.some(w=>x.includes(w))) return family;
+  return x.split(' ').filter(Boolean).slice(0,3).join(' ') || 'other meal';
+}
+function renderMealMemory(outcomes){
+  const el=document.getElementById('mealMemory'); if(!el) return;
+  const groups={};
+  (outcomes||[]).forEach(o=>{const m=o.meal||o.row||o; const name=String(m.food_name||m.food||m.meal_name||m.name||'').trim(); if(!name)return; const key=mealFamilyName(name); (groups[key]||(groups[key]=[])).push(o);});
+  const fams=Object.entries(groups).filter(([,a])=>a.length>=2).sort((a,b)=>b[1].length-a[1].length);
+  if(!fams.length){el.innerHTML='<div class="mini">Meal memory is building. Similar meal names are now grouped into families, so they do not need to be exact text matches. A family appears after at least two matched CGM outcomes.</div>';return;}
+  const num=v=>Number.isFinite(Number(v))?Number(v):null;
+  const avg=a=>{const z=a.filter(v=>v!==null);return z.length?z.reduce((x,y)=>x+y,0)/z.length:null};
+  el.innerHTML=fams.slice(0,8).map(([family,a])=>{const carbs=avg(a.map(o=>num((o.meal||o.row||o).carbs))); const fat=avg(a.map(o=>num((o.meal||o.row||o).fat_grams ?? (o.meal||o.row||o).fatGrams))); const insulin=avg(a.map(o=>num((o.meal||o.row||o).actual_insulin ?? (o.meal||o.row||o).insulin_taken ?? (o.meal||o.row||o).insulin))); const rise=avg(a.map(o=>num(o.rise ?? o.delta ?? o.peakRise))); const peak=avg(a.map(o=>num(o.peak ?? o.peakGlucose))); const delayed=a.filter(o=>o.delayedRise||o.delayed_rise).length; const lows=a.filter(o=>o.low||o.hadLow||o.had_low).length; const label=family.replace(/\b\w/g,c=>c.toUpperCase()); const detail=[carbs!==null?`Typical carbs ${carbs.toFixed(0)}g`:null,fat!==null?`fat ${fat.toFixed(0)}g`:null,insulin!==null?`insulin ${insulin.toFixed(1)}u`:null,rise!==null?`average rise ${rise>=0?'+':''}${rise.toFixed(1)} mmol/L`:null,peak!==null?`average peak ${peak.toFixed(1)} mmol/L`:null].filter(Boolean).join(' · '); let meaning='Results are still mixed, so keep collecting examples before treating this meal as predictable.'; if(delayed)meaning+=` Delayed rise seen in ${delayed}/${a.length}.`; if(lows)meaning+=` Low seen after ${lows}/${a.length}.`; return `<div class="memoryCard"><strong>${label}</strong><div class="mini">${a.length} matched meals${detail?' · '+detail:''}</div><div class="mini" style="margin-top:7px">${meaning}</div></div>`;}).join('');
+}'''
+s = s[:start] + new + s[nxt:]
+p.write_text(s)
+assert 'v2.9.6' in s
+assert 'function mealFamilyName' in s
+assert 'Similar meal names are now grouped' in s
+assert s.count('function renderMealMemory(') == 1
+print('v2.9.6 patch OK')
