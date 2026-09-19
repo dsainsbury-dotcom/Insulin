@@ -10,40 +10,84 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Patch app
-        shell: python
-        env:
-          MEMORY_B64: ZnVuY3Rpb24gbWVhbEZhbWlseU5hbWUobmFtZSl7CiAgbGV0IHg9U3RyaW5nKG5hbWV8fCcnKS50b0xvd2VyQ2FzZSgpLnRyaW0oKTsKICB4PXgucmVwbGFjZSgvXGJcZCsoPzpcLlxkKyk/XHMqKD86Z3xncmFtfGdyYW1zfGNhcmJ8Y2FyYnN8dXx1bml0fHVuaXRzKVxiL2csJyAnKS5yZXBsYWNlKC9bJitdL2csJyBhbmQgJykucmVwbGFjZSgvW15hLXowLTlc c10vZywnICcpLnJlcGxhY2UoL1xiKHdpdGh8YW5kfHBsdXN8dGhlfGF8YW58bXl8bWVhbHxkaW5uZXJ8bHVuY2h8YnJlYWtmYXN0KVxiL2csJyAnKS5yZXBsYWNlKC9ccysvZywnICcpLnRyaW0oKTsKICBjb25zdCBhbGlhc2VzPVtbJ2N1cnJ5JyxbJ2N1cnJ5J11dLFsnc2FuZHdpY2gnLFsnc2FuZHdpY2gnLCdzdyddXSxbJ3BpenphJyxbJ3BpenphJ11dLFsncGFzdGEnLFsncGFzdGEnXV0sWydwb3JyaWRnZScsWydwb3JyaWRnZScsJ29hdHMnXV0sWyd0b2FzdCcsWyd0b2FzdCddXSxbJ2J1cmdlcicsWydidXJnZXInXV0sWydjaGlwcycsWydjaGlwcycsJ2ZyaWVzJ11dLFsnY2hpY2tlbicsWydjaGlja2VuJ11dLFsnY2VyZWFsJyxbJ2NlcmVhbCddXV07CiAgZm9yKGNvbnN0IFtmYW1pbHksd29yZHNdIG9mIGFsaWFzZXMpIGlmKHdvcmRzLnNvbWUodz0+eC5pbmNsdWRlcyh3KSkpIHJldHVybiBmYW1pbHk7CiAgcmV0dXJuIHguc3BsaXQoJyAnKS5maWx0ZXIoQm9vbGVhbikuc2xpY2UoMCwzKS5qb2luKCcgJykgfHwgJ290aGVyIG1lYWwnOwp9CmZ1bmN0aW9uIHJlbmRlck1lYWxNZW1vcnkob3V0Y29tZXMpewogIGNvbnN0IGVsPWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdtZWFsTWVtb3J5Jyk7IGlmKCFlbCkgcmV0dXJuOwogIGNvbnN0IGdyb3Vwcz17fTsKICAob3V0Y29tZXN8fFtdKS5mb3JFYWNoKG89Pntjb25zdCBtPW8ubWVhbHx8by5yb3d8fG87IGNvbnN0IG5hbWU9U3RyaW5nKG0uZm9vZF9uYW1lfHxtLmZvb2R8fG0ubWVhbF9uYW1lfHxtLm5hbWV8fCcnKS50cmltKCk7IGlmKCFuYW1lKXJldHVybjsgY29uc3Qga2V5PW1lYWxGYW1pbHlOYW1lKG5hbWUpOyAoZ3JvdXBzW2tleV18fChncm91cHNba2V5XT1bXSkpLnB1c2gobyk7fSk7CiAgY29uc3QgZmFtcz1PYmplY3QuZW50cmllcyhncm91cHMpLmZpbHRlcigoWyxhXSk9PmEubGVuZ3RoPj0yKS5zb3J0KChhLGIpPT5iWzFdLmxlbmd0aC1hWzFdLmxlbmd0aCk7CiAgaWYoIWZhbXMubGVuZ3RoKXtlbC5pbm5lckhUTUw9JzxkaXYgY2xhc3M9Im1pbmkiPk1lYWwgbWVtb3J5IGlzIGJ1aWxkaW5nLiBTaW1pbGFyIG1lYWwgbmFtZXMgYXJlIG5vdyBncm91cGVkIGludG8gZmFtaWxpZXMsIHNvIHRoZXkgZG8gbm90IG5lZWQgdG8gYmUgZXhhY3QgdGV4dCBtYXRjaGVzLiBBIGZhbWlseSBhcHBlYXJzIGFmdGVyIGF0IGxlYXN0IHR3byBtYXRjaGVkIENHTSBvdXRjb21lcy48L2Rpdj4nO3JldHVybjt9CiAgY29uc3QgbnVtPXY9Pk51bWJlci5pc0Zpbml0ZShOdW1iZXIodikpP051bWJlcih2KTpudWxsLCBhdmc9YT0+e2NvbnN0IHo9YS5maWx0ZXIodj0+diE9PW51bGwpO3JldHVybiB6Lmxlbmd0aD96LnJlZHVjZSgoeCx5KT0+eCt5LDApL3oubGVuZ3RoOm51bGx9OwogIGVsLmlubmVySFRNTD1mYW1zLnNsaWNlKDAsOCkubWFwKChbZmFtaWx5LGFdKT0+e2NvbnN0IGNhcmJzPWF2ZyhhLm1hcChvPT5udW0oKG8ubWVhbHx8by5yb3d8fG8pLmNhcmJzKSkpOyBjb25zdCBmYXQ9YXZnKGEubWFwKG89Pm51bSgoby5tZWFsfHxvLnJvd3x8bykuZmF0X2dyYW1zID8/IChvLm1lYWx8fG8ucm93fHxvKS5mYXRHcmFtcykpKTsgY29uc3QgaW5zdWxp bj1hdmcoYS5tYXAobz0+bnVtKChvLm1lYWx8fG8ucm93fHxvKS5hY3R1YWxfaW5zdWxpbiA/PyAoby5tZWFsfHxvLnJvd3x8bykuaW5zdWxpbl90YWtlbiA/PyAoby5tZWFsfHxvLnJvd3x8bykuaW5zdWxpbi kpKTsgY29uc3QgcmlzZT1hdmcoYS5tYXAobz0+bnVtKG8ucmlzZSA/PyBvLmRlbHRhID8/IG8ucGVha1Jpc2UpKSk7IGNvbnN0IHBlYWs9YXZnKGEubWFwKG89Pm51bShvLnBlYWsgPz8gby5wZWFrR2x1Y29zZSkpKTsgY29uc3QgZGVsYXllZD1hLmZpbHRlcihvPT5vLmRlbGF5ZWRSaXNlfHxvLmRlbGF5ZWRfcmlzZSkubGVuZ3RoOyBjb25zdCBsb3dzPWEuZmlsdGVyKG89Pm8ubG93fHxvLmhhZExvd3x8by5oYWRfbG93KS5sZW5ndGg7IGNvbnN0IGxhYmVsPWZhbWlseS5yZXBsYWNlKC9cYlx3L2csYz0+Yy50b1VwcGVyQ2FzZSgpKTsgY29uc3QgZGV0YWlsPVtjYXJicyE9PW51bGw/YFR5cGljYWwgY2FyYnMgJHtjYXJicy50b0ZpeGVkKDApfWdgOm51bGwsZmF0IT09bnVsbD9gZmF0ICR7ZmF0LnRvRml4ZWQoMCl9Z2A6bnVsbCxpbnN1bGluIT09bnVsbD9gaW5zdWxpbiAke2luc3VsaW4udG9GaXhlZCgxKX11YDpudWxsLHJpc2UhPT1udWxsP2BhdmVyYWdlIHJpc2UgJHtyaXNlPj0wPycrJzonJ30ke3Jpc2UudG9GaXhlZCgxKX0gbW1vbC9MYDpudWxsLHBlYWshPT1udWxsP2BhdmVyYWdlIHBlYWsgJHtwZWFrLnRvRml4ZWQoMSl9IG1tb2wvTGA6bnVsbF0uZmlsdGVyKEJvb2xlYW4pLmpvaW4oJyDCtyAnKTsgbGV0IG1lYW5pbmc9J1Jlc3VsdHMgYXJlIHN0aWxsIG1peGVkLCBzbyBrZWVwIGNvbGxlY3RpbmcgZXhhbXBsZXMgYmVmb3JlIHRyZWF0aW5nIHRoaXMgbWVhbCBhcyBwcmVkaWN0YWJsZS4nOyBpZihkZWxheWVkKW1lYW5pbmcrPWAgRGVsYXllZCByaXNlIHNlZW4gaW4gJHtkZWxheWVkfS8ke2EubGVuZ3RofS5gOyBpZihsb3dzKW1lYW5pbmcrPWAgTG93IHNlZW4gYWZ0ZXIgJHtsb3dzfS8ke2EubGVuZ3RofS5gOyByZXR1cm4gYDxkaXYgY2xhc3M9Im1lbW9yeUNhcmQiPjxzdHJvbmc+JHtsYWJlbH08L3N0cm9uZz48ZGl2IGNsYXNzPSJtaW5pIj4ke2EubGVuZ3RofSBtYXRjaGVkIG1lYWxzJHtkZXRhaWw/JyDCtyAnK2RldGFpbDonJ308L2Rpdj48ZGl2IGNsYXNzPSJtaW5pIiBzdHlsZT0ibWFyZ2luLXRvcDo3cHgiPiR7bWVhbmluZ308L2Rpdj48L2Rpdj5gO30pLmpvaW4oJycpOwp9
+      - name: Patch and verify app
+        shell: bash
         run: |
           python - <<'PY'
           from pathlib import Path
-          import os,base64
-          p=Path('index.html'); s=p.read_text()
+          import re
+          p=Path('index.html')
+          s=p.read_text()
           s=s.replace('v2.9.4','v2.9.6').replace('v2.9.5','v2.9.6')
           start=s.find('function renderMealMemory(')
-          if start < 0: raise SystemExit('renderMealMemory not found')
-          nxt=s.find('\nfunction ',start+10)
-          if nxt < 0: raise SystemExit('next function not found')
-          new=base64.b64decode(os.environ['MEMORY_B64'].replace(' ','')).decode()
+          if start < 0:
+              raise SystemExit('renderMealMemory not found')
+          nxt=s.find('\nfunction ', start+10)
+          if nxt < 0:
+              raise SystemExit('next function after renderMealMemory not found')
+          new=r'''function mealFamilyName(name){
+  let x=String(name||'').toLowerCase().trim();
+  x=x.replace(/\b\d+(?:\.\d+)?\s*(?:g|gram|grams|carb|carbs|u|unit|units)\b/g,' ')
+     .replace(/[&+]/g,' and ').replace(/[^a-z0-9\s]/g,' ')
+     .replace(/\b(with|and|plus|the|a|an|my|meal|dinner|lunch|breakfast)\b/g,' ')
+     .replace(/\s+/g,' ').trim();
+  const aliases=[['curry',['curry']],['sandwich',['sandwich','sw']],['pizza',['pizza']],['pasta',['pasta']],['porridge',['porridge','oats']],['toast',['toast']],['burger',['burger']],['chips',['chips','fries']],['chicken',['chicken']],['cereal',['cereal']]];
+  for(const [family,words] of aliases) if(words.some(w=>x.includes(w))) return family;
+  return x.split(' ').filter(Boolean).slice(0,3).join(' ') || 'other meal';
+}
+function renderMealMemory(outcomes){
+  const el=document.getElementById('mealMemory'); if(!el) return;
+  const groups={};
+  (outcomes||[]).forEach(o=>{
+    const m=o.meal||o.row||o;
+    const name=String(m.food_name||m.food||m.meal_name||m.name||'').trim();
+    if(!name) return;
+    const key=mealFamilyName(name); (groups[key]||(groups[key]=[])).push(o);
+  });
+  const fams=Object.entries(groups).filter(([,a])=>a.length>=2).sort((a,b)=>b[1].length-a[1].length);
+  if(!fams.length){el.innerHTML='<div class="mini">Meal memory is building. Similar meal names are now grouped into families, so they do not need to be exact text matches. A family appears after at least two matched CGM outcomes.</div>';return;}
+  const num=v=>Number.isFinite(Number(v))?Number(v):null;
+  const avg=a=>{const z=a.filter(v=>v!==null);return z.length?z.reduce((x,y)=>x+y,0)/z.length:null};
+  el.innerHTML=fams.slice(0,8).map(([family,a])=>{
+    const carbs=avg(a.map(o=>num((o.meal||o.row||o).carbs)));
+    const fat=avg(a.map(o=>num((o.meal||o.row||o).fat_grams ?? (o.meal||o.row||o).fatGrams)));
+    const insulin=avg(a.map(o=>num((o.meal||o.row||o).actual_insulin ?? (o.meal||o.row||o).insulin_taken ?? (o.meal||o.row||o).insulin)));
+    const rise=avg(a.map(o=>num(o.rise ?? o.delta ?? o.peakRise)));
+    const peak=avg(a.map(o=>num(o.peak ?? o.peakGlucose)));
+    const delayed=a.filter(o=>o.delayedRise||o.delayed_rise).length;
+    const lows=a.filter(o=>o.low||o.hadLow||o.had_low).length;
+    const label=family.replace(/\b\w/g,c=>c.toUpperCase());
+    const detail=[carbs!==null?`Typical carbs ${carbs.toFixed(0)}g`:null,fat!==null?`fat ${fat.toFixed(0)}g`:null,insulin!==null?`insulin ${insulin.toFixed(1)}u`:null,rise!==null?`average rise ${rise>=0?'+':''}${rise.toFixed(1)} mmol/L`:null,peak!==null?`average peak ${peak.toFixed(1)} mmol/L`:null].filter(Boolean).join(' · ');
+    let meaning='Results are still mixed, so keep collecting examples before treating this meal as predictable.';
+    if(delayed) meaning+=` Delayed rise seen in ${delayed}/${a.length}.`;
+    if(lows) meaning+=` Low seen after ${lows}/${a.length}.`;
+    return `<div class="memoryCard"><strong>${label}</strong><div class="mini">${a.length} matched meals${detail?' · '+detail:''}</div><div class="mini" style="margin-top:7px">${meaning}</div></div>`;
+  }).join('');
+}'''
           s=s[:start]+new+s[nxt:]
           p.write_text(s)
+          assert 'v2.9.6' in s
+          assert 'function mealFamilyName' in s
+          assert 'Similar meal names are now grouped' in s
+          assert s.count('function renderMealMemory(')==1
+          print('Patch verification passed')
           PY
-      - name: Test patched app
+      - name: JavaScript syntax check
+        shell: bash
         run: |
-          grep -q 'v2.9.6' index.html
-          grep -q 'function mealFamilyName' index.html
-          grep -q 'Similar meal names are now grouped' index.html
-          node --check <(python - <<'PY'
+          python - <<'PY' > /tmp/app-inline.js
           import re
           s=open('index.html').read()
-          scripts=re.findall(r'<script[^>]*>(.*?)</script>',s,re.S)
+          scripts=re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S)
           print('\n'.join(scripts))
           PY
-          )
+          node --check /tmp/app-inline.js
       - name: Commit app
+        shell: bash
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add index.html
+          git diff --cached --quiet && { echo 'No app changes produced'; exit 1; }
           git commit -m 'Publish v2.9.6 smarter personal meal memory'
           git push
