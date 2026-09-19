@@ -1,0 +1,32 @@
+name: Publish v2.10.0 meal editing
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-v2.10.0-meal-editing.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch app
+        run: python scripts/publish_v2100.py
+      - name: JavaScript syntax check
+        run: |
+          python -c "import re; s=open('index.html').read(); open('/tmp/app.js','w').write(chr(10).join(re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S)))"
+          node --check /tmp/app.js
+      - name: Verify editing
+        run: |
+          grep -q 'v2.10.0' index.html
+          grep -q 'class="secondary mealEdit"' index.html
+          grep -q 'async function editMeal(clientId)' index.html
+          grep -q "Meal updated in cloud" index.html
+      - name: Commit app
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add index.html
+          git diff --cached --quiet && { echo 'No app changes produced'; exit 1; }
+          git commit -m 'Publish v2.10.0 meal editing'
+          git push
