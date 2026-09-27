@@ -1,0 +1,27 @@
+name: Publish CGM review 27 Sep 2026
+on:
+  push:
+    paths:
+      - tools/publish_cgm_review_2026_09_27_trigger.txt
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python tools/publish_cgm_review_2026_09_27.py
+      - run: grep -q 'Latest review - 27 Sep 2026' index.html
+      - run: grep -q 'TIR 84.5%' index.html
+      - run: grep -q 'Current standard review uses 2 files' index.html
+      - name: Commit review
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add index.html
+          git diff --cached --check
+          git commit -m 'Publish CGM review 27 Sep 2026'
+          git push
