@@ -1,0 +1,28 @@
+name: Publish v2.10.2 CGM review
+on:
+  push:
+    paths:
+      - tools/publish_v2_10_2_cgm_review_trigger.txt
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: python tools/publish_v2_10_2_cgm_review_2026_10_04.py
+      - run: grep -q 'v2.10.2 LIVE' index.html
+      - run: grep -q 'Latest review - 4 Oct 2026' index.html
+      - run: grep -q 'TIR 80.2%' index.html
+      - run: grep -q 'GMI 6.81%' index.html
+      - name: Commit update
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add index.html
+          git diff --cached --check
+          git commit -m 'Publish v2.10.2 CGM review 4 Oct 2026'
+          git push
