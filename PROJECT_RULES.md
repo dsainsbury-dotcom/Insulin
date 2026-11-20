@@ -1,3 +1,14 @@
+## Standing update workflow agreed 20 November 2026
+
+For every future CGM update requested by Darren:
+1. Use the three supplied exports through Google Drive. Archive and verify new uploads in the private CGM Review Archives folder. GitHub main remains the source for app code. The old Mac checkout and Downloads originals are unnecessary after verified backup. Temporary processing copies may be needed.
+2. Review all app sections against the new evidence, including progress, clinical goals, learning, timeline and version history. Check that live meal memory, reference meal history, patterns, ratio evidence, lows/highs and live learning still refresh from their supported cloud sources. Distinguish live data from dated uploaded reviews.
+3. Account explicitly for incomplete meal and insulin logging. Missing entries remain unknown and recorded totals are incomplete. Do not infer dose effectiveness from aggregate glucose alone.
+4. Preserve a rollback branch, validate the change and publish the approved update to GitHub Pages. Keep raw medical exports and credentials private.
+5. Update the Google Drive production mirror, recovery instructions and dated release archive. Verify the uploaded copies.
+6. Fetch the public app and verify its new version, review date and changed content before reporting completion. Continue through recoverable failures. Report any genuine blocker precisely.
+7. Remove local originals only after verification and user authorization. Completion means published, backed up and checked live.
+
 # PROJECT_RULES
 
 These are non-negotiable operating rules for continuing the CGM app safely and consistently.
