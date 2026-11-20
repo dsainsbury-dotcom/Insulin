@@ -1,0 +1,41 @@
+name: Refresh official M&S nutrition catalogue
+on:
+  push:
+    branches: [main]
+    paths:
+      - tools/refresh_ms_catalogue.py
+      - .github/workflows/refresh-ms-catalogue.yml
+  schedule:
+    - cron: '25 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: ms-catalogue
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/refresh_ms_catalogue.py
+      - name: Publish verified catalogue changes
+        run: |
+          git config user.name "M&S catalogue refresh"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ms-foods.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Refresh official M&S nutrition snapshot"
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Request GitHub Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          curl --fail-with-body --request POST --header "Authorization: Bearer $GH_TOKEN" --header "Accept: application/vnd.github+json" "https://api.github.com/repos/$REPOSITORY/pages/builds"
