@@ -1,3 +1,4 @@
+window.createMsCatalogue = function({$, smartMode, prepareNutrition, setNotice, getCurrentSmart}) {
 /* Official M&S snapshots are fetched by GitHub, never through a third-party proxy. */
 let msCataloguePromise = null;
 
@@ -136,6 +137,7 @@ $('msSearch').addEventListener('input', renderMsResults);
 
 function smartNutritionSource() {
   const selected = $('smartSource').value;
+  const currentSmart = getCurrentSmart();
   if (selected === 'Official M&S catalogue' && currentSmart?.sourceUrl) {
     return 'Official M&S catalogue · ' + currentSmart.sourceUrl +
       ' · checked ' + currentSmart.checkedAt.slice(0, 10);
@@ -146,3 +148,6 @@ function smartNutritionSource() {
   }
   return selected;
 }
+
+return {lookupBarcode: lookupMsBarcode, nutritionSource: smartNutritionSource};
+};
