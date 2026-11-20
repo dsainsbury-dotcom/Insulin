@@ -1,3 +1,7 @@
+## Release v2.10.11 · 20 November 2026
+
+Published the latest approved review in the app. Updated progress, clinical reference display, evidence wording, timeline and version history. Data completeness limitations are explicit. Rollback branch `backup/pre-2026-11-20-review`. Earlier release entries below are historical.
+
 ## v2.10.8 - CGM review update, 2 November 2026
 
 Current production review: 19 Oct-1 Nov versus 5-18 Oct. TIR 85% vs 83%, mean 7.9 vs 8.2 mmol/L, GMI 6.7% vs 6.9%, CV 24.8% vs 25.6%. All three supplied files processed. Sensor-error exceptions and unconfirmed isolated lows are explicitly distinguished. 1:15 remains the working baseline for clinical review; no dosing or live-analysis logic changes. See `reviews/CGM_REVIEW_2026-11-01.md`.
