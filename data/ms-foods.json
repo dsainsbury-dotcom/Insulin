@@ -1,6 +1,6 @@
 {
   "source": "Official M&S UK Food Catalogue",
-  "generatedAt": "2026-11-21T13:38:26.089478+00:00",
+  "generatedAt": "2026-11-22T13:29:29.401164+00:00",
   "coverage": "Selected ready-to-cook, bakery and food-on-the-move products",
   "products": [
     {
@@ -14,7 +14,7 @@
       "protein100": 11.7,
       "kcal100": 379.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273805",
-      "checkedAt": "2026-11-21T13:38:13.701993+00:00"
+      "checkedAt": "2026-11-22T13:29:19.289798+00:00"
     },
     {
       "id": "60784816",
@@ -27,7 +27,7 @@
       "protein100": 5.6,
       "kcal100": 355.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60784816",
-      "checkedAt": "2026-11-21T13:37:40.813447+00:00"
+      "checkedAt": "2026-11-22T13:28:54.407775+00:00"
     },
     {
       "id": "60733317",
@@ -53,7 +53,7 @@
       "protein100": 1.2,
       "kcal100": 348.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60061823",
-      "checkedAt": "2026-11-21T13:37:17.148267+00:00"
+      "checkedAt": "2026-11-22T13:28:36.381471+00:00"
     },
     {
       "id": "60774862",
@@ -66,7 +66,7 @@
       "protein100": 7.4,
       "kcal100": 377.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60774862",
-      "checkedAt": "2026-11-21T13:37:38.221503+00:00"
+      "checkedAt": "2026-11-22T13:28:53.096841+00:00"
     },
     {
       "id": "21061823",
@@ -79,7 +79,7 @@
       "protein100": 4.4,
       "kcal100": 388.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21061823",
-      "checkedAt": "2026-11-21T13:37:15.897668+00:00"
+      "checkedAt": "2026-11-22T13:28:35.237919+00:00"
     },
     {
       "id": "60774723",
@@ -92,7 +92,7 @@
       "protein100": 5.7,
       "kcal100": 454.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60774723",
-      "checkedAt": "2026-11-21T13:37:39.946236+00:00"
+      "checkedAt": "2026-11-22T13:28:52.778711+00:00"
     },
     {
       "id": "60797091",
@@ -105,7 +105,7 @@
       "protein100": 12.9,
       "kcal100": 505.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60797091",
-      "checkedAt": "2026-11-21T13:37:44.527906+00:00"
+      "checkedAt": "2026-11-22T13:28:56.803541+00:00"
     },
     {
       "id": "61282754",
@@ -118,7 +118,7 @@
       "protein100": 3.4,
       "kcal100": 396.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282754",
-      "checkedAt": "2026-11-21T13:38:25.351410+00:00"
+      "checkedAt": "2026-11-22T13:29:28.790493+00:00"
     },
     {
       "id": "61282752",
@@ -131,7 +131,7 @@
       "protein100": 3.4,
       "kcal100": 396.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282752",
-      "checkedAt": "2026-11-21T13:38:24.381083+00:00"
+      "checkedAt": "2026-11-22T13:29:28.661927+00:00"
     },
     {
       "id": "61279253",
@@ -144,7 +144,7 @@
       "protein100": 1.6,
       "kcal100": 95.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279253",
-      "checkedAt": "2026-11-21T13:38:17.822473+00:00"
+      "checkedAt": "2026-11-22T13:29:23.440570+00:00"
     },
     {
       "id": "61268589",
@@ -157,7 +157,7 @@
       "protein100": 6.1,
       "kcal100": 201.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268589",
-      "checkedAt": "2026-11-21T13:38:01.080195+00:00"
+      "checkedAt": "2026-11-22T13:29:08.520751+00:00"
     },
     {
       "id": "61278118",
@@ -170,7 +170,7 @@
       "protein100": 2.1,
       "kcal100": 98.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278118",
-      "checkedAt": "2026-11-21T13:38:15.860284+00:00"
+      "checkedAt": "2026-11-22T13:29:21.215403+00:00"
     },
     {
       "id": "60769934",
@@ -183,7 +183,7 @@
       "protein100": 8.7,
       "kcal100": 269.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60769934",
-      "checkedAt": "2026-11-21T13:37:36.975555+00:00"
+      "checkedAt": "2026-11-22T13:28:52.401295+00:00"
     },
     {
       "id": "60760243",
@@ -196,7 +196,7 @@
       "protein100": 3.7,
       "kcal100": 367.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60760243",
-      "checkedAt": "2026-11-21T13:37:34.066614+00:00"
+      "checkedAt": "2026-11-22T13:28:50.932389+00:00"
     },
     {
       "id": "60779924",
@@ -209,7 +209,7 @@
       "protein100": 3.4,
       "kcal100": 475.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60779924",
-      "checkedAt": "2026-11-21T13:37:39.253598+00:00"
+      "checkedAt": "2026-11-22T13:28:53.732820+00:00"
     },
     {
       "id": "61278020",
@@ -222,7 +222,7 @@
       "protein100": 1.5,
       "kcal100": 102.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278020",
-      "checkedAt": "2026-11-21T13:38:14.855130+00:00"
+      "checkedAt": "2026-11-22T13:29:20.614105+00:00"
     },
     {
       "id": "61278121",
@@ -235,7 +235,7 @@
       "protein100": 1.5,
       "kcal100": 110.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278121",
-      "checkedAt": "2026-11-21T13:38:16.845892+00:00"
+      "checkedAt": "2026-11-22T13:29:21.415804+00:00"
     },
     {
       "id": "61285843",
@@ -248,7 +248,7 @@
       "protein100": 4.0,
       "kcal100": 412.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61285843",
-      "checkedAt": "2026-11-21T13:38:25.049037+00:00"
+      "checkedAt": "2026-11-22T13:29:29.250778+00:00"
     },
     {
       "id": "61216281",
@@ -274,7 +274,7 @@
       "protein100": 6.8,
       "kcal100": 122.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268753",
-      "checkedAt": "2026-11-21T13:38:04.084784+00:00"
+      "checkedAt": "2026-11-22T13:29:10.578014+00:00"
     },
     {
       "id": "61270562",
@@ -287,7 +287,7 @@
       "protein100": 13.4,
       "kcal100": 427.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61270562",
-      "checkedAt": "2026-11-21T13:38:07.482049+00:00"
+      "checkedAt": "2026-11-22T13:29:13.731390+00:00"
     },
     {
       "id": "60796600",
@@ -300,7 +300,7 @@
       "protein100": 9.3,
       "kcal100": 157.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60796600",
-      "checkedAt": "2026-11-21T13:37:43.966923+00:00"
+      "checkedAt": "2026-11-22T13:28:56.653188+00:00"
     },
     {
       "id": "60917048",
@@ -313,7 +313,7 @@
       "protein100": 0.8,
       "kcal100": 57.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60917048",
-      "checkedAt": "2026-11-21T13:37:44.580149+00:00"
+      "checkedAt": "2026-11-22T13:28:57.144260+00:00"
     },
     {
       "id": "61271455",
@@ -326,7 +326,7 @@
       "protein100": 9.3,
       "kcal100": 265.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271455",
-      "checkedAt": "2026-11-21T13:38:09.233886+00:00"
+      "checkedAt": "2026-11-22T13:29:15.761489+00:00"
     },
     {
       "id": "60758841",
@@ -339,7 +339,7 @@
       "protein100": 9.4,
       "kcal100": 281.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60758841",
-      "checkedAt": "2026-11-21T13:37:33.125638+00:00"
+      "checkedAt": "2026-11-22T13:28:50.062827+00:00"
     },
     {
       "id": "61228772",
@@ -352,7 +352,7 @@
       "protein100": 7.8,
       "kcal100": 296.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228772",
-      "checkedAt": "2026-11-21T13:37:53.293213+00:00"
+      "checkedAt": "2026-11-22T13:29:03.607979+00:00"
     },
     {
       "id": "61228773",
@@ -365,7 +365,7 @@
       "protein100": 7.9,
       "kcal100": 296.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228773",
-      "checkedAt": "2026-11-21T13:37:53.601285+00:00"
+      "checkedAt": "2026-11-22T13:29:03.288566+00:00"
     },
     {
       "id": "60764572",
@@ -378,7 +378,7 @@
       "protein100": 5.9,
       "kcal100": 485.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60764572",
-      "checkedAt": "2026-11-21T13:37:35.868411+00:00"
+      "checkedAt": "2026-11-22T13:28:51.829156+00:00"
     },
     {
       "id": "61280943",
@@ -404,7 +404,7 @@
       "protein100": 7.2,
       "kcal100": 108.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278117",
-      "checkedAt": "2026-11-21T13:38:15.653114+00:00"
+      "checkedAt": "2026-11-22T13:29:21.117559+00:00"
     },
     {
       "id": "61268682",
@@ -417,7 +417,7 @@
       "protein100": 3.4,
       "kcal100": 105.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268682",
-      "checkedAt": "2026-11-21T13:38:02.329749+00:00"
+      "checkedAt": "2026-11-22T13:29:09.917167+00:00"
     },
     {
       "id": "60741543",
@@ -430,7 +430,7 @@
       "protein100": 8.2,
       "kcal100": 209.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60741543",
-      "checkedAt": "2026-11-21T13:37:30.381146+00:00"
+      "checkedAt": "2026-11-22T13:28:47.163746+00:00"
     },
     {
       "id": "61219828",
@@ -443,7 +443,7 @@
       "protein100": 2.0,
       "kcal100": 107.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61219828",
-      "checkedAt": "2026-11-21T13:36:16.099751+00:00"
+      "checkedAt": "2026-11-22T13:29:02.083112+00:00"
     },
     {
       "id": "61282711",
@@ -456,7 +456,7 @@
       "protein100": 18.5,
       "kcal100": 197.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282711",
-      "checkedAt": "2026-11-21T13:38:24.239913+00:00"
+      "checkedAt": "2026-11-22T13:29:28.098456+00:00"
     },
     {
       "id": "61279269",
@@ -469,7 +469,7 @@
       "protein100": 7.8,
       "kcal100": 150.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279269",
-      "checkedAt": "2026-11-21T13:38:20.312999+00:00"
+      "checkedAt": "2026-11-22T13:29:25.272377+00:00"
     },
     {
       "id": "61219015",
@@ -482,7 +482,7 @@
       "protein100": 7.3,
       "kcal100": 532.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61219015",
-      "checkedAt": "2026-11-21T13:37:51.803463+00:00"
+      "checkedAt": "2026-11-22T13:29:01.633364+00:00"
     },
     {
       "id": "21002511",
@@ -495,7 +495,7 @@
       "protein100": 1.2,
       "kcal100": 43.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21002511",
-      "checkedAt": "2026-11-21T13:37:13.617226+00:00"
+      "checkedAt": "2026-11-22T13:28:33.095379+00:00"
     },
     {
       "id": "61268596",
@@ -508,7 +508,7 @@
       "protein100": 7.3,
       "kcal100": 209.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268596",
-      "checkedAt": "2026-11-21T13:38:00.976950+00:00"
+      "checkedAt": "2026-11-22T13:29:09.020945+00:00"
     },
     {
       "id": "61268741",
@@ -521,7 +521,7 @@
       "protein100": 7.9,
       "kcal100": 146.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268741",
-      "checkedAt": "2026-11-21T13:38:03.092283+00:00"
+      "checkedAt": "2026-11-22T13:29:10.164644+00:00"
     },
     {
       "id": "60733154",
@@ -547,7 +547,7 @@
       "protein100": 5.3,
       "kcal100": 369.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60765762",
-      "checkedAt": "2026-11-21T13:37:36.238902+00:00"
+      "checkedAt": "2026-11-22T13:28:52.130440+00:00"
     },
     {
       "id": "60758910",
@@ -560,7 +560,7 @@
       "protein100": 13.5,
       "kcal100": 313.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60758910",
-      "checkedAt": "2026-11-21T13:37:33.963206+00:00"
+      "checkedAt": "2026-11-22T13:28:50.774506+00:00"
     },
     {
       "id": "61220325",
@@ -573,7 +573,7 @@
       "protein100": 8.5,
       "kcal100": 169.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61220325",
-      "checkedAt": "2026-11-21T13:37:52.047115+00:00"
+      "checkedAt": "2026-11-22T13:29:02.120915+00:00"
     },
     {
       "id": "60753899",
@@ -586,7 +586,7 @@
       "protein100": 8.9,
       "kcal100": 194.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753899",
-      "checkedAt": "2026-11-21T13:37:32.551740+00:00"
+      "checkedAt": "2026-11-22T13:28:49.744599+00:00"
     },
     {
       "id": "61279268",
@@ -599,7 +599,7 @@
       "protein100": 8.2,
       "kcal100": 136.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279268",
-      "checkedAt": "2026-11-21T13:38:19.672169+00:00"
+      "checkedAt": "2026-11-22T13:29:25.086654+00:00"
     },
     {
       "id": "61282710",
@@ -612,7 +612,7 @@
       "protein100": 23.2,
       "kcal100": 192.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282710",
-      "checkedAt": "2026-11-21T13:38:23.375446+00:00"
+      "checkedAt": "2026-11-22T13:29:27.518476+00:00"
     },
     {
       "id": "61279262",
@@ -625,7 +625,7 @@
       "protein100": 8.6,
       "kcal100": 147.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279262",
-      "checkedAt": "2026-11-21T13:38:18.521626+00:00"
+      "checkedAt": "2026-11-22T13:29:23.580915+00:00"
     },
     {
       "id": "61218250",
@@ -638,7 +638,7 @@
       "protein100": 11.9,
       "kcal100": 266.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218250",
-      "checkedAt": "2026-11-21T13:36:19.216618+00:00"
+      "checkedAt": "2026-11-22T13:29:00.110274+00:00"
     },
     {
       "id": "60740537",
@@ -651,7 +651,7 @@
       "protein100": 12.9,
       "kcal100": 223.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60740537",
-      "checkedAt": "2026-11-21T13:37:30.287187+00:00"
+      "checkedAt": "2026-11-22T13:28:46.926759+00:00"
     },
     {
       "id": "60738895",
@@ -664,7 +664,7 @@
       "protein100": 4.6,
       "kcal100": 173.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60738895",
-      "checkedAt": "2026-11-21T13:37:28.628012+00:00"
+      "checkedAt": "2026-11-22T13:28:46.486454+00:00"
     },
     {
       "id": "61272780",
@@ -677,7 +677,7 @@
       "protein100": 4.6,
       "kcal100": 460.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61272780",
-      "checkedAt": "2026-11-21T13:38:12.187814+00:00"
+      "checkedAt": "2026-11-22T13:29:17.493506+00:00"
     },
     {
       "id": "61285844",
@@ -690,7 +690,7 @@
       "protein100": 5.7,
       "kcal100": 422.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61285844",
-      "checkedAt": "2026-11-21T13:38:26.088957+00:00"
+      "checkedAt": "2026-11-22T13:29:29.400642+00:00"
     },
     {
       "id": "61271458",
@@ -703,7 +703,7 @@
       "protein100": 6.4,
       "kcal100": 533.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271458",
-      "checkedAt": "2026-11-21T13:38:09.611170+00:00"
+      "checkedAt": "2026-11-22T13:29:15.685864+00:00"
     },
     {
       "id": "60588944",
@@ -716,7 +716,7 @@
       "protein100": 10.6,
       "kcal100": 251.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60588944",
-      "checkedAt": "2026-11-21T13:37:20.008122+00:00"
+      "checkedAt": "2026-11-22T13:28:39.262980+00:00"
     },
     {
       "id": "61276501",
@@ -729,7 +729,7 @@
       "protein100": 6.1,
       "kcal100": 450.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61276501",
-      "checkedAt": "2026-11-21T13:38:14.489047+00:00"
+      "checkedAt": "2026-11-22T13:29:20.054460+00:00"
     },
     {
       "id": "61228996",
@@ -742,7 +742,7 @@
       "protein100": 5.8,
       "kcal100": 478.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228996",
-      "checkedAt": "2026-11-21T13:37:54.630007+00:00"
+      "checkedAt": "2026-11-22T13:29:04.338256+00:00"
     },
     {
       "id": "61272730",
@@ -755,7 +755,7 @@
       "protein100": 6.5,
       "kcal100": 460.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61272730",
-      "checkedAt": "2026-11-21T13:38:11.330888+00:00"
+      "checkedAt": "2026-11-22T13:29:18.051105+00:00"
     },
     {
       "id": "60291542",
@@ -768,7 +768,7 @@
       "protein100": 7.2,
       "kcal100": 358.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60291542",
-      "checkedAt": "2026-11-21T13:37:18.457227+00:00"
+      "checkedAt": "2026-11-22T13:28:37.135505+00:00"
     },
     {
       "id": "60481383",
@@ -781,7 +781,7 @@
       "protein100": 7.4,
       "kcal100": 364.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60481383",
-      "checkedAt": "2026-11-21T13:37:18.736546+00:00"
+      "checkedAt": "2026-11-22T13:28:37.655444+00:00"
     },
     {
       "id": "61269560",
@@ -794,7 +794,7 @@
       "protein100": 9.1,
       "kcal100": 344.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269560",
-      "checkedAt": "2026-11-21T13:38:06.323435+00:00"
+      "checkedAt": "2026-11-22T13:29:13.121424+00:00"
     },
     {
       "id": "60797336",
@@ -807,7 +807,7 @@
       "protein100": 8.2,
       "kcal100": 497.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60797336",
-      "checkedAt": "2026-11-21T13:37:44.458971+00:00"
+      "checkedAt": "2026-11-22T13:28:57.032247+00:00"
     },
     {
       "id": "61282712",
@@ -820,7 +820,7 @@
       "protein100": 13.8,
       "kcal100": 172.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282712",
-      "checkedAt": "2026-11-21T13:38:23.833707+00:00"
+      "checkedAt": "2026-11-22T13:29:28.277938+00:00"
     },
     {
       "id": "61270718",
@@ -833,7 +833,7 @@
       "protein100": 4.2,
       "kcal100": 396.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61270718",
-      "checkedAt": "2026-11-21T13:38:07.548913+00:00"
+      "checkedAt": "2026-11-22T13:29:14.047254+00:00"
     },
     {
       "id": "61228771",
@@ -846,7 +846,7 @@
       "protein100": 1.9,
       "kcal100": 114.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228771",
-      "checkedAt": "2026-11-21T13:36:22.733761+00:00"
+      "checkedAt": "2026-11-22T13:29:03.100332+00:00"
     },
     {
       "id": "61278483",
@@ -859,7 +859,7 @@
       "protein100": 2.6,
       "kcal100": 150.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278483",
-      "checkedAt": "2026-11-21T13:38:16.805641+00:00"
+      "checkedAt": "2026-11-22T13:29:21.882941+00:00"
     },
     {
       "id": "61228836",
@@ -872,7 +872,7 @@
       "protein100": 6.6,
       "kcal100": 162.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228836",
-      "checkedAt": "2026-11-21T13:36:22.895236+00:00"
+      "checkedAt": "2026-11-22T13:29:03.295476+00:00"
     },
     {
       "id": "61266810",
@@ -885,7 +885,7 @@
       "protein100": 2.8,
       "kcal100": 335.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61266810",
-      "checkedAt": "2026-11-21T13:37:58.955377+00:00"
+      "checkedAt": "2026-11-22T13:29:06.961812+00:00"
     },
     {
       "id": "61270637",
@@ -898,7 +898,7 @@
       "protein100": 3.3,
       "kcal100": 414.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61270637",
-      "checkedAt": "2026-11-21T13:38:07.615946+00:00"
+      "checkedAt": "2026-11-22T13:29:13.523691+00:00"
     },
     {
       "id": "60631797",
@@ -911,7 +911,7 @@
       "protein100": 10.4,
       "kcal100": 272.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60631797",
-      "checkedAt": "2026-11-21T13:37:22.467090+00:00"
+      "checkedAt": "2026-11-22T13:28:41.137034+00:00"
     },
     {
       "id": "21055031",
@@ -924,7 +924,7 @@
       "protein100": 5.2,
       "kcal100": 364.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21055031",
-      "checkedAt": "2026-11-21T13:37:14.634140+00:00"
+      "checkedAt": "2026-11-22T13:28:34.376041+00:00"
     },
     {
       "id": "61218297",
@@ -937,7 +937,7 @@
       "protein100": 9.7,
       "kcal100": 227.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218297",
-      "checkedAt": "2026-11-21T13:36:23.441183+00:00"
+      "checkedAt": "2026-11-22T13:29:00.222585+00:00"
     },
     {
       "id": "21054898",
@@ -950,7 +950,7 @@
       "protein100": 4.0,
       "kcal100": 341.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21054898",
-      "checkedAt": "2026-11-21T13:37:14.267201+00:00"
+      "checkedAt": "2026-11-22T13:28:34.177840+00:00"
     },
     {
       "id": "60518824",
@@ -963,7 +963,7 @@
       "protein100": 3.1,
       "kcal100": 375.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60518824",
-      "checkedAt": "2026-11-21T13:37:19.299342+00:00"
+      "checkedAt": "2026-11-22T13:28:38.673806+00:00"
     },
     {
       "id": "61272609",
@@ -976,7 +976,7 @@
       "protein100": 11.8,
       "kcal100": 246.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61272609",
-      "checkedAt": "2026-11-21T13:38:10.591709+00:00"
+      "checkedAt": "2026-11-22T13:29:16.649662+00:00"
     },
     {
       "id": "61282713",
@@ -989,7 +989,7 @@
       "protein100": 7.8,
       "kcal100": 275.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282713",
-      "checkedAt": "2026-11-21T13:38:23.774939+00:00"
+      "checkedAt": "2026-11-22T13:29:28.433204+00:00"
     },
     {
       "id": "60760399",
@@ -1002,7 +1002,7 @@
       "protein100": 3.3,
       "kcal100": 346.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60760399",
-      "checkedAt": "2026-11-21T13:37:34.569671+00:00"
+      "checkedAt": "2026-11-22T13:28:50.814354+00:00"
     },
     {
       "id": "60475298",
@@ -1015,7 +1015,7 @@
       "protein100": 3.0,
       "kcal100": 364.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60475298",
-      "checkedAt": "2026-11-21T13:37:18.758087+00:00"
+      "checkedAt": "2026-11-22T13:28:37.381430+00:00"
     },
     {
       "id": "21059813",
@@ -1028,7 +1028,7 @@
       "protein100": 3.5,
       "kcal100": 359.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21059813",
-      "checkedAt": "2026-11-21T13:37:15.155349+00:00"
+      "checkedAt": "2026-11-22T13:28:34.748825+00:00"
     },
     {
       "id": "60518825",
@@ -1041,7 +1041,7 @@
       "protein100": 3.8,
       "kcal100": 361.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60518825",
-      "checkedAt": "2026-11-21T13:37:19.238040+00:00"
+      "checkedAt": "2026-11-22T13:28:38.152741+00:00"
     },
     {
       "id": "61268565",
@@ -1054,7 +1054,7 @@
       "protein100": 6.2,
       "kcal100": 379.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268565",
-      "checkedAt": "2026-11-21T13:38:00.248416+00:00"
+      "checkedAt": "2026-11-22T13:29:08.045369+00:00"
     },
     {
       "id": "21065023",
@@ -1067,7 +1067,7 @@
       "protein100": 3.5,
       "kcal100": 356.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21065023",
-      "checkedAt": "2026-11-21T13:37:16.258894+00:00"
+      "checkedAt": "2026-11-22T13:28:35.533036+00:00"
     },
     {
       "id": "61278120",
@@ -1080,7 +1080,7 @@
       "protein100": 4.3,
       "kcal100": 127.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278120",
-      "checkedAt": "2026-11-21T13:38:16.885193+00:00"
+      "checkedAt": "2026-11-22T13:29:21.288792+00:00"
     },
     {
       "id": "61271376",
@@ -1093,7 +1093,7 @@
       "protein100": 6.2,
       "kcal100": 101.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271376",
-      "checkedAt": "2026-11-21T13:38:08.754804+00:00"
+      "checkedAt": "2026-11-22T13:29:15.155642+00:00"
     },
     {
       "id": "61268555",
@@ -1106,7 +1106,7 @@
       "protein100": 7.7,
       "kcal100": 192.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268555",
-      "checkedAt": "2026-11-21T13:37:59.583423+00:00"
+      "checkedAt": "2026-11-22T13:29:07.907672+00:00"
     },
     {
       "id": "21059978",
@@ -1119,7 +1119,7 @@
       "protein100": 4.8,
       "kcal100": 362.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21059978",
-      "checkedAt": "2026-11-21T13:37:15.626925+00:00"
+      "checkedAt": "2026-11-22T13:28:35.214462+00:00"
     },
     {
       "id": "61270846",
@@ -1132,7 +1132,7 @@
       "protein100": 4.5,
       "kcal100": 338.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61270846",
-      "checkedAt": "2026-11-21T13:38:08.206273+00:00"
+      "checkedAt": "2026-11-22T13:29:14.593443+00:00"
     },
     {
       "id": "21065740",
@@ -1145,7 +1145,7 @@
       "protein100": 5.1,
       "kcal100": 350.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21065740",
-      "checkedAt": "2026-11-21T13:37:17.096048+00:00"
+      "checkedAt": "2026-11-22T13:28:35.814363+00:00"
     },
     {
       "id": "60788327",
@@ -1158,7 +1158,7 @@
       "protein100": 7.6,
       "kcal100": 269.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60788327",
-      "checkedAt": "2026-11-21T13:37:42.829714+00:00"
+      "checkedAt": "2026-11-22T13:28:55.986096+00:00"
     },
     {
       "id": "61219014",
@@ -1171,7 +1171,7 @@
       "protein100": 4.2,
       "kcal100": 436.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61219014",
-      "checkedAt": "2026-11-21T13:37:51.520495+00:00"
+      "checkedAt": "2026-11-22T13:29:01.649081+00:00"
     },
     {
       "id": "60535969",
@@ -1184,7 +1184,7 @@
       "protein100": 6.1,
       "kcal100": 365.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60535969",
-      "checkedAt": "2026-11-21T13:37:20.826334+00:00"
+      "checkedAt": "2026-11-22T13:28:38.942363+00:00"
     },
     {
       "id": "61218707",
@@ -1197,7 +1197,7 @@
       "protein100": 8.9,
       "kcal100": 118.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218707",
-      "checkedAt": "2026-11-21T13:37:50.515981+00:00"
+      "checkedAt": "2026-11-22T13:29:00.993328+00:00"
     },
     {
       "id": "61279251",
@@ -1210,7 +1210,7 @@
       "protein100": 5.4,
       "kcal100": 209.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279251",
-      "checkedAt": "2026-11-21T13:38:17.924840+00:00"
+      "checkedAt": "2026-11-22T13:29:22.993604+00:00"
     },
     {
       "id": "61278101",
@@ -1223,7 +1223,7 @@
       "protein100": 2.3,
       "kcal100": 145.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278101",
-      "checkedAt": "2026-11-21T13:38:14.772431+00:00"
+      "checkedAt": "2026-11-22T13:29:20.283362+00:00"
     },
     {
       "id": "61279267",
@@ -1236,7 +1236,7 @@
       "protein100": 5.3,
       "kcal100": 189.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279267",
-      "checkedAt": "2026-11-21T13:38:19.539425+00:00"
+      "checkedAt": "2026-11-22T13:29:24.781543+00:00"
     },
     {
       "id": "61218837",
@@ -1249,7 +1249,7 @@
       "protein100": 4.7,
       "kcal100": 401.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218837",
-      "checkedAt": "2026-11-21T13:37:50.643974+00:00"
+      "checkedAt": "2026-11-22T13:29:01.166325+00:00"
     },
     {
       "id": "61218982",
@@ -1262,7 +1262,7 @@
       "protein100": 2.9,
       "kcal100": 491.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218982",
-      "checkedAt": "2026-11-21T13:37:51.195269+00:00"
+      "checkedAt": "2026-11-22T13:29:01.424105+00:00"
     },
     {
       "id": "61231125",
@@ -1275,7 +1275,7 @@
       "protein100": 13.0,
       "kcal100": 271.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61231125",
-      "checkedAt": "2026-11-21T13:37:56.476234+00:00"
+      "checkedAt": "2026-11-22T13:29:05.390518+00:00"
     },
     {
       "id": "61272727",
@@ -1288,7 +1288,7 @@
       "protein100": 9.4,
       "kcal100": 262.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61272727",
-      "checkedAt": "2026-11-21T13:38:11.394117+00:00"
+      "checkedAt": "2026-11-22T13:29:16.846215+00:00"
     },
     {
       "id": "61230806",
@@ -1301,7 +1301,7 @@
       "protein100": 8.6,
       "kcal100": 415.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61230806",
-      "checkedAt": "2026-11-21T13:37:55.914510+00:00"
+      "checkedAt": "2026-11-22T13:29:05.206252+00:00"
     },
     {
       "id": "61227107",
@@ -1314,7 +1314,7 @@
       "protein100": 7.5,
       "kcal100": 424.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61227107",
-      "checkedAt": "2026-11-21T13:37:53.014676+00:00"
+      "checkedAt": "2026-11-22T13:29:02.689725+00:00"
     },
     {
       "id": "61227219",
@@ -1327,7 +1327,7 @@
       "protein100": 7.4,
       "kcal100": 428.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61227219",
-      "checkedAt": "2026-11-21T13:37:53.518981+00:00"
+      "checkedAt": "2026-11-22T13:29:03.097012+00:00"
     },
     {
       "id": "61227155",
@@ -1340,7 +1340,7 @@
       "protein100": 6.6,
       "kcal100": 410.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61227155",
-      "checkedAt": "2026-11-21T13:37:52.691286+00:00"
+      "checkedAt": "2026-11-22T13:29:02.963528+00:00"
     },
     {
       "id": "61226488",
@@ -1353,7 +1353,7 @@
       "protein100": 9.3,
       "kcal100": 481.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61226488",
-      "checkedAt": "2026-11-21T13:37:52.438819+00:00"
+      "checkedAt": "2026-11-22T13:29:02.745905+00:00"
     },
     {
       "id": "61285747",
@@ -1366,7 +1366,7 @@
       "protein100": 7.2,
       "kcal100": 385.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61285747",
-      "checkedAt": "2026-11-21T13:38:24.861955+00:00"
+      "checkedAt": "2026-11-22T13:29:29.217902+00:00"
     },
     {
       "id": "61280845",
@@ -1379,7 +1379,7 @@
       "protein100": 12.0,
       "kcal100": 273.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61280845",
-      "checkedAt": "2026-11-21T13:38:20.739765+00:00"
+      "checkedAt": "2026-11-22T13:29:25.614454+00:00"
     },
     {
       "id": "20083633",
@@ -1392,7 +1392,7 @@
       "protein100": 5.4,
       "kcal100": 474.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp20083633",
-      "checkedAt": "2026-11-21T13:37:12.615951+00:00"
+      "checkedAt": "2026-11-22T13:28:32.545128+00:00"
     },
     {
       "id": "61239315",
@@ -1405,7 +1405,7 @@
       "protein100": 1.1,
       "kcal100": 62.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61239315",
-      "checkedAt": "2026-11-21T13:37:57.586469+00:00"
+      "checkedAt": "2026-11-22T13:29:06.318434+00:00"
     },
     {
       "id": "60712017",
@@ -1418,7 +1418,7 @@
       "protein100": 9.1,
       "kcal100": 153.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60712017",
-      "checkedAt": "2026-11-21T13:37:24.203486+00:00"
+      "checkedAt": "2026-11-22T13:28:42.610729+00:00"
     },
     {
       "id": "61271460",
@@ -1431,7 +1431,7 @@
       "protein100": 10.3,
       "kcal100": 233.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271460",
-      "checkedAt": "2026-11-21T13:38:10.830541+00:00"
+      "checkedAt": "2026-11-22T13:29:16.638794+00:00"
     },
     {
       "id": "60640840",
@@ -1444,7 +1444,7 @@
       "protein100": 12.0,
       "kcal100": 139.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60640840",
-      "checkedAt": "2026-11-21T13:37:23.194748+00:00"
+      "checkedAt": "2026-11-22T13:28:40.808290+00:00"
     },
     {
       "id": "61229732",
@@ -1457,7 +1457,7 @@
       "protein100": 8.5,
       "kcal100": 126.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61229732",
-      "checkedAt": "2026-11-21T13:37:55.178203+00:00"
+      "checkedAt": "2026-11-22T13:29:04.631777+00:00"
     },
     {
       "id": "61235024",
@@ -1470,7 +1470,7 @@
       "protein100": 10.6,
       "kcal100": 273.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61235024",
-      "checkedAt": "2026-11-21T13:37:57.098078+00:00"
+      "checkedAt": "2026-11-22T13:29:05.931502+00:00"
     },
     {
       "id": "61268590",
@@ -1483,7 +1483,7 @@
       "protein100": 6.1,
       "kcal100": 140.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268590",
-      "checkedAt": "2026-11-21T13:38:00.548564+00:00"
+      "checkedAt": "2026-11-22T13:29:08.664487+00:00"
     },
     {
       "id": "61278260",
@@ -1496,7 +1496,7 @@
       "protein100": 3.2,
       "kcal100": 173.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278260",
-      "checkedAt": "2026-11-21T13:38:16.265742+00:00"
+      "checkedAt": "2026-11-22T13:29:21.719542+00:00"
     },
     {
       "id": "61278484",
@@ -1509,7 +1509,7 @@
       "protein100": 3.2,
       "kcal100": 173.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278484",
-      "checkedAt": "2026-11-21T13:38:17.336096+00:00"
+      "checkedAt": "2026-11-22T13:29:21.911130+00:00"
     },
     {
       "id": "61268236",
@@ -1522,7 +1522,7 @@
       "protein100": 5.5,
       "kcal100": 473.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268236",
-      "checkedAt": "2026-11-21T13:37:59.947538+00:00"
+      "checkedAt": "2026-11-22T13:29:07.546756+00:00"
     },
     {
       "id": "60499837",
@@ -1535,7 +1535,7 @@
       "protein100": 4.6,
       "kcal100": 259.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60499837",
-      "checkedAt": "2026-11-21T13:37:18.670632+00:00"
+      "checkedAt": "2026-11-22T13:28:37.693233+00:00"
     },
     {
       "id": "61281797",
@@ -1548,7 +1548,7 @@
       "protein100": 1.0,
       "kcal100": 17.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61281797",
-      "checkedAt": "2026-11-21T13:38:21.569682+00:00"
+      "checkedAt": "2026-11-22T13:29:26.092359+00:00"
     },
     {
       "id": "61281800",
@@ -1561,7 +1561,7 @@
       "protein100": 0.1,
       "kcal100": 13.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61281800",
-      "checkedAt": "2026-11-21T13:38:22.692513+00:00"
+      "checkedAt": "2026-11-22T13:29:27.275393+00:00"
     },
     {
       "id": "61281799",
@@ -1574,7 +1574,7 @@
       "protein100": 0.0,
       "kcal100": 10.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61281799",
-      "checkedAt": "2026-11-21T13:38:22.476624+00:00"
+      "checkedAt": "2026-11-22T13:29:26.741525+00:00"
     },
     {
       "id": "61281798",
@@ -1587,7 +1587,7 @@
       "protein100": 0.0,
       "kcal100": 13.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61281798",
-      "checkedAt": "2026-11-21T13:38:22.277723+00:00"
+      "checkedAt": "2026-11-22T13:29:26.862649+00:00"
     },
     {
       "id": "61268681",
@@ -1600,7 +1600,7 @@
       "protein100": 1.7,
       "kcal100": 105.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268681",
-      "checkedAt": "2026-11-21T13:38:03.068315+00:00"
+      "checkedAt": "2026-11-22T13:29:09.499918+00:00"
     },
     {
       "id": "61269524",
@@ -1613,7 +1613,7 @@
       "protein100": 9.1,
       "kcal100": 233.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269524",
-      "checkedAt": "2026-11-21T13:38:05.672921+00:00"
+      "checkedAt": "2026-11-22T13:29:12.241809+00:00"
     },
     {
       "id": "61269532",
@@ -1626,7 +1626,7 @@
       "protein100": 11.5,
       "kcal100": 241.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269532",
-      "checkedAt": "2026-11-21T13:38:06.183700+00:00"
+      "checkedAt": "2026-11-22T13:29:12.485680+00:00"
     },
     {
       "id": "61273030",
@@ -1639,7 +1639,7 @@
       "protein100": 3.6,
       "kcal100": 293.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273030",
-      "checkedAt": "2026-11-21T13:38:12.255062+00:00"
+      "checkedAt": "2026-11-22T13:29:18.188289+00:00"
     },
     {
       "id": "61218264",
@@ -1652,7 +1652,7 @@
       "protein100": 4.1,
       "kcal100": 132.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218264",
-      "checkedAt": "2026-11-21T13:37:49.767342+00:00"
+      "checkedAt": "2026-11-22T13:28:59.800836+00:00"
     },
     {
       "id": "61269522",
@@ -1665,7 +1665,7 @@
       "protein100": 2.0,
       "kcal100": 136.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269522",
-      "checkedAt": "2026-11-21T13:38:05.598408+00:00"
+      "checkedAt": "2026-11-22T13:29:12.019484+00:00"
     },
     {
       "id": "61218269",
@@ -1678,7 +1678,20 @@
       "protein100": 4.4,
       "kcal100": 141.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218269",
-      "checkedAt": "2026-11-21T13:36:36.613508+00:00"
+      "checkedAt": "2026-11-22T13:29:00.207981+00:00"
+    },
+    {
+      "id": "61218272",
+      "code": "29508419",
+      "name": "Gastropub Bombay Potato and Lentil Bake by Tom",
+      "brand": "Gastropub",
+      "pack": "400 g",
+      "carbs100": 14.2,
+      "fat100": 6.7,
+      "protein100": 4.4,
+      "kcal100": 141.0,
+      "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218272",
+      "checkedAt": "2026-11-22T13:28:11.454042+00:00"
     },
     {
       "id": "61269525",
@@ -1691,7 +1704,7 @@
       "protein100": 9.8,
       "kcal100": 123.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269525",
-      "checkedAt": "2026-11-21T13:38:05.790409+00:00"
+      "checkedAt": "2026-11-22T13:29:12.587217+00:00"
     },
     {
       "id": "61269491",
@@ -1704,7 +1717,7 @@
       "protein100": 16.7,
       "kcal100": 134.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269491",
-      "checkedAt": "2026-11-21T13:38:04.780094+00:00"
+      "checkedAt": "2026-11-22T13:29:11.948210+00:00"
     },
     {
       "id": "61273031",
@@ -1717,7 +1730,7 @@
       "protein100": 6.3,
       "kcal100": 415.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273031",
-      "checkedAt": "2026-11-21T13:38:12.815898+00:00"
+      "checkedAt": "2026-11-22T13:29:18.399296+00:00"
     },
     {
       "id": "61269490",
@@ -1730,7 +1743,7 @@
       "protein100": 5.3,
       "kcal100": 129.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269490",
-      "checkedAt": "2026-11-21T13:38:05.168862+00:00"
+      "checkedAt": "2026-11-22T13:29:11.721285+00:00"
     },
     {
       "id": "61269489",
@@ -1743,7 +1756,7 @@
       "protein100": 1.6,
       "kcal100": 148.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269489",
-      "checkedAt": "2026-11-21T13:38:04.657327+00:00"
+      "checkedAt": "2026-11-22T13:29:11.632994+00:00"
     },
     {
       "id": "61269488",
@@ -1756,7 +1769,7 @@
       "protein100": 11.8,
       "kcal100": 275.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269488",
-      "checkedAt": "2026-11-21T13:38:04.484101+00:00"
+      "checkedAt": "2026-11-22T13:29:11.355088+00:00"
     },
     {
       "id": "61271459",
@@ -1769,7 +1782,7 @@
       "protein100": 6.1,
       "kcal100": 458.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271459",
-      "checkedAt": "2026-11-21T13:38:10.635452+00:00"
+      "checkedAt": "2026-11-22T13:29:16.105287+00:00"
     },
     {
       "id": "61268248",
@@ -1782,7 +1795,7 @@
       "protein100": 3.4,
       "kcal100": 395.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268248",
-      "checkedAt": "2026-11-21T13:37:59.567116+00:00"
+      "checkedAt": "2026-11-22T13:29:07.425649+00:00"
     },
     {
       "id": "60733081",
@@ -1795,7 +1808,7 @@
       "protein100": 5.3,
       "kcal100": 476.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60733081",
-      "checkedAt": "2026-11-21T13:37:24.805263+00:00"
+      "checkedAt": "2026-11-22T13:28:43.036416+00:00"
     },
     {
       "id": "60588935",
@@ -1808,7 +1821,7 @@
       "protein100": 3.4,
       "kcal100": 76.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60588935",
-      "checkedAt": "2026-11-21T13:37:20.068327+00:00"
+      "checkedAt": "2026-11-22T13:28:39.418772+00:00"
     },
     {
       "id": "60764542",
@@ -1821,7 +1834,7 @@
       "protein100": 10.7,
       "kcal100": 187.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60764542",
-      "checkedAt": "2026-11-21T13:37:35.319097+00:00"
+      "checkedAt": "2026-11-22T13:28:51.531318+00:00"
     },
     {
       "id": "60631045",
@@ -1834,7 +1847,7 @@
       "protein100": 6.1,
       "kcal100": 448.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60631045",
-      "checkedAt": "2026-11-21T13:37:22.227330+00:00"
+      "checkedAt": "2026-11-22T13:28:40.734394+00:00"
     },
     {
       "id": "60788188",
@@ -1847,7 +1860,7 @@
       "protein100": 2.6,
       "kcal100": 70.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60788188",
-      "checkedAt": "2026-11-21T13:37:42.868036+00:00"
+      "checkedAt": "2026-11-22T13:28:55.548267+00:00"
     },
     {
       "id": "60787750",
@@ -1860,7 +1873,7 @@
       "protein100": 2.4,
       "kcal100": 53.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60787750",
-      "checkedAt": "2026-11-21T13:37:42.298734+00:00"
+      "checkedAt": "2026-11-22T13:28:55.082339+00:00"
     },
     {
       "id": "60788186",
@@ -1873,7 +1886,7 @@
       "protein100": 2.7,
       "kcal100": 70.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60788186",
-      "checkedAt": "2026-11-21T13:37:42.350500+00:00"
+      "checkedAt": "2026-11-22T13:28:55.400965+00:00"
     },
     {
       "id": "60788187",
@@ -1886,7 +1899,7 @@
       "protein100": 3.7,
       "kcal100": 61.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60788187",
-      "checkedAt": "2026-11-21T13:37:42.005326+00:00"
+      "checkedAt": "2026-11-22T13:28:55.648540+00:00"
     },
     {
       "id": "61279266",
@@ -1899,7 +1912,7 @@
       "protein100": 6.4,
       "kcal100": 152.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279266",
-      "checkedAt": "2026-11-21T13:38:19.614402+00:00"
+      "checkedAt": "2026-11-22T13:29:24.993472+00:00"
     },
     {
       "id": "61216308",
@@ -1925,7 +1938,7 @@
       "protein100": 0.9,
       "kcal100": 65.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268683",
-      "checkedAt": "2026-11-21T13:38:02.655157+00:00"
+      "checkedAt": "2026-11-22T13:29:09.941824+00:00"
     },
     {
       "id": "61280844",
@@ -1938,7 +1951,7 @@
       "protein100": 12.0,
       "kcal100": 284.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61280844",
-      "checkedAt": "2026-11-21T13:38:20.865395+00:00"
+      "checkedAt": "2026-11-22T13:29:25.645559+00:00"
     },
     {
       "id": "60753634",
@@ -1951,7 +1964,7 @@
       "protein100": 7.9,
       "kcal100": 108.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753634",
-      "checkedAt": "2026-11-21T13:37:32.377438+00:00"
+      "checkedAt": "2026-11-22T13:28:49.402629+00:00"
     },
     {
       "id": "61113763",
@@ -1964,7 +1977,7 @@
       "protein100": 14.6,
       "kcal100": 153.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61113763",
-      "checkedAt": "2026-11-21T13:37:45.837330+00:00"
+      "checkedAt": "2026-11-22T13:28:57.747192+00:00"
     },
     {
       "id": "61268954",
@@ -1977,7 +1990,7 @@
       "protein100": 11.9,
       "kcal100": 214.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268954",
-      "checkedAt": "2026-11-21T13:38:04.403100+00:00"
+      "checkedAt": "2026-11-22T13:29:10.956701+00:00"
     },
     {
       "id": "60073673",
@@ -1990,7 +2003,7 @@
       "protein100": 1.3,
       "kcal100": 95.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60073673",
-      "checkedAt": "2026-11-21T13:37:18.041540+00:00"
+      "checkedAt": "2026-11-22T13:28:36.597501+00:00"
     },
     {
       "id": "60764649",
@@ -2003,7 +2016,7 @@
       "protein100": 0.6,
       "kcal100": 49.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60764649",
-      "checkedAt": "2026-11-21T13:37:36.292985+00:00"
+      "checkedAt": "2026-11-22T13:28:52.026034+00:00"
     },
     {
       "id": "60737001",
@@ -2029,7 +2042,7 @@
       "protein100": 7.4,
       "kcal100": 213.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268597",
-      "checkedAt": "2026-11-21T13:38:01.777547+00:00"
+      "checkedAt": "2026-11-22T13:29:09.024367+00:00"
     },
     {
       "id": "61230690",
@@ -2042,7 +2055,7 @@
       "protein100": 3.0,
       "kcal100": 428.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61230690",
-      "checkedAt": "2026-11-21T13:37:55.257079+00:00"
+      "checkedAt": "2026-11-22T13:29:04.859187+00:00"
     },
     {
       "id": "21054015",
@@ -2055,7 +2068,7 @@
       "protein100": 3.5,
       "kcal100": 358.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21054015",
-      "checkedAt": "2026-11-21T13:37:14.361262+00:00"
+      "checkedAt": "2026-11-22T13:28:33.961263+00:00"
     },
     {
       "id": "21058526",
@@ -2068,7 +2081,7 @@
       "protein100": 3.0,
       "kcal100": 375.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21058526",
-      "checkedAt": "2026-11-21T13:37:15.089393+00:00"
+      "checkedAt": "2026-11-22T13:28:34.622136+00:00"
     },
     {
       "id": "21059974",
@@ -2081,7 +2094,7 @@
       "protein100": 2.4,
       "kcal100": 405.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21059974",
-      "checkedAt": "2026-11-21T13:37:15.772675+00:00"
+      "checkedAt": "2026-11-22T13:28:34.891142+00:00"
     },
     {
       "id": "60710648",
@@ -2094,7 +2107,7 @@
       "protein100": 11.0,
       "kcal100": 240.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60710648",
-      "checkedAt": "2026-11-21T13:37:24.173893+00:00"
+      "checkedAt": "2026-11-22T13:28:41.940221+00:00"
     },
     {
       "id": "60599354",
@@ -2107,7 +2120,7 @@
       "protein100": 12.5,
       "kcal100": 242.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60599354",
-      "checkedAt": "2026-11-21T13:37:21.010415+00:00"
+      "checkedAt": "2026-11-22T13:28:39.976203+00:00"
     },
     {
       "id": "21053793",
@@ -2120,7 +2133,7 @@
       "protein100": 6.4,
       "kcal100": 369.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21053793",
-      "checkedAt": "2026-11-21T13:37:13.597000+00:00"
+      "checkedAt": "2026-11-22T13:28:33.772306+00:00"
     },
     {
       "id": "61217984",
@@ -2133,7 +2146,7 @@
       "protein100": 8.3,
       "kcal100": 263.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61217984",
-      "checkedAt": "2026-11-21T13:37:48.202815+00:00"
+      "checkedAt": "2026-11-22T13:28:58.922500+00:00"
     },
     {
       "id": "61282708",
@@ -2146,7 +2159,7 @@
       "protein100": 11.4,
       "kcal100": 126.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282708",
-      "checkedAt": "2026-11-21T13:38:23.048805+00:00"
+      "checkedAt": "2026-11-22T13:29:27.786811+00:00"
     },
     {
       "id": "61279140",
@@ -2159,7 +2172,7 @@
       "protein100": 5.3,
       "kcal100": 113.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279140",
-      "checkedAt": "2026-11-21T13:38:17.388311+00:00"
+      "checkedAt": "2026-11-22T13:29:22.414236+00:00"
     },
     {
       "id": "60606352",
@@ -2172,7 +2185,7 @@
       "protein100": 8.8,
       "kcal100": 194.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60606352",
-      "checkedAt": "2026-11-21T13:37:21.568336+00:00"
+      "checkedAt": "2026-11-22T13:28:40.184567+00:00"
     },
     {
       "id": "61282709",
@@ -2185,7 +2198,7 @@
       "protein100": 8.9,
       "kcal100": 142.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61282709",
-      "checkedAt": "2026-11-21T13:38:23.275225+00:00"
+      "checkedAt": "2026-11-22T13:29:27.817241+00:00"
     },
     {
       "id": "60787676",
@@ -2198,7 +2211,7 @@
       "protein100": 4.8,
       "kcal100": 389.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60787676",
-      "checkedAt": "2026-11-21T13:37:41.423721+00:00"
+      "checkedAt": "2026-11-22T13:28:54.890007+00:00"
     },
     {
       "id": "60753623",
@@ -2211,7 +2224,7 @@
       "protein100": 9.1,
       "kcal100": 371.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753623",
-      "checkedAt": "2026-11-21T13:37:31.358236+00:00"
+      "checkedAt": "2026-11-22T13:28:49.327700+00:00"
     },
     {
       "id": "60753626",
@@ -2224,7 +2237,7 @@
       "protein100": 3.8,
       "kcal100": 207.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753626",
-      "checkedAt": "2026-11-21T13:37:31.865994+00:00"
+      "checkedAt": "2026-11-22T13:28:48.831099+00:00"
     },
     {
       "id": "60753624",
@@ -2237,7 +2250,7 @@
       "protein100": 8.1,
       "kcal100": 350.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753624",
-      "checkedAt": "2026-11-21T13:37:32.139316+00:00"
+      "checkedAt": "2026-11-22T13:28:48.216611+00:00"
     },
     {
       "id": "61279264",
@@ -2250,7 +2263,7 @@
       "protein100": 7.2,
       "kcal100": 164.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279264",
-      "checkedAt": "2026-11-21T13:38:18.790904+00:00"
+      "checkedAt": "2026-11-22T13:29:24.636484+00:00"
     },
     {
       "id": "61271377",
@@ -2263,7 +2276,7 @@
       "protein100": 7.0,
       "kcal100": 169.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271377",
-      "checkedAt": "2026-11-21T13:38:08.997238+00:00"
+      "checkedAt": "2026-11-22T13:29:15.228723+00:00"
     },
     {
       "id": "61218051",
@@ -2276,7 +2289,7 @@
       "protein100": 8.4,
       "kcal100": 238.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218051",
-      "checkedAt": "2026-11-21T13:37:49.218680+00:00"
+      "checkedAt": "2026-11-22T13:28:59.370229+00:00"
     },
     {
       "id": "61271456",
@@ -2289,7 +2302,7 @@
       "protein100": 8.9,
       "kcal100": 272.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271456",
-      "checkedAt": "2026-11-21T13:38:09.463872+00:00"
+      "checkedAt": "2026-11-22T13:29:15.921472+00:00"
     },
     {
       "id": "60761680",
@@ -2302,7 +2315,7 @@
       "protein100": 6.1,
       "kcal100": 449.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60761680",
-      "checkedAt": "2026-11-21T13:37:34.946930+00:00"
+      "checkedAt": "2026-11-22T13:28:51.318854+00:00"
     },
     {
       "id": "60758222",
@@ -2315,7 +2328,7 @@
       "protein100": 1.6,
       "kcal100": 394.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60758222",
-      "checkedAt": "2026-11-21T13:37:32.795985+00:00"
+      "checkedAt": "2026-11-22T13:28:50.322210+00:00"
     },
     {
       "id": "61217989",
@@ -2328,7 +2341,7 @@
       "protein100": 6.0,
       "kcal100": 256.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61217989",
-      "checkedAt": "2026-11-21T13:37:49.855266+00:00"
+      "checkedAt": "2026-11-22T13:28:59.139657+00:00"
     },
     {
       "id": "60074071",
@@ -2341,7 +2354,7 @@
       "protein100": 12.5,
       "kcal100": 212.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60074071",
-      "checkedAt": "2026-11-21T13:37:17.896120+00:00"
+      "checkedAt": "2026-11-22T13:28:36.592816+00:00"
     },
     {
       "id": "60746282",
@@ -2354,7 +2367,7 @@
       "protein100": 8.2,
       "kcal100": 189.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60746282",
-      "checkedAt": "2026-11-21T13:37:31.072300+00:00"
+      "checkedAt": "2026-11-22T13:28:47.734820+00:00"
     },
     {
       "id": "61218081",
@@ -2367,7 +2380,7 @@
       "protein100": 7.7,
       "kcal100": 236.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218081",
-      "checkedAt": "2026-11-21T13:37:49.407904+00:00"
+      "checkedAt": "2026-11-22T13:28:59.479123+00:00"
     },
     {
       "id": "60782593",
@@ -2380,7 +2393,7 @@
       "protein100": 13.9,
       "kcal100": 371.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60782593",
-      "checkedAt": "2026-11-21T13:37:39.666558+00:00"
+      "checkedAt": "2026-11-22T13:28:53.628196+00:00"
     },
     {
       "id": "61218352",
@@ -2393,7 +2406,7 @@
       "protein100": 11.6,
       "kcal100": 242.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218352",
-      "checkedAt": "2026-11-21T13:36:48.363467+00:00"
+      "checkedAt": "2026-11-22T13:29:00.618972+00:00"
     },
     {
       "id": "61271375",
@@ -2406,7 +2419,7 @@
       "protein100": 10.5,
       "kcal100": 178.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271375",
-      "checkedAt": "2026-11-21T13:38:07.925993+00:00"
+      "checkedAt": "2026-11-22T13:29:14.819405+00:00"
     },
     {
       "id": "61278119",
@@ -2419,7 +2432,7 @@
       "protein100": 1.2,
       "kcal100": 68.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278119",
-      "checkedAt": "2026-11-21T13:38:15.846953+00:00"
+      "checkedAt": "2026-11-22T13:29:21.073524+00:00"
     },
     {
       "id": "61273870",
@@ -2432,7 +2445,7 @@
       "protein100": 11.0,
       "kcal100": 291.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273870",
-      "checkedAt": "2026-11-21T13:38:14.441976+00:00"
+      "checkedAt": "2026-11-22T13:29:19.904221+00:00"
     },
     {
       "id": "21000161",
@@ -2445,7 +2458,7 @@
       "protein100": 10.6,
       "kcal100": 120.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21000161",
-      "checkedAt": "2026-11-21T13:37:12.392396+00:00"
+      "checkedAt": "2026-11-22T13:28:32.904415+00:00"
     },
     {
       "id": "61268214",
@@ -2458,7 +2471,7 @@
       "protein100": 5.8,
       "kcal100": 458.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268214",
-      "checkedAt": "2026-11-21T13:37:58.920210+00:00"
+      "checkedAt": "2026-11-22T13:29:07.211379+00:00"
     },
     {
       "id": "61248815",
@@ -2471,7 +2484,7 @@
       "protein100": 7.5,
       "kcal100": 367.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61248815",
-      "checkedAt": "2026-11-21T13:37:57.799437+00:00"
+      "checkedAt": "2026-11-22T13:29:06.495336+00:00"
     },
     {
       "id": "61217985",
@@ -2484,7 +2497,7 @@
       "protein100": 8.0,
       "kcal100": 290.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61217985",
-      "checkedAt": "2026-11-21T13:37:48.385874+00:00"
+      "checkedAt": "2026-11-22T13:28:59.287611+00:00"
     },
     {
       "id": "60708146",
@@ -2497,7 +2510,7 @@
       "protein100": 5.6,
       "kcal100": 497.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60708146",
-      "checkedAt": "2026-11-21T13:37:23.807196+00:00"
+      "checkedAt": "2026-11-22T13:28:41.578896+00:00"
     },
     {
       "id": "60941720",
@@ -2523,7 +2536,7 @@
       "protein100": 11.1,
       "kcal100": 119.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60741464",
-      "checkedAt": "2026-11-21T13:37:29.607227+00:00"
+      "checkedAt": "2026-11-22T13:28:47.292929+00:00"
     },
     {
       "id": "60646892",
@@ -2536,7 +2549,7 @@
       "protein100": 9.0,
       "kcal100": 111.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60646892",
-      "checkedAt": "2026-11-21T13:37:23.446358+00:00"
+      "checkedAt": "2026-11-22T13:28:41.852528+00:00"
     },
     {
       "id": "61273868",
@@ -2549,7 +2562,7 @@
       "protein100": 9.2,
       "kcal100": 275.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273868",
-      "checkedAt": "2026-11-21T13:38:13.925815+00:00"
+      "checkedAt": "2026-11-22T13:29:20.003157+00:00"
     },
     {
       "id": "60787721",
@@ -2562,7 +2575,7 @@
       "protein100": 4.7,
       "kcal100": 112.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60787721",
-      "checkedAt": "2026-11-21T13:37:41.265979+00:00"
+      "checkedAt": "2026-11-22T13:28:54.807410+00:00"
     },
     {
       "id": "60796508",
@@ -2575,7 +2588,7 @@
       "protein100": 5.8,
       "kcal100": 143.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60796508",
-      "checkedAt": "2026-11-21T13:37:43.070081+00:00"
+      "checkedAt": "2026-11-22T13:28:56.025903+00:00"
     },
     {
       "id": "61273001",
@@ -2588,7 +2601,7 @@
       "protein100": 3.6,
       "kcal100": 109.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273001",
-      "checkedAt": "2026-11-21T13:38:11.970544+00:00"
+      "checkedAt": "2026-11-22T13:29:17.917909+00:00"
     },
     {
       "id": "60796511",
@@ -2601,7 +2614,7 @@
       "protein100": 7.6,
       "kcal100": 122.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60796511",
-      "checkedAt": "2026-11-21T13:37:43.797253+00:00"
+      "checkedAt": "2026-11-22T13:28:56.478333+00:00"
     },
     {
       "id": "60796510",
@@ -2614,7 +2627,7 @@
       "protein100": 7.7,
       "kcal100": 117.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60796510",
-      "checkedAt": "2026-11-21T13:37:43.374758+00:00"
+      "checkedAt": "2026-11-22T13:28:56.320861+00:00"
     },
     {
       "id": "60784900",
@@ -2627,7 +2640,7 @@
       "protein100": 11.2,
       "kcal100": 277.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60784900",
-      "checkedAt": "2026-11-21T13:37:40.409004+00:00"
+      "checkedAt": "2026-11-22T13:28:54.257135+00:00"
     },
     {
       "id": "60620620",
@@ -2640,7 +2653,7 @@
       "protein100": 0.4,
       "kcal100": 35.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60620620",
-      "checkedAt": "2026-11-21T13:37:21.656905+00:00"
+      "checkedAt": "2026-11-22T13:28:40.527423+00:00"
     },
     {
       "id": "60784931",
@@ -2653,7 +2666,7 @@
       "protein100": 5.0,
       "kcal100": 190.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60784931",
-      "checkedAt": "2026-11-21T13:37:41.316769+00:00"
+      "checkedAt": "2026-11-22T13:28:54.463562+00:00"
     },
     {
       "id": "61218083",
@@ -2666,7 +2679,7 @@
       "protein100": 10.4,
       "kcal100": 222.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218083",
-      "checkedAt": "2026-11-21T13:37:49.624284+00:00"
+      "checkedAt": "2026-11-22T13:28:59.606131+00:00"
     },
     {
       "id": "61217951",
@@ -2679,7 +2692,7 @@
       "protein100": 9.9,
       "kcal100": 251.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61217951",
-      "checkedAt": "2026-11-21T13:37:48.298390+00:00"
+      "checkedAt": "2026-11-22T13:28:58.842481+00:00"
     },
     {
       "id": "61266547",
@@ -2692,7 +2705,7 @@
       "protein100": 8.6,
       "kcal100": 235.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61266547",
-      "checkedAt": "2026-11-21T13:37:58.487716+00:00"
+      "checkedAt": "2026-11-22T13:29:06.965457+00:00"
     },
     {
       "id": "61266419",
@@ -2705,7 +2718,7 @@
       "protein100": 8.5,
       "kcal100": 231.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61266419",
-      "checkedAt": "2026-11-21T13:37:57.871778+00:00"
+      "checkedAt": "2026-11-22T13:29:06.540220+00:00"
     },
     {
       "id": "61280818",
@@ -2718,7 +2731,7 @@
       "protein100": 11.7,
       "kcal100": 266.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61280818",
-      "checkedAt": "2026-11-21T13:38:20.073179+00:00"
+      "checkedAt": "2026-11-22T13:29:25.199837+00:00"
     },
     {
       "id": "61271374",
@@ -2731,7 +2744,7 @@
       "protein100": 12.0,
       "kcal100": 179.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271374",
-      "checkedAt": "2026-11-21T13:38:07.910269+00:00"
+      "checkedAt": "2026-11-22T13:29:14.289448+00:00"
     },
     {
       "id": "60753452",
@@ -2744,7 +2757,7 @@
       "protein100": 5.2,
       "kcal100": 181.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753452",
-      "checkedAt": "2026-11-21T13:37:31.051384+00:00"
+      "checkedAt": "2026-11-22T13:28:47.810638+00:00"
     },
     {
       "id": "60776016",
@@ -2757,7 +2770,7 @@
       "protein100": 9.8,
       "kcal100": 178.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60776016",
-      "checkedAt": "2026-11-21T13:37:38.265016+00:00"
+      "checkedAt": "2026-11-22T13:28:53.495743+00:00"
     },
     {
       "id": "61273042",
@@ -2770,7 +2783,7 @@
       "protein100": 7.4,
       "kcal100": 193.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273042",
-      "checkedAt": "2026-11-21T13:38:12.811759+00:00"
+      "checkedAt": "2026-11-22T13:29:18.573829+00:00"
     },
     {
       "id": "61218299",
@@ -2783,7 +2796,7 @@
       "protein100": 12.5,
       "kcal100": 249.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218299",
-      "checkedAt": "2026-11-21T13:36:55.763474+00:00"
+      "checkedAt": "2026-11-22T13:29:00.503389+00:00"
     },
     {
       "id": "61268588",
@@ -2796,7 +2809,7 @@
       "protein100": 7.0,
       "kcal100": 238.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268588",
-      "checkedAt": "2026-11-21T13:38:00.972163+00:00"
+      "checkedAt": "2026-11-22T13:29:08.472878+00:00"
     },
     {
       "id": "61231123",
@@ -2809,7 +2822,7 @@
       "protein100": 10.2,
       "kcal100": 220.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61231123",
-      "checkedAt": "2026-11-21T13:37:56.928501+00:00"
+      "checkedAt": "2026-11-22T13:29:05.290278+00:00"
     },
     {
       "id": "61228985",
@@ -2822,7 +2835,7 @@
       "protein100": 9.7,
       "kcal100": 350.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61228985",
-      "checkedAt": "2026-11-21T13:37:53.879367+00:00"
+      "checkedAt": "2026-11-22T13:29:03.870312+00:00"
     },
     {
       "id": "60527222",
@@ -2835,7 +2848,7 @@
       "protein100": 10.8,
       "kcal100": 305.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60527222",
-      "checkedAt": "2026-11-21T13:37:19.281303+00:00"
+      "checkedAt": "2026-11-22T13:28:38.513182+00:00"
     },
     {
       "id": "60710627",
@@ -2848,7 +2861,7 @@
       "protein100": 10.4,
       "kcal100": 187.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60710627",
-      "checkedAt": "2026-11-21T13:37:24.066179+00:00"
+      "checkedAt": "2026-11-22T13:28:42.388525+00:00"
     },
     {
       "id": "61269775",
@@ -2861,7 +2874,7 @@
       "protein100": 12.2,
       "kcal100": 289.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269775",
-      "checkedAt": "2026-11-21T13:38:06.847426+00:00"
+      "checkedAt": "2026-11-22T13:29:13.052570+00:00"
     },
     {
       "id": "60770294",
@@ -2874,7 +2887,7 @@
       "protein100": 7.1,
       "kcal100": 536.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60770294",
-      "checkedAt": "2026-11-21T13:37:37.011731+00:00"
+      "checkedAt": "2026-11-22T13:28:52.501908+00:00"
     },
     {
       "id": "61277069",
@@ -2887,7 +2900,7 @@
       "protein100": 6.1,
       "kcal100": 164.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61277069",
-      "checkedAt": "2026-11-21T13:38:14.527748+00:00"
+      "checkedAt": "2026-11-22T13:29:20.361946+00:00"
     },
     {
       "id": "61271512",
@@ -2900,7 +2913,7 @@
       "protein100": 5.2,
       "kcal100": 209.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61271512",
-      "checkedAt": "2026-11-21T13:38:09.996240+00:00"
+      "checkedAt": "2026-11-22T13:29:16.379014+00:00"
     },
     {
       "id": "60598542",
@@ -2913,7 +2926,7 @@
       "protein100": 10.6,
       "kcal100": 222.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60598542",
-      "checkedAt": "2026-11-21T13:37:20.352056+00:00"
+      "checkedAt": "2026-11-22T13:28:39.330872+00:00"
     },
     {
       "id": "61279222",
@@ -2926,7 +2939,7 @@
       "protein100": 2.5,
       "kcal100": 101.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279222",
-      "checkedAt": "2026-11-21T13:38:17.256940+00:00"
+      "checkedAt": "2026-11-22T13:29:22.353687+00:00"
     },
     {
       "id": "21107301",
@@ -2939,7 +2952,7 @@
       "protein100": 11.0,
       "kcal100": 242.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21107301",
-      "checkedAt": "2026-11-21T13:37:17.071952+00:00"
+      "checkedAt": "2026-11-22T13:28:36.073078+00:00"
     },
     {
       "id": "61233871",
@@ -2952,7 +2965,7 @@
       "protein100": 4.6,
       "kcal100": 157.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61233871",
-      "checkedAt": "2026-11-21T13:37:56.671912+00:00"
+      "checkedAt": "2026-11-22T13:29:05.879263+00:00"
     },
     {
       "id": "61278106",
@@ -2965,7 +2978,7 @@
       "protein100": 4.8,
       "kcal100": 134.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278106",
-      "checkedAt": "2026-11-21T13:38:15.175932+00:00"
+      "checkedAt": "2026-11-22T13:29:20.573291+00:00"
     },
     {
       "id": "61278116",
@@ -2978,7 +2991,7 @@
       "protein100": 1.4,
       "kcal100": 200.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61278116",
-      "checkedAt": "2026-11-21T13:38:15.259715+00:00"
+      "checkedAt": "2026-11-22T13:29:20.539492+00:00"
     },
     {
       "id": "60738896",
@@ -2991,7 +3004,7 @@
       "protein100": 5.8,
       "kcal100": 151.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60738896",
-      "checkedAt": "2026-11-21T13:37:28.943515+00:00"
+      "checkedAt": "2026-11-22T13:28:46.781258+00:00"
     },
     {
       "id": "60774071",
@@ -3004,7 +3017,7 @@
       "protein100": 0.8,
       "kcal100": 58.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60774071",
-      "checkedAt": "2026-11-21T13:37:37.184770+00:00"
+      "checkedAt": "2026-11-22T13:28:53.044074+00:00"
     },
     {
       "id": "61280843",
@@ -3017,7 +3030,7 @@
       "protein100": 19.7,
       "kcal100": 270.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61280843",
-      "checkedAt": "2026-11-21T13:38:20.775742+00:00"
+      "checkedAt": "2026-11-22T13:29:25.428609+00:00"
     },
     {
       "id": "61268598",
@@ -3030,7 +3043,7 @@
       "protein100": 1.3,
       "kcal100": 69.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268598",
-      "checkedAt": "2026-11-21T13:38:01.704741+00:00"
+      "checkedAt": "2026-11-22T13:29:09.386236+00:00"
     },
     {
       "id": "61268752",
@@ -3043,7 +3056,7 @@
       "protein100": 2.8,
       "kcal100": 93.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268752",
-      "checkedAt": "2026-11-21T13:38:03.489436+00:00"
+      "checkedAt": "2026-11-22T13:29:11.102451+00:00"
     },
     {
       "id": "60761298",
@@ -3056,7 +3069,7 @@
       "protein100": 8.8,
       "kcal100": 460.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60761298",
-      "checkedAt": "2026-11-21T13:37:35.139154+00:00"
+      "checkedAt": "2026-11-22T13:28:51.513825+00:00"
     },
     {
       "id": "61269776",
@@ -3069,7 +3082,7 @@
       "protein100": 12.5,
       "kcal100": 238.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269776",
-      "checkedAt": "2026-11-21T13:38:06.786139+00:00"
+      "checkedAt": "2026-11-22T13:29:13.093438+00:00"
     },
     {
       "id": "60733155",
@@ -3095,7 +3108,7 @@
       "protein100": 6.8,
       "kcal100": 143.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60082908",
-      "checkedAt": "2026-11-21T13:37:02.513814+00:00"
+      "checkedAt": "2026-11-22T13:28:37.993385+00:00"
     },
     {
       "id": "61268599",
@@ -3108,7 +3121,7 @@
       "protein100": 3.0,
       "kcal100": 347.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268599",
-      "checkedAt": "2026-11-21T13:38:01.578058+00:00"
+      "checkedAt": "2026-11-22T13:29:10.074806+00:00"
     },
     {
       "id": "21001053",
@@ -3121,7 +3134,7 @@
       "protein100": 1.5,
       "kcal100": 90.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21001053",
-      "checkedAt": "2026-11-21T13:37:13.016129+00:00"
+      "checkedAt": "2026-11-22T13:28:33.116308+00:00"
     },
     {
       "id": "61272766",
@@ -3134,7 +3147,7 @@
       "protein100": 3.4,
       "kcal100": 380.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61272766",
-      "checkedAt": "2026-11-21T13:38:11.505171+00:00"
+      "checkedAt": "2026-11-22T13:29:17.147215+00:00"
     },
     {
       "id": "60702448",
@@ -3147,7 +3160,7 @@
       "protein100": 6.3,
       "kcal100": 455.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60702448",
-      "checkedAt": "2026-11-21T13:37:23.437030+00:00"
+      "checkedAt": "2026-11-22T13:28:41.430539+00:00"
     },
     {
       "id": "60075850",
@@ -3160,7 +3173,7 @@
       "protein100": 1.5,
       "kcal100": 70.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60075850",
-      "checkedAt": "2026-11-21T13:37:17.871251+00:00"
+      "checkedAt": "2026-11-22T13:28:36.601084+00:00"
     },
     {
       "id": "60733316",
@@ -3186,7 +3199,7 @@
       "protein100": 8.7,
       "kcal100": 310.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61229019",
-      "checkedAt": "2026-11-21T13:37:54.276184+00:00"
+      "checkedAt": "2026-11-22T13:29:04.148634+00:00"
     },
     {
       "id": "61281179",
@@ -3199,7 +3212,7 @@
       "protein100": 5.1,
       "kcal100": 473.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61281179",
-      "checkedAt": "2026-11-21T13:38:21.498038+00:00"
+      "checkedAt": "2026-11-22T13:29:26.134954+00:00"
     },
     {
       "id": "60738897",
@@ -3212,7 +3225,7 @@
       "protein100": 7.4,
       "kcal100": 162.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60738897",
-      "checkedAt": "2026-11-21T13:37:29.984700+00:00"
+      "checkedAt": "2026-11-22T13:28:47.306574+00:00"
     },
     {
       "id": "61249853",
@@ -3225,7 +3238,7 @@
       "protein100": 5.9,
       "kcal100": 158.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61249853",
-      "checkedAt": "2026-11-21T13:37:58.083080+00:00"
+      "checkedAt": "2026-11-22T13:29:06.682644+00:00"
     },
     {
       "id": "61268740",
@@ -3238,7 +3251,7 @@
       "protein100": 2.3,
       "kcal100": 120.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268740",
-      "checkedAt": "2026-11-21T13:38:03.624588+00:00"
+      "checkedAt": "2026-11-22T13:29:10.336227+00:00"
     },
     {
       "id": "61219017",
@@ -3251,7 +3264,7 @@
       "protein100": 5.7,
       "kcal100": 453.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61219017",
-      "checkedAt": "2026-11-21T13:37:52.069279+00:00"
+      "checkedAt": "2026-11-22T13:29:01.975329+00:00"
     },
     {
       "id": "61268587",
@@ -3264,7 +3277,7 @@
       "protein100": 7.7,
       "kcal100": 208.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268587",
-      "checkedAt": "2026-11-21T13:38:00.158007+00:00"
+      "checkedAt": "2026-11-22T13:29:07.982394+00:00"
     },
     {
       "id": "61280842",
@@ -3277,7 +3290,7 @@
       "protein100": 12.1,
       "kcal100": 273.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61280842",
-      "checkedAt": "2026-11-21T13:38:20.333947+00:00"
+      "checkedAt": "2026-11-22T13:29:25.297597+00:00"
     },
     {
       "id": "60753632",
@@ -3290,7 +3303,7 @@
       "protein100": 7.3,
       "kcal100": 145.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60753632",
-      "checkedAt": "2026-11-21T13:37:31.944592+00:00"
+      "checkedAt": "2026-11-22T13:28:49.138989+00:00"
     },
     {
       "id": "61230784",
@@ -3303,7 +3316,7 @@
       "protein100": 8.2,
       "kcal100": 412.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61230784",
-      "checkedAt": "2026-11-21T13:37:55.948960+00:00"
+      "checkedAt": "2026-11-22T13:29:04.979197+00:00"
     },
     {
       "id": "61268742",
@@ -3316,7 +3329,7 @@
       "protein100": 1.8,
       "kcal100": 79.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61268742",
-      "checkedAt": "2026-11-21T13:38:03.902505+00:00"
+      "checkedAt": "2026-11-22T13:29:10.652436+00:00"
     },
     {
       "id": "60941719",
@@ -3342,7 +3355,7 @@
       "protein100": 19.8,
       "kcal100": 251.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61233495",
-      "checkedAt": "2026-11-21T13:37:05.521468+00:00"
+      "checkedAt": "2026-11-22T13:29:05.813823+00:00"
     },
     {
       "id": "61233615",
@@ -3355,7 +3368,7 @@
       "protein100": 24.5,
       "kcal100": 232.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61233615",
-      "checkedAt": "2026-11-21T13:37:05.648663+00:00"
+      "checkedAt": "2026-11-22T13:29:05.717146+00:00"
     },
     {
       "id": "60917049",
@@ -3368,7 +3381,7 @@
       "protein100": 0.8,
       "kcal100": 54.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60917049",
-      "checkedAt": "2026-11-21T13:37:45.003487+00:00"
+      "checkedAt": "2026-11-22T13:28:57.184608+00:00"
     },
     {
       "id": "61279263",
@@ -3381,7 +3394,7 @@
       "protein100": 7.1,
       "kcal100": 149.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279263",
-      "checkedAt": "2026-11-21T13:38:18.901304+00:00"
+      "checkedAt": "2026-11-22T13:29:24.255226+00:00"
     },
     {
       "id": "61279265",
@@ -3394,7 +3407,7 @@
       "protein100": 6.0,
       "kcal100": 141.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279265",
-      "checkedAt": "2026-11-21T13:38:19.330063+00:00"
+      "checkedAt": "2026-11-22T13:29:24.336175+00:00"
     },
     {
       "id": "61273033",
@@ -3407,7 +3420,7 @@
       "protein100": 5.5,
       "kcal100": 138.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273033",
-      "checkedAt": "2026-11-21T13:38:12.769343+00:00"
+      "checkedAt": "2026-11-22T13:29:18.554874+00:00"
     },
     {
       "id": "61273834",
@@ -3420,7 +3433,7 @@
       "protein100": 9.4,
       "kcal100": 338.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273834",
-      "checkedAt": "2026-11-21T13:38:13.667368+00:00"
+      "checkedAt": "2026-11-22T13:29:19.432818+00:00"
     },
     {
       "id": "61273832",
@@ -3433,7 +3446,7 @@
       "protein100": 8.8,
       "kcal100": 323.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61273832",
-      "checkedAt": "2026-11-21T13:38:13.509687+00:00"
+      "checkedAt": "2026-11-22T13:29:19.168541+00:00"
     },
     {
       "id": "60605188",
@@ -3459,7 +3472,7 @@
       "protein100": 3.7,
       "kcal100": 140.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60738792",
-      "checkedAt": "2026-11-21T13:37:27.879828+00:00"
+      "checkedAt": "2026-11-22T13:28:46.413822+00:00"
     },
     {
       "id": "61218659",
@@ -3472,7 +3485,7 @@
       "protein100": 4.3,
       "kcal100": 120.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218659",
-      "checkedAt": "2026-11-21T13:37:50.285752+00:00"
+      "checkedAt": "2026-11-22T13:29:00.743500+00:00"
     },
     {
       "id": "60784802",
@@ -3485,7 +3498,7 @@
       "protein100": 4.4,
       "kcal100": 497.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60784802",
-      "checkedAt": "2026-11-21T13:37:40.232296+00:00"
+      "checkedAt": "2026-11-22T13:28:54.222645+00:00"
     },
     {
       "id": "60769931",
@@ -3498,7 +3511,7 @@
       "protein100": 5.9,
       "kcal100": 541.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60769931",
-      "checkedAt": "2026-11-21T13:37:36.481090+00:00"
+      "checkedAt": "2026-11-22T13:28:52.404917+00:00"
     },
     {
       "id": "60714197",
@@ -3511,7 +3524,7 @@
       "protein100": 6.7,
       "kcal100": 155.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60714197",
-      "checkedAt": "2026-11-21T13:37:24.709442+00:00"
+      "checkedAt": "2026-11-22T13:28:43.354712+00:00"
     },
     {
       "id": "61229611",
@@ -3524,7 +3537,7 @@
       "protein100": 8.3,
       "kcal100": 124.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61229611",
-      "checkedAt": "2026-11-21T13:37:55.658157+00:00"
+      "checkedAt": "2026-11-22T13:29:04.292154+00:00"
     },
     {
       "id": "60744671",
@@ -3537,7 +3550,7 @@
       "protein100": 10.6,
       "kcal100": 263.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60744671",
-      "checkedAt": "2026-11-21T13:37:30.741547+00:00"
+      "checkedAt": "2026-11-22T13:28:48.625572+00:00"
     },
     {
       "id": "60779900",
@@ -3550,7 +3563,7 @@
       "protein100": 13.7,
       "kcal100": 213.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60779900",
-      "checkedAt": "2026-11-21T13:37:38.938712+00:00"
+      "checkedAt": "2026-11-22T13:28:53.755046+00:00"
     },
     {
       "id": "61269798",
@@ -3563,7 +3576,7 @@
       "protein100": 12.7,
       "kcal100": 262.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269798",
-      "checkedAt": "2026-11-21T13:38:06.950413+00:00"
+      "checkedAt": "2026-11-22T13:29:13.579334+00:00"
     },
     {
       "id": "60758877",
@@ -3576,7 +3589,7 @@
       "protein100": 10.6,
       "kcal100": 225.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60758877",
-      "checkedAt": "2026-11-21T13:37:33.204334+00:00"
+      "checkedAt": "2026-11-22T13:28:50.396513+00:00"
     },
     {
       "id": "61279254",
@@ -3589,7 +3602,7 @@
       "protein100": 1.4,
       "kcal100": 93.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279254",
-      "checkedAt": "2026-11-21T13:38:18.158075+00:00"
+      "checkedAt": "2026-11-22T13:29:23.738444+00:00"
     },
     {
       "id": "61279252",
@@ -3602,7 +3615,7 @@
       "protein100": 3.0,
       "kcal100": 141.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279252",
-      "checkedAt": "2026-11-21T13:37:10.183491+00:00"
+      "checkedAt": "2026-11-22T13:29:22.893315+00:00"
     },
     {
       "id": "21052721",
@@ -3615,7 +3628,7 @@
       "protein100": 3.2,
       "kcal100": 361.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21052721",
-      "checkedAt": "2026-11-21T13:37:13.999771+00:00"
+      "checkedAt": "2026-11-22T13:28:33.349661+00:00"
     },
     {
       "id": "61218980",
@@ -3628,7 +3641,7 @@
       "protein100": 6.0,
       "kcal100": 467.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61218980",
-      "checkedAt": "2026-11-21T13:37:51.427150+00:00"
+      "checkedAt": "2026-11-22T13:29:01.177614+00:00"
     },
     {
       "id": "60758878",
@@ -3641,7 +3654,7 @@
       "protein100": 12.1,
       "kcal100": 225.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp60758878",
-      "checkedAt": "2026-11-21T13:37:33.765345+00:00"
+      "checkedAt": "2026-11-22T13:28:50.446125+00:00"
     },
     {
       "id": "61269471",
@@ -3654,7 +3667,7 @@
       "protein100": 3.6,
       "kcal100": 47.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269471",
-      "checkedAt": "2026-11-21T13:38:04.244425+00:00"
+      "checkedAt": "2026-11-22T13:29:11.219992+00:00"
     },
     {
       "id": "21099842",
@@ -3667,7 +3680,7 @@
       "protein100": 14.0,
       "kcal100": 235.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp21099842",
-      "checkedAt": "2026-11-21T13:37:16.527240+00:00"
+      "checkedAt": "2026-11-22T13:28:35.881761+00:00"
     },
     {
       "id": "61269774",
@@ -3680,7 +3693,7 @@
       "protein100": 10.5,
       "kcal100": 223.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61269774",
-      "checkedAt": "2026-11-21T13:38:06.371967+00:00"
+      "checkedAt": "2026-11-22T13:29:12.895820+00:00"
     },
     {
       "id": "61279250",
@@ -3693,7 +3706,7 @@
       "protein100": 3.4,
       "kcal100": 117.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61279250",
-      "checkedAt": "2026-11-21T13:38:17.651586+00:00"
+      "checkedAt": "2026-11-22T13:29:22.890121+00:00"
     },
     {
       "id": "61235159",
@@ -3706,7 +3719,7 @@
       "protein100": 12.6,
       "kcal100": 311.0,
       "sourceUrl": "https://www.marksandspencer.com/food/products/p/fdp61235159",
-      "checkedAt": "2026-11-21T13:37:57.582304+00:00"
+      "checkedAt": "2026-11-22T13:29:06.228315+00:00"
     },
     {
       "id": "60733152",
